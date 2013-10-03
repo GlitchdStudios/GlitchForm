@@ -9,6 +9,7 @@ public class WeaponManager : MonoBehaviour
 	
     private static float rof;
 	private static float projectileSpeed;
+	private static int damage;
 
 	   
 	public static void SetVars(GameObject gameObject)
@@ -18,6 +19,7 @@ public class WeaponManager : MonoBehaviour
 			case "MachineGun":
 					rof = 0.1f;
 					projectileSpeed = 10f;
+					damage = 5;
 			break;
 					
 		}
@@ -25,6 +27,7 @@ public class WeaponManager : MonoBehaviour
 	
 	public static int Ammo 				{ get {return ammo;}  }
 	public static float LifeTime 		{ get {return lifeTime;}  }
+	public static int Damage			{ get {return damage;} }
 	
 	public static float RoF 				{ set { rof = value; } get {return rof;}  }
 	public static float ProjectileSpeed 	{ set { projectileSpeed = value; } get {return projectileSpeed;}  }

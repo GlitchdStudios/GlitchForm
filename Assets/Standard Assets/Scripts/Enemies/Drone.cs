@@ -4,14 +4,13 @@ using System.Collections;
 public class Drone : MonoBehaviour
 {
 	private EnemyManager manager;
-	private int health;
+	public int health;
 	public int damage;
-	private float speed;
+	public float speed;
 	
 	void Awake()
 	{
 		manager = GameObject.Find("SpawnPoint").GetComponent<EnemyManager>();
-		damage = 1;
 	}
 	
 	// Use this for initialization
@@ -19,13 +18,20 @@ public class Drone : MonoBehaviour
 	{
 		health = 20;
 		speed = 5f;
+		damage = 1;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		if(manager.target != null)
-			transform.position = Vector3.MoveTowards(transform.position, manager.target.transform.position, speed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, manager.target.collider.bounds.center, speed * Time.deltaTime);
+	}
+	
+	public void OnTriggerEnter(Collider col)
+	{
+		CollisionManager.BulletTriggerEnter(col, gameObject);
 	}
 }
+
 

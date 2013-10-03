@@ -5,8 +5,11 @@ public class MachineGun : MonoBehaviour
 {
     public GameObject projectilePrefab;
     public GameObject[] clone;
-	public int lastBullet;	
+	
+	public int lastBullet;
+	
     private Transform thisTransform;
+	
 	private bool locked;
 
     void Awake()

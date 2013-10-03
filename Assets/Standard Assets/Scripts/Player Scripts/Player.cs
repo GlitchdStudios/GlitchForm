@@ -29,5 +29,10 @@ public class Player : MonoBehaviour
 		
 		Debug.Log("Col: " + col);
 	}
+	
+	public void OnTriggerExit(Collider col)
+	{
+		CollisionManager.PlayerTriggerExit(col);
+	}
 }
 
