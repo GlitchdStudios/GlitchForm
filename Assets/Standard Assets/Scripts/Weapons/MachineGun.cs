@@ -84,7 +84,7 @@ public class MachineGun : MonoBehaviour
             lastBullet = 0;//reset the loop
         }
 
-        Debug.Log("LastBullet = " + lastBullet);
+       // Debug.Log("LastBullet = " + lastBullet);
 	}
 	
     private int GetNextBullet()

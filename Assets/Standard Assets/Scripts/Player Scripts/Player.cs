@@ -26,8 +26,6 @@ public class Player : MonoBehaviour
 	public void OnTriggerEnter(Collider col)
 	{
 		CollisionManager.PlayerTriggerEnter(col, gameObject);
-		
-		Debug.Log("Col: " + col);
 	}
 	
 	public void OnTriggerExit(Collider col)
