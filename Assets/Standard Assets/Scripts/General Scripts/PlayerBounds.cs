@@ -10,6 +10,8 @@ public class PlayerBounds : MonoBehaviour
 	private float left;
 	private float right;
 		
+	public Mesh mesh;
+	
 	void Awake()
 	{
 		worldtoScreen = Camera.main.GetComponent<WorldtoScreen>();
@@ -41,10 +43,10 @@ public class PlayerBounds : MonoBehaviour
 	
 	public void SetBounds()
 	{
-		top = worldtoScreen.top - collider.bounds.extents.x;
-		bottom = worldtoScreen.bottom + collider.bounds.extents.x;
-		left = worldtoScreen.left - collider.bounds.extents.z;
-		right = worldtoScreen.right + collider.bounds.extents.z;
+		top = worldtoScreen.top - mesh.bounds.extents.x;
+		bottom = worldtoScreen.bottom + mesh.bounds.extents.x;
+		left = worldtoScreen.left - mesh.bounds.extents.z;
+		right = worldtoScreen.right + mesh.bounds.extents.z;
 	}
 }
 

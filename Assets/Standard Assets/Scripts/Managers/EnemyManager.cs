@@ -5,7 +5,6 @@ public class EnemyManager : MonoBehaviour
 {
 	public GameObject drone;
 	public GameObject target;
-	private GameObject clone;
 	
 	void Start()
 	{
@@ -16,7 +15,7 @@ public class EnemyManager : MonoBehaviour
 	{
 		for(int i = 0; i < 10; i++)
 		{
-			clone = Instantiate(drone, transform.position, Quaternion.identity) as GameObject;
+			Instantiate(drone, transform.position, Quaternion.identity);
 			yield return new WaitForSeconds(1f);
 		}
 	}

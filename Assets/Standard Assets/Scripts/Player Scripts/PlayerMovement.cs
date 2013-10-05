@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 	
 	void Start()
 	{
-		speed  = 5f;
+		speed  = 3f;
 	}
 	
 	public void Movement()

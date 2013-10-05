@@ -36,7 +36,7 @@ public class CollisionManager : MonoBehaviour
 		}
 	}
 	
-	public static void BulletTriggerEnter(Collider otherCollider, GameObject droneTrigger)
+	public static void DroneTriggerEnter(Collider otherCollider, GameObject droneTrigger)
 	{
 		if(otherCollider != null && droneTrigger != null)
 		{
@@ -48,8 +48,22 @@ public class CollisionManager : MonoBehaviour
 					Destroy(droneTrigger.transform.parent.gameObject);
 				
 				else
-					droneTrigger.transform.parent.GetComponent<Drone>().health -= WeaponManager.Damage;
+					droneTrigger.transform.parent.GetComponent<Drone>().health -= WeaponManager.Damage;	
 			}
+		}
+	}
+	
+	public static void PlayerInnerTriggerEnter(Collider otherCollider, Transform t)
+	{
+		while(t.parent != null)
+		{
+			t = t.parent;
+		}
+		
+		if(otherCollider != null)
+		{
+			//Make it based off of damage
+				Destroy(t.gameObject);
 		}
 	}
 }
