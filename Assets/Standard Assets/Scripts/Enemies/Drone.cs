@@ -24,13 +24,10 @@ public class Drone : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		rigidbody.velocity = Vector3.zero;
+		
 		if(manager.target != null)
-			transform.position = Vector3.MoveTowards(transform.position, manager.target.collider.bounds.center, speed * Time.deltaTime);
-	}
-	
-	public void OnTriggerEnter(Collider col)
-	{
-		CollisionManager.BulletTriggerEnter(col, gameObject);
+			transform.position = Vector3.MoveTowards(transform.position, manager.target.transform.position, speed * Time.deltaTime);
 	}
 }
 

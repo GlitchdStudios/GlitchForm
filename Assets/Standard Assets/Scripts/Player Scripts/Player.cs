@@ -22,15 +22,5 @@ public class Player : MonoBehaviour
 	{
 		playerMovement.Movement();
 	}
-	
-	public void OnTriggerEnter(Collider col)
-	{
-		CollisionManager.PlayerTriggerEnter(col, gameObject);
-	}
-	
-	public void OnTriggerExit(Collider col)
-	{
-		CollisionManager.PlayerTriggerExit(col);
-	}
 }
 

@@ -3,22 +3,24 @@ using System.Collections;
 
 public class CollisionManager : MonoBehaviour
 {
-	public static void PlayerTriggerEnter(Collider otherCollider, GameObject player)
+	public static void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
 	{
-		if(otherCollider != null && player != null)
+		if(otherCollider != null && trigger != null)
 		{
 			if(otherCollider.tag == "Drone")
 			{
-				if(player.GetComponent<Player>().health <= 0)
+				if(trigger.parent.GetComponent<Player>().health <= 0)
 				{
-					Destroy(player);
+					Destroy(trigger.transform.parent.gameObject);
 				}
 				
 				else
-					player.GetComponent<Player>().health -= otherCollider.GetComponent<Drone>().damage;
-					otherCollider.GetComponent<Drone>().speed = 0f;
+					trigger.parent.GetComponent<Player>().health -= otherCollider.transform.parent.GetComponent<Drone>().damage;
+					otherCollider.transform.parent.GetComponent<Drone>().speed = 0f;
 				
-				Debug.Log("Health: " + player.GetComponent<Player>().health);
+				Debug.Log("Col = " + otherCollider.name);
+				
+				Debug.Log("Health: " + trigger.parent.GetComponent<Player>().health);
 			}	
 		}
 	}
@@ -29,24 +31,24 @@ public class CollisionManager : MonoBehaviour
 		{
 			if(otherCollider.tag == "Drone")
 			{
-				otherCollider.GetComponent<Drone>().speed = 4f;
+				otherCollider.transform.parent.GetComponent<Drone>().speed = 4f;
 			}
 		}
 	}
 	
-	public static void BulletTriggerEnter(Collider otherCollider, GameObject drone)
+	public static void BulletTriggerEnter(Collider otherCollider, GameObject droneTrigger)
 	{
-		if(otherCollider != null && drone != null)
+		if(otherCollider != null && droneTrigger != null)
 		{
 			if(otherCollider.tag == "Bullet")
 			{
 				otherCollider.GetComponent<Bullet>().Deactivate();
 				
-				if(drone.GetComponent<Drone>().health <= 0)
-					Destroy(drone);
+				if(droneTrigger.transform.parent.GetComponent<Drone>().health <= 0)
+					Destroy(droneTrigger.transform.parent.gameObject);
 				
 				else
-					drone.GetComponent<Drone>().health -= WeaponManager.Damage;
+					droneTrigger.transform.parent.GetComponent<Drone>().health -= WeaponManager.Damage;
 			}
 		}
 	}
