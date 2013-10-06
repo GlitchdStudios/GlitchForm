@@ -17,12 +17,12 @@ public class CollisionManager : MonoBehaviour
 				}
 				
 				else
-					trigger.parent.GetComponent<Player>().health -= otherCollider.transform.parent.GetComponent<Drone>().damage;
+					//trigger.parent.GetComponent<Player>().health -= otherCollider.transform.parent.GetComponent<Drone>().damage;
 					otherCollider.transform.parent.GetComponent<Drone>().speed = 0;
 				
 				Debug.Log("Col = " + otherCollider.name);
 				
-				//Debug.Log("Health: " + trigger.parent.GetComponent<Player>().health);
+				Debug.Log("Health: " + trigger.parent.GetComponent<Player>().health);
 			}	
 		}
 	}
@@ -33,7 +33,7 @@ public class CollisionManager : MonoBehaviour
 		{
 			if(otherCollider.tag == "Drone")
 			{
-				otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, Range * Time.deltaTime); 
+				otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, otherCollider.transform.parent.GetComponent<Drone>().Range * Time.deltaTime); 
 			}
 		}
 	}
@@ -49,19 +49,19 @@ public class CollisionManager : MonoBehaviour
 		}
 	}
 	
-	public static void DroneTriggerEnter(Collider otherCollider, GameObject droneTrigger)
+	public static void DroneTriggerEnter(Collider otherCollider, Transform trigger)
 	{
-		if(otherCollider != null && droneTrigger != null)
+		if(otherCollider != null && trigger != null)
 		{
 			if(otherCollider.tag == "Bullet")
 			{
 				otherCollider.GetComponent<Bullet>().Deactivate();
 				
-				if(droneTrigger.transform.parent.GetComponent<Drone>().health <= 0)
-					Destroy(droneTrigger.transform.parent.gameObject);
+				if(trigger.transform.parent.GetComponent<Drone>().health <= 0)
+					Destroy(trigger.transform.parent.gameObject);
 				
 				else
-					droneTrigger.transform.parent.GetComponent<Drone>().health -= WeaponManager.Damage;	
+					trigger.transform.parent.GetComponent<Drone>().health -= WeaponManager.Damage;	
 			}
 		}
 	}
@@ -75,8 +75,6 @@ public class CollisionManager : MonoBehaviour
 
 		}
 	}
-	
-	public static int Range { get {return range; } set { range = value; } }
 
 }
 

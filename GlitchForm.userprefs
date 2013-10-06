@@ -1,16 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\Enemies\Drone.cs">
     <Files>
-      <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="39" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="25" Column="5" />
       <File FileName="Assets\Standard Assets\Scripts\Player Scripts\Player.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="23" Column="47" />
-      <File FileName="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerTrigger.cs" Line="15" Column="2" />
+      <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="42" Column="63" />
+      <File FileName="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" Line="8" Column="52" />
+      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerTrigger.cs" Line="9" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Managers\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" Line="17" Column="24" />
-      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerInnerTrigger.cs" Line="9" Column="3" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" Line="7" Column="27" />
+      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerInnerTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" Line="32" Column="73" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\PlayerBounds.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,11 +20,14 @@
             <Node name="Assets" expanded="True">
               <Node name="Standard Assets" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="Enemies" expanded="True" />
-                  <Node name="Managers" expanded="True">
-                    <Node name="CollisionManager.cs" selected="True" />
+                  <Node name="Enemies" expanded="True">
+                    <Node name="Drone.cs" selected="True" />
                   </Node>
+                  <Node name="General Scripts" expanded="True" />
+                  <Node name="Managers" expanded="True" />
                   <Node name="Player Scripts" expanded="True" />
+                  <Node name="Projectiles" expanded="True" />
+                  <Node name="Weapons" expanded="True" />
                 </Node>
               </Node>
             </Node>
