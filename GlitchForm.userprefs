@@ -2,15 +2,40 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs">
     <Files>
-      <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="65" Column="33" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="60" Column="63" />
       <File FileName="Assets\Standard Assets\Scripts\Player Scripts\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerTrigger.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Managers\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" Line="18" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerInnerTrigger.cs" Line="8" Column="58" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" Line="17" Column="24" />
+      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerInnerTrigger.cs" Line="8" Column="3" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp-firstpass" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Standard Assets" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="Enemies" expanded="True" />
+                  <Node name="Managers" expanded="True">
+                    <Node name="CollisionManager.cs" selected="True" />
+                  </Node>
+                  <Node name="Player Scripts" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

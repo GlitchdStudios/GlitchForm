@@ -17,8 +17,8 @@ public class Drone : MonoBehaviour
 	void Start ()
 	{
 		health = 20;
-		speed = 5f;
 		damage = 1;
+		speed = 5f;
 	}
 	
 	// Update is called once per frame

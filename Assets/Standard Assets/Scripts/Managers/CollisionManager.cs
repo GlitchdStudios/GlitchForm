@@ -16,11 +16,11 @@ public class CollisionManager : MonoBehaviour
 				
 				else
 					trigger.parent.GetComponent<Player>().health -= otherCollider.transform.parent.GetComponent<Drone>().damage;
-					otherCollider.transform.parent.GetComponent<Drone>().speed = 0f;
+					otherCollider.transform.parent.GetComponent<Drone>().speed = 0;
 				
 				Debug.Log("Col = " + otherCollider.name);
 				
-				Debug.Log("Health: " + trigger.parent.GetComponent<Player>().health);
+				//Debug.Log("Health: " + trigger.parent.GetComponent<Player>().health);
 			}	
 		}
 	}
@@ -31,7 +31,7 @@ public class CollisionManager : MonoBehaviour
 		{
 			if(otherCollider.tag == "Drone")
 			{
-				otherCollider.transform.parent.GetComponent<Drone>().speed = 4f;
+				otherCollider.transform.parent.GetComponent<Drone>().speed = 5f;
 			}
 		}
 	}
@@ -53,17 +53,13 @@ public class CollisionManager : MonoBehaviour
 		}
 	}
 	
-	public static void PlayerInnerTriggerEnter(Collider otherCollider, Transform t)
+	public static void PlayerInnerTriggerEnter(Collider otherCollider)
 	{
-		while(t.parent != null)
-		{
-			t = t.parent;
-		}
-		
 		if(otherCollider != null)
 		{
-			//Make it based off of damage
-				Destroy(t.gameObject);
+			otherCollider.transform.parent.GetComponent<Drone>().speed = -5f;
+			Debug.Log("speed: " + otherCollider.transform.parent.GetComponent<Drone>().speed); 
+
 		}
 	}
 }

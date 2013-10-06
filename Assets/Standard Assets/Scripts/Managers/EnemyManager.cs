@@ -5,6 +5,7 @@ public class EnemyManager : MonoBehaviour
 {
 	public GameObject drone;
 	public GameObject target;
+	public Mesh mesh;
 	
 	void Start()
 	{
