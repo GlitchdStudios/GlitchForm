@@ -19,6 +19,8 @@ public class Drone : MonoBehaviour
 		health = 20;
 		damage = 1;
 		speed = 5f;
+		
+		CollisionManager.Range = Random.Range(-20,20);
 	}
 	
 	// Update is called once per frame

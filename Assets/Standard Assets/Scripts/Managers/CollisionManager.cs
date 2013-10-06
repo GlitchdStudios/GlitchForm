@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CollisionManager : MonoBehaviour
 {
+	private static int range;
+	
 	public static void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null && trigger != null)
@@ -22,6 +24,17 @@ public class CollisionManager : MonoBehaviour
 				
 				//Debug.Log("Health: " + trigger.parent.GetComponent<Player>().health);
 			}	
+		}
+	}
+	
+	public static void PlayerTriggerStay(Collider otherCollider, Transform trigger)
+	{
+		if(otherCollider != null)
+		{
+			if(otherCollider.tag == "Drone")
+			{
+				otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, Range * Time.deltaTime); 
+			}
 		}
 	}
 	
@@ -62,5 +75,8 @@ public class CollisionManager : MonoBehaviour
 
 		}
 	}
+	
+	public static int Range { get {return range; } set { range = value; } }
+
 }
 
