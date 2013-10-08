@@ -4,6 +4,7 @@ using System.Collections;
 public class CollisionManager : MonoBehaviour
 {
 	private static int range;
+	private static float speed = -5f;
 	
 	public static void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
 	{
@@ -19,8 +20,6 @@ public class CollisionManager : MonoBehaviour
 				else
 					//trigger.parent.GetComponent<Player>().health -= otherCollider.transform.parent.GetComponent<Drone>().damage;
 					otherCollider.transform.parent.GetComponent<Drone>().speed = 0;
-				
-				Debug.Log("Col = " + otherCollider.name);
 				
 				Debug.Log("Health: " + trigger.parent.GetComponent<Player>().health);
 			}	
@@ -62,6 +61,20 @@ public class CollisionManager : MonoBehaviour
 				
 				else
 					trigger.transform.parent.GetComponent<Drone>().health -= WeaponManager.Damage;	
+			}
+			
+			//Debug.Log("Col = " + otherCollider.name);
+		}
+	}
+	
+	public static void DroneTriggerEnterCrowd(Collider otherCollider, Transform trigger, float runTime)
+	{
+		if(otherCollider.name == "DroneTrigger")
+		{
+			trigger.GetComponent<DroneTrigger>().RunTime();
+			while(runTime > 0)
+			{
+				trigger.transform.parent.GetComponent<Drone>().MoveDrone(trigger.parent.position, otherCollider.transform.parent.position, speed * Time.deltaTime);
 			}
 		}
 	}

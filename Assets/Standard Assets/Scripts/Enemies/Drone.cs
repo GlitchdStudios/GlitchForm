@@ -37,12 +37,19 @@ public class Drone : MonoBehaviour
 	{
 		rigidbody.velocity = Vector3.zero;
 		targetPos = new Vector3(manager.target.transform.position.x, height, manager.target.transform.position.z);
-		
+		transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, height, height),transform.position.z);
+			
 		if(manager.target != null)
-			transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+			MoveDrone(transform.position, targetPos, speed * Time.deltaTime);
+					//transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 		
 		trigger.SetTriggerHeight(transform.position.y);
 	}
+	
+	public void MoveDrone (Vector3 start, Vector3 target, float maxDistDelta) 
+	{
+       transform.position = Vector3.MoveTowards(start, target, maxDistDelta);
+    }
 	
 	public int Range { get {return range; } set { range = value; } }
 }
