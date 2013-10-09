@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
 	
 	public IEnumerator LoadandInit()
 	{
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < 4; i++)
 		{
 			Instantiate(drone, transform.position, Quaternion.identity);
 			yield return new WaitForSeconds(1f);

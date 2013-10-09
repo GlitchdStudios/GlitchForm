@@ -45,8 +45,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Drone.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Enemies\DroneCrowdTrigger.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\CoroutineDummy.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\PlayerBounds.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\Singleton.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\WorldtoScreen.cs" />

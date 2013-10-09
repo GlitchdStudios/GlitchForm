@@ -6,13 +6,15 @@ public class Drone : MonoBehaviour
 	private EnemyManager manager;
 	private DroneTrigger trigger;
 	
+	private Vector3 targetPos;
+	private Vector3 randomTarget;  //Around the player
+	
 	private float height;
-	public int range;
+	private int range;
 	
 	public int health;
 	public int damage;
 	public float speed;
-	public Vector3 targetPos;
 	
 	void Awake()
 	{
@@ -28,7 +30,7 @@ public class Drone : MonoBehaviour
 		speed = 5f;
 		
 		height = Random.Range(-2,2);
-		Range = Random.Range(-20,20);
+		Angle = Random.Range(-20,20);
 		
 	}
 	
@@ -36,11 +38,14 @@ public class Drone : MonoBehaviour
 	void Update ()
 	{
 		rigidbody.velocity = Vector3.zero;
+		
 		targetPos = new Vector3(manager.target.transform.position.x, height, manager.target.transform.position.z);
 		transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, height, height),transform.position.z);
 			
 		if(manager.target != null)
+		{
 			MoveDrone(transform.position, targetPos, speed * Time.deltaTime);
+		}
 					//transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 		
 		trigger.SetTriggerHeight(transform.position.y);
@@ -51,7 +56,7 @@ public class Drone : MonoBehaviour
        transform.position = Vector3.MoveTowards(start, target, maxDistDelta);
     }
 	
-	public int Range { get {return range; } set { range = value; } }
+	public int Angle { get {return range; } set { range = value; } }
 }
 
 

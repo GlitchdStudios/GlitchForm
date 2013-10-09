@@ -1,16 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class CollisionManager : MonoBehaviour
+public class CollisionManager : Singleton<CollisionManager>
 {
-	private static int range;
-	private static float speed = -5f;
-	
-	public static void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
+	public void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null && trigger != null)
 		{
-			if(otherCollider.tag == "Drone")
+			if(otherCollider.name == "DroneTrigger")
 			{
 				if(trigger.parent.GetComponent<Player>().health <= 0)
 				{
@@ -18,6 +15,7 @@ public class CollisionManager : MonoBehaviour
 				}
 				
 				else
+					//Renable when you want to die!
 					//trigger.parent.GetComponent<Player>().health -= otherCollider.transform.parent.GetComponent<Drone>().damage;
 					otherCollider.transform.parent.GetComponent<Drone>().speed = 0;
 				
@@ -26,29 +24,29 @@ public class CollisionManager : MonoBehaviour
 		}
 	}
 	
-	public static void PlayerTriggerStay(Collider otherCollider, Transform trigger)
+	public void PlayerTriggerStay(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null)
 		{
-			if(otherCollider.tag == "Drone")
+			if(otherCollider.name == "DroneTrigger")
 			{
-				otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, otherCollider.transform.parent.GetComponent<Drone>().Range * Time.deltaTime); 
+				otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, otherCollider.transform.parent.GetComponent<Drone>().Angle * Time.deltaTime); 
 			}
 		}
 	}
 	
-	public static void PlayerTriggerExit(Collider otherCollider)
+	public void PlayerTriggerExit(Collider otherCollider)
 	{
 		if(otherCollider != null)
 		{
-			if(otherCollider.tag == "Drone")
+			if(otherCollider.name == "DroneTrigger")
 			{
 				otherCollider.transform.parent.GetComponent<Drone>().speed = 5f;
 			}
 		}
 	}
 	
-	public static void DroneTriggerEnter(Collider otherCollider, Transform trigger)
+	public void DroneTriggerEnter(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null && trigger != null)
 		{
@@ -67,25 +65,12 @@ public class CollisionManager : MonoBehaviour
 		}
 	}
 	
-	public static void DroneTriggerEnterCrowd(Collider otherCollider, Transform trigger, float runTime)
-	{
-		if(otherCollider.name == "DroneTrigger")
-		{
-			trigger.GetComponent<DroneTrigger>().RunTime();
-			while(runTime > 0)
-			{
-				trigger.transform.parent.GetComponent<Drone>().MoveDrone(trigger.parent.position, otherCollider.transform.parent.position, speed * Time.deltaTime);
-			}
-		}
-	}
-	
-	public static void PlayerInnerTriggerEnter(Collider otherCollider)
+	public void PlayerInnerTriggerEnter(Collider otherCollider)
 	{
 		if(otherCollider != null)
 		{
-			otherCollider.transform.parent.GetComponent<Drone>().speed = -5f;
-			Debug.Log("speed: " + otherCollider.transform.parent.GetComponent<Drone>().speed); 
-
+			if(otherCollider.name == "DroneTrigger")
+				otherCollider.transform.parent.GetComponent<Drone>().speed = -5f;
 		}
 	}
 
