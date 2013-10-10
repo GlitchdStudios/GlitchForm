@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : Singleton<EnemyManager>
 {
 	public GameObject drone;
 	public GameObject target;
@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
 	
 	public IEnumerator LoadandInit()
 	{
-		for(int i = 0; i < 4; i++)
+		for(int i = 0; i < 10; i++)
 		{
 			Instantiate(drone, transform.position, Quaternion.identity);
 			yield return new WaitForSeconds(1f);

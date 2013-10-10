@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CollisionManager : Singleton<CollisionManager>
 {
-	public void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
+	public static void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null && trigger != null)
 		{
@@ -24,7 +24,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		}
 	}
 	
-	public void PlayerTriggerStay(Collider otherCollider, Transform trigger)
+	public static void PlayerTriggerStay(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null)
 		{
@@ -35,7 +35,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		}
 	}
 	
-	public void PlayerTriggerExit(Collider otherCollider)
+	public static void PlayerTriggerExit(Collider otherCollider)
 	{
 		if(otherCollider != null)
 		{
@@ -46,7 +46,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		}
 	}
 	
-	public void DroneTriggerEnter(Collider otherCollider, Transform trigger)
+	public static void DroneTriggerEnter(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null && trigger != null)
 		{
@@ -65,7 +65,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		}
 	}
 	
-	public void PlayerInnerTriggerEnter(Collider otherCollider)
+	public static void PlayerInnerTriggerEnter(Collider otherCollider)
 	{
 		if(otherCollider != null)
 		{
