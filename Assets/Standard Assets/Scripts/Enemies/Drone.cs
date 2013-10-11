@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Drone : MonoBehaviour
 {
-	private DroneTrigger trigger;
+	private DroneTrigger droneTrigger;
+	private DroneCol droneCol;
 	
 	private Vector3 targetPos;
 	
@@ -17,7 +18,8 @@ public class Drone : MonoBehaviour
 	
 	void Awake()
 	{
-		trigger = gameObject.GetComponentInChildren<DroneTrigger>();	
+		droneTrigger = gameObject.GetComponentInChildren<DroneTrigger>();	
+		droneCol = gameObject.GetComponentInChildren<DroneCol>();
 	}
 	
 	// Use this for initialization
@@ -36,20 +38,23 @@ public class Drone : MonoBehaviour
 	{			
 		TargetPlayer();
 		
+		//rigidbody.velocity = Vector3.zero;
+		
 		if(EnemyManager.Instance.target != null)
 		{
 			MoveDrone(transform.position, targetPos, speed * Time.deltaTime);
 		}
 		
-		trigger.SetTriggerHeight(transform.position.y);
+		droneTrigger.SetTriggerHeight(transform.position.y);
+		droneCol.SetTriggerHeight(transform.position.y);
 		
-		
-		Debug.Log (gameObject.name + ": " + targetPos.z);
 	}
 	
 	public void MoveDrone (Vector3 start, Vector3 target, float maxDistDelta) 
 	{
-       transform.position = Vector3.MoveTowards(start, target, maxDistDelta);
+		transform.LookAt(target);
+		
+		transform.position = Vector3.MoveTowards(start, target, maxDistDelta);
     }
 	
 	public void TargetPlayer()
