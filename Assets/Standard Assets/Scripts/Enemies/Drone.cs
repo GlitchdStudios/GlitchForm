@@ -7,6 +7,7 @@ public class Drone : MonoBehaviour
 	private DroneCol droneCol;
 	
 	private Vector3 targetPos;
+	private Vector3 targetDir;
 	
 	private float height;
 	private float deviation;

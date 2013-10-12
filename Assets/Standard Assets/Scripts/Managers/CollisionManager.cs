@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CollisionManager : Singleton<CollisionManager>
 {
+	private static bool crowded = false;
+	
 	public static void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null && trigger != null)
@@ -60,7 +62,6 @@ public class CollisionManager : Singleton<CollisionManager>
 				else
 					trigger.transform.parent.GetComponent<Drone>().health -= WeaponManager.Damage;	
 			}
-			
 			//Debug.Log("Col = " + otherCollider.name);
 		}
 	}
