@@ -28,10 +28,10 @@ public class PlayerBounds : MonoBehaviour
 	{
 		Boundary();
 		
-		Debug.Log("Top: " + top);
-		Debug.Log("Bottom: " + bottom);
-		Debug.Log("Left: " + left);
-		Debug.Log("Right: " + right);
+//		Debug.Log("Top: " + top);
+//		Debug.Log("Bottom: " + bottom);
+//		Debug.Log("Left: " + left);
+//		Debug.Log("Right: " + right);
 	}
 	
 	public void Boundary()

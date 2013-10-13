@@ -3,8 +3,6 @@ using System.Collections;
 
 public class CollisionManager : Singleton<CollisionManager>
 {
-	private static bool crowded = false;
-	
 	public static void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null && trigger != null)
@@ -21,6 +19,9 @@ public class CollisionManager : Singleton<CollisionManager>
 					//trigger.parent.GetComponent<Player>().health -= otherCollider.transform.parent.GetComponent<Drone>().damage;
 					otherCollider.transform.parent.GetComponent<Drone>().speed = 0;
 				
+				
+				//otherCollider.transform.parent.parent = null;
+				
 				Debug.Log("Health: " + trigger.parent.GetComponent<Player>().health);
 			}	
 		}
@@ -31,7 +32,9 @@ public class CollisionManager : Singleton<CollisionManager>
 		if(otherCollider != null)
 		{
 			if(otherCollider.name == "DroneTrigger")
-			{
+			{	
+				otherCollider.transform.LookAt(trigger.position);
+					
 				otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, otherCollider.transform.parent.GetComponent<Drone>().Angle * Time.deltaTime); 
 			}
 		}
