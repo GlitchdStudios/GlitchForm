@@ -63,7 +63,7 @@ public class Drone : MonoBehaviour
 	
 	public void MoveDrone (Vector3 start, Vector3 target, float maxDistDelta) 
 	{
-		transform.LookAt(target);
+		//transform.LookAt(
 		
 		//transform.Translate(transform.forward * maxDistDelta);
 		

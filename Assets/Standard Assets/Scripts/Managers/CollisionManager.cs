@@ -32,9 +32,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		if(otherCollider != null)
 		{
 			if(otherCollider.name == "DroneTrigger")
-			{	
-				otherCollider.transform.LookAt(trigger.position);
-					
+			{		
 				otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, otherCollider.transform.parent.GetComponent<Drone>().Angle * Time.deltaTime); 
 			}
 		}
