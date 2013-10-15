@@ -45,10 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Drone.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Enemies\DroneAnchor.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Enemies\DroneCol.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\Dictionary.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\PlayerBounds.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\Singleton.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\WorldtoScreen.cs" />

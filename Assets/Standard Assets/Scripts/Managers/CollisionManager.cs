@@ -2,44 +2,49 @@ using UnityEngine;
 using System.Collections;
 
 public class CollisionManager : Singleton<CollisionManager>
-{
-	public static void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
+{	
+	public void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
 	{
+		Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
+		Player playerRef = trigger.parent.GetComponent<Player>();
+		
 		if(otherCollider != null && trigger != null)
 		{
 			if(otherCollider.name == "DroneTrigger")
 			{
-				if(trigger.parent.GetComponent<Player>().health <= 0)
+				if(playerRef.health <= 0)
 				{
-					Destroy(trigger.transform.parent.gameObject);
+					Destroy(playerRef.gameObject);
 				}
 				
 				else
 					//Renable when you want to die!
-					//trigger.parent.GetComponent<Player>().health -= otherCollider.transform.parent.GetComponent<Drone>().damage;
-					otherCollider.transform.parent.GetComponent<Drone>().speed = 0;
-				
+					droneRef.speed = 0;
 				
 				//otherCollider.transform.parent.parent = null;
 				
-				Debug.Log("Health: " + trigger.parent.GetComponent<Player>().health);
+				Debug.Log("Health: " + playerRef.health);
 			}	
 		}
 	}
 	
-	public static void PlayerTriggerStay(Collider otherCollider, Transform trigger)
+	public void PlayerTriggerStay(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null)
 		{
 			if(otherCollider.name == "DroneTrigger")
-			{		
-				otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, otherCollider.transform.parent.GetComponent<Drone>().Angle * Time.deltaTime); 
+			{	
+				Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
+				Player playerRef = trigger.parent.GetComponent<Player>();
+				
+				otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, otherCollider.transform.parent.GetComponent<Drone>().Angle * Time.deltaTime);
+				StartCoroutine(DroneAttack(playerRef, droneRef));
 			}
 		}
 	}
 	
 	public static void PlayerTriggerExit(Collider otherCollider)
-	{
+	{	
 		if(otherCollider != null)
 		{
 			if(otherCollider.name == "DroneTrigger")
@@ -51,17 +56,19 @@ public class CollisionManager : Singleton<CollisionManager>
 	
 	public static void DroneTriggerEnter(Collider otherCollider, Transform trigger)
 	{
+		Drone droneRef = trigger.transform.parent.GetComponent<Drone>();
+		
 		if(otherCollider != null && trigger != null)
 		{
 			if(otherCollider.tag == "Bullet")
 			{
 				otherCollider.GetComponent<Bullet>().Deactivate();
 				
-				if(trigger.transform.parent.GetComponent<Drone>().health <= 0)
-					Destroy(trigger.transform.parent.gameObject);
+				if(droneRef.health <= 0)
+					Destroy(droneRef.gameObject);
 				
 				else
-					trigger.transform.parent.GetComponent<Drone>().health -= WeaponManager.Damage;	
+					droneRef.health -= WeaponManager.Damage;	
 			}
 			//Debug.Log("Col = " + otherCollider.name);
 		}
@@ -75,6 +82,12 @@ public class CollisionManager : Singleton<CollisionManager>
 				otherCollider.transform.parent.GetComponent<Drone>().speed = -5f;
 		}
 	}
-
+	
+	private static IEnumerator DroneAttack(Player player, Drone drone)
+	{	
+		yield return new WaitForSeconds(10f);
+		
+		player.health -= drone.damage;
+	}
 }
 
