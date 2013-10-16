@@ -12,18 +12,8 @@ public class CollisionManager : Singleton<CollisionManager>
 		{
 			if(otherCollider.name == "DroneTrigger")
 			{
-				if(playerRef.health <= 0)
-				{
-					Destroy(playerRef.gameObject);
-				}
-				
-				else
-					//Renable when you want to die!
-					droneRef.speed = 0;
-				
+				droneRef.speed = 0;		
 				//otherCollider.transform.parent.parent = null;
-				
-				Debug.Log("Health: " + playerRef.health);
 			}	
 		}
 	}
@@ -38,12 +28,16 @@ public class CollisionManager : Singleton<CollisionManager>
 				Player playerRef = trigger.parent.GetComponent<Player>();
 				
 				otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, otherCollider.transform.parent.GetComponent<Drone>().Angle * Time.deltaTime);
-				StartCoroutine(DroneAttack(playerRef, droneRef));
+				
+				if(!droneRef.damagePlayer)
+					StartCoroutine(DroneAttack(playerRef, droneRef));
+				
+				Debug.Log("Health: " + playerRef.health);
 			}
 		}
 	}
 	
-	public static void PlayerTriggerExit(Collider otherCollider)
+	public void PlayerTriggerExit(Collider otherCollider)
 	{	
 		if(otherCollider != null)
 		{
@@ -54,7 +48,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		}
 	}
 	
-	public static void DroneTriggerEnter(Collider otherCollider, Transform trigger)
+	public void DroneTriggerEnter(Collider otherCollider, Transform trigger)
 	{
 		Drone droneRef = trigger.transform.parent.GetComponent<Drone>();
 		
@@ -74,7 +68,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		}
 	}
 	
-	public static void PlayerInnerTriggerEnter(Collider otherCollider)
+	public void PlayerInnerTriggerEnter(Collider otherCollider)
 	{
 		if(otherCollider != null)
 		{
@@ -83,11 +77,15 @@ public class CollisionManager : Singleton<CollisionManager>
 		}
 	}
 	
-	private static IEnumerator DroneAttack(Player player, Drone drone)
+	private IEnumerator DroneAttack(Player player, Drone drone)
 	{	
-		yield return new WaitForSeconds(10f);
+		drone.damagePlayer = true;
+		
+		yield return new WaitForSeconds(2.0f);
 		
 		player.health -= drone.damage;
+		
+		drone.damagePlayer = false;
 	}
 }
 

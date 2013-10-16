@@ -16,6 +16,7 @@ public class Drone : MonoBehaviour
 	public int damage;
 	public float speed;
 	public bool fleetUp;
+	public bool damagePlayer;
 	
 	
 	void Awake()
@@ -52,12 +53,10 @@ public class Drone : MonoBehaviour
 		
 		droneTrigger.SetTriggerHeight(transform.position.y);
 		
-//		Debug.Log("DeviationX " + deviationX);
-//		
+//		Debug.Log("DeviationX " + deviationX);	
 //		Debug.Log("DeviationZ " + deviationZ);
 		
 		Debug.Log("Height " + height);
-		
 	}
 	
 	public void MoveDrone (Vector3 start, Vector3 target, float maxDistDelta) 

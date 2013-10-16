@@ -21,6 +21,13 @@ public class Player : MonoBehaviour
 	void FixedUpdate ()
 	{
 		playerMovement.Movement();
+		CheckStatus();
+	}
+	
+	private void CheckStatus()
+	{
+		if(health <= 0)
+			Destroy(gameObject);
 	}
 }
 
