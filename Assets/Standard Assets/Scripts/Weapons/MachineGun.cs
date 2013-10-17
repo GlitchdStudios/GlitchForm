@@ -14,8 +14,8 @@ public class MachineGun : MonoBehaviour
 
     void Awake()
     {
-		WeaponManager.SetVars(gameObject);
-        clone = new GameObject[WeaponManager.Ammo];
+		WeaponManager.Instance.SetWeaponStats(gameObject);
+        clone = new GameObject[WeaponManager.Instance.Ammo];
         thisTransform = transform;
 		lastBullet = 0;
         InstantiateProjectiles();
@@ -63,7 +63,7 @@ public class MachineGun : MonoBehaviour
     {
         locked = true;
 
-        Invoke("Unlock", WeaponManager.RoF);
+        Invoke("Unlock", WeaponManager.Instance.RoF);
     }
 
     private void Unlock()
@@ -79,7 +79,7 @@ public class MachineGun : MonoBehaviour
 	private void SetNextBullet()
 	{
 		lastBullet += 1;
-        if(lastBullet >= WeaponManager.Ammo -1)
+        if(lastBullet >= WeaponManager.Instance.Ammo -1)
         {
             lastBullet = 0;//reset the loop
         }

@@ -20,13 +20,13 @@ public class Bullet : MonoBehaviour
 
     private void MoveProjectile()
     {   
-        float movement = WeaponManager.ProjectileSpeed * Time.deltaTime;
+        float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
         thisTransform.Translate(Vector3.right * movement);
     }
 
     public void Activate()
     {
-        time = Time.time + WeaponManager.LifeTime;
+        time = Time.time + WeaponManager.Instance.LifeTime;
     }
 
     public void Deactivate()
@@ -41,5 +41,7 @@ public class Bullet : MonoBehaviour
             Deactivate();
         }
     }
+	
+	public void SetAbilities() {} //Pass the abilities that a weapon has
 }
 

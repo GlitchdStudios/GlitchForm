@@ -53,8 +53,7 @@ public class Drone : MonoBehaviour
 		
 		droneTrigger.SetTriggerHeight(transform.position.y);
 		
-//		Debug.Log("DeviationX " + deviationX);	
-//		Debug.Log("DeviationZ " + deviationZ);
+		CheckDroneStatus();
 		
 		Debug.Log("Height " + height);
 	}
@@ -71,6 +70,11 @@ public class Drone : MonoBehaviour
 			transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,height, height),transform.position.z);
 	}
 	
+	private void CheckDroneStatus()
+	{
+		if(health <= 0)
+			Destroy(gameObject);
+	}
 	public int Angle { get {return range; } set { range = value; } }
 }
 

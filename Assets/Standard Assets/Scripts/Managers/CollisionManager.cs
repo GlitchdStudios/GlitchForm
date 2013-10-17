@@ -58,11 +58,7 @@ public class CollisionManager : Singleton<CollisionManager>
 			{
 				otherCollider.GetComponent<Bullet>().Deactivate();
 				
-				if(droneRef.health <= 0)
-					Destroy(droneRef.gameObject);
-				
-				else
-					droneRef.health -= WeaponManager.Damage;	
+				droneRef.health -= WeaponManager.Instance.Damage;	
 			}
 			//Debug.Log("Col = " + otherCollider.name);
 		}

@@ -1,18 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class WeaponManager : MonoBehaviour
+public class WeaponManager : Singleton<WeaponManager>
 {
-	private static int ammo = 20;
-	private static float lifeTime = 2.0f;
+	private int ammo = 20;
+	private float lifeTime = 2.0f;
 	
-	
-    private static float rof;
-	private static float projectileSpeed;
-	private static int damage;
+    private float rof;
+	private float projectileSpeed;
+	private int damage;
 
 	   
-	public static void SetVars(GameObject gameObject)
+	public void SetWeaponStats(GameObject gameObject)
 	{
 		switch(gameObject.name)
 		{
@@ -25,11 +24,11 @@ public class WeaponManager : MonoBehaviour
 		}
 	}
 	
-	public static int Ammo 				{ get {return ammo;}  }
-	public static float LifeTime 		{ get {return lifeTime;}  }
-	public static int Damage			{ get {return damage;} }
+	public int Ammo 				{ get {return ammo;}  }
+	public float LifeTime 		{ get {return lifeTime;}  }
+	public int Damage			{ get {return damage;} }
 	
-	public static float RoF 				{ set { rof = value; } get {return rof;}  }
-	public static float ProjectileSpeed 	{ set { projectileSpeed = value; } get {return projectileSpeed;}  }
+	public float RoF 				{ set { rof = value; } get {return rof;}  }
+	public float ProjectileSpeed 	{ set { projectileSpeed = value; } get {return projectileSpeed;}  }
 }
 
