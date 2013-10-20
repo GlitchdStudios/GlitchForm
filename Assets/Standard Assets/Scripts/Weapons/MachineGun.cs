@@ -6,21 +6,22 @@ public class MachineGun : MonoBehaviour
     public GameObject projectilePrefab;
     public GameObject[] clone;
 	
-	public int lastBullet;
-	
-    private Transform thisTransform;
-	
+	private int lastBullet;
+	private Transform thisTransform;
 	private bool locked;
-
+	private Chain chainScr;
+	private Bullet bulletScr;
+	
     void Awake()
     {
 		WeaponManager.Instance.SetWeaponStats(gameObject);
-        clone = new GameObject[WeaponManager.Instance.Ammo];
         thisTransform = transform;
-		lastBullet = 0;
+		chainScr = WeaponManager.Instance.chain.GetComponent<Chain>();
+		bulletScr = WeaponManager.Instance.bullet.GetComponent<Bullet>();;
+		clone = new GameObject[WeaponManager.Instance.Ammo]; // This needs to run before the projectiles are instantiated
         InstantiateProjectiles();
     }
-
+	
     // Update is called once per frame
     void Update ()
     {
@@ -91,6 +92,7 @@ public class MachineGun : MonoBehaviour
     {
         return lastBullet;
     }
+    
 }
 
 

@@ -1,20 +1,24 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CollisionManager : Singleton<CollisionManager>
 {	
 	public void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
 	{
-		Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
-		Player playerRef = trigger.parent.GetComponent<Player>();
-		
 		if(otherCollider != null && trigger != null)
 		{
 			if(otherCollider.name == "DroneTrigger")
 			{
+				Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
 				droneRef.speed = 0;		
 				//otherCollider.transform.parent.parent = null;
-			}	
+			}
+			
+			if(otherCollider.name == "Chain")
+			{
+				Debug.Log("Chain!!!!!!!!!!!!!");
+			}
 		}
 	}
 	
@@ -32,7 +36,7 @@ public class CollisionManager : Singleton<CollisionManager>
 				if(!droneRef.damagePlayer)
 					StartCoroutine(DroneAttack(playerRef, droneRef));
 				
-				Debug.Log("Health: " + playerRef.health);
+				//Debug.Log("Health: " + playerRef.health);
 			}
 		}
 	}

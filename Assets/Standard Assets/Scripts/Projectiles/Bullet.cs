@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour
 {
     private float time;
     private Transform thisTransform;
-
+	private List<Ability> abilities = new List<Ability>();
+	
     void Awake()
     {
         thisTransform = transform;
@@ -42,6 +44,17 @@ public class Bullet : MonoBehaviour
         }
     }
 	
-	public void SetAbilities() {} //Pass the abilities that a weapon has
+	public void SetAbilities(List<Ability> newAbilities) //Pass the abilities that are actively on the weapon
+	{
+		abilities.AddRange(newAbilities);
+	} 
+	
+	public void ActivateAbilities()
+	{
+		if(abilities.Contains(WeaponManager.Instance.chain.GetComponent<Chain>()))  // if chain ability
+		{
+			//abilities[WeaponManager.Instance.AbilityTypes.Chain].
+		}
+	}
 }
 

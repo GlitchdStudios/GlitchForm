@@ -18,7 +18,7 @@ public class Chain : Ability
 	
 	}
 
-	public bool EnemyInRadius(Transform bulletHitPos)
+	public bool EnemyInRadius(Collider enemyCol)
 	{
 		//Put code here (use Physics.OverlapSphere)
 		

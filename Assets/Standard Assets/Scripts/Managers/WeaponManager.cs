@@ -5,12 +5,13 @@ public class WeaponManager : Singleton<WeaponManager>
 {
 	private int ammo = 20;
 	private float lifeTime = 2.0f;
-	
     private float rof;
 	private float projectileSpeed;
 	private int damage;
-
-	   
+	
+	public GameObject bullet;
+	public GameObject chain;
+	 
 	public void SetWeaponStats(GameObject gameObject)
 	{
 		switch(gameObject.name)

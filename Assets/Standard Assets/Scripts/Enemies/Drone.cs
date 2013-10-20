@@ -55,7 +55,7 @@ public class Drone : MonoBehaviour
 		
 		CheckDroneStatus();
 		
-		Debug.Log("Height " + height);
+		//Debug.Log("Height " + height);
 	}
 	
 	public void MoveDrone (Vector3 start, Vector3 target, float maxDistDelta) 
