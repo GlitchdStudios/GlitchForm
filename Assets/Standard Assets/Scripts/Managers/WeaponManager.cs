@@ -9,8 +9,19 @@ public class WeaponManager : Singleton<WeaponManager>
 	private float projectileSpeed;
 	private int damage;
 	
+	public GameObject machineGun;
 	public GameObject bullet;
 	public GameObject chain;
+	public Bullet bulletScr;
+	
+	//Abilities
+	public Chain chainScr;
+	
+	void Start()
+	{
+		chainScr = WeaponManager.Instance.chain.GetComponent<Chain>();
+		bulletScr = WeaponManager.Instance.bullet.GetComponent<Bullet>();
+	}
 	 
 	public void SetWeaponStats(GameObject gameObject)
 	{

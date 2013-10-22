@@ -4,21 +4,17 @@ using System.Collections;
 public class MachineGun : MonoBehaviour
 {
     public GameObject projectilePrefab;
-    public GameObject[] clone;
+	public GameObject[] clone;
 	
 	private int lastBullet;
 	private Transform thisTransform;
 	private bool locked;
-	private Chain chainScr;
-	private Bullet bulletScr;
 	
     void Awake()
     {
 		WeaponManager.Instance.SetWeaponStats(gameObject);
         thisTransform = transform;
-		chainScr = WeaponManager.Instance.chain.GetComponent<Chain>();
-		bulletScr = WeaponManager.Instance.bullet.GetComponent<Bullet>();;
-		clone = new GameObject[WeaponManager.Instance.Ammo]; // This needs to run before the projectiles are instantiated
+		clone = new GameObject[WeaponManager.Instance.Ammo]; 					// This needs to run before the projectiles are instantiated
         InstantiateProjectiles();
     }
 	

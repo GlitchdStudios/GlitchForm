@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     private Transform thisTransform;
 	private List<Ability> abilities = new List<Ability>();
 	
+	public bool inactive;
+	
     void Awake()
     {
         thisTransform = transform;
@@ -16,14 +18,17 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate ()
     {
+		MoveProjectile();
         LifeSpan();
-        MoveProjectile();
     }
 
     private void MoveProjectile()
-    {   
-        float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
-        thisTransform.Translate(Vector3.right * movement);
+    { 
+		if(inactive == false)
+		{
+	        float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
+	        thisTransform.Translate(Vector3.right * movement);
+		}
     }
 
     public void Activate()
@@ -44,17 +49,29 @@ public class Bullet : MonoBehaviour
         }
     }
 	
-	public void SetAbilities(List<Ability> newAbilities) //Pass the abilities that are actively on the weapon
+	public void SetAbilities(Ability newAbilities) //Pass the abilities that are actively on the weapon
 	{
-		abilities.AddRange(newAbilities);
+		if(newAbilities != null)
+			abilities.Add(newAbilities);
 	} 
 	
-	public void ActivateAbilities()
+	public void ActivateChain(Collider otherCollider)
 	{
-		if(abilities.Contains(WeaponManager.Instance.chain.GetComponent<Chain>()))  // if chain ability
+		if(abilities[0])
 		{
-			//abilities[WeaponManager.Instance.AbilityTypes.Chain].
+			//do nothing
 		}
+		
+		else if(abilities[(int)AbilityTypes.Chain])  // if chain ability
+		{
+			WeaponManager.Instance.chainScr.ActivateChainBullet(transform, otherCollider);
+		}
+	}
+	
+	public void OnTriggerStay(Collider col)
+	{
+		ActivateChain(col);
+		inactive = true;
 	}
 }
 

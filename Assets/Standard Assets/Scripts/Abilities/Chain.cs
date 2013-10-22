@@ -3,13 +3,11 @@ using System.Collections;
 
 public class Chain : Ability
 {
-	private float radius;
 	private int numOfChains;
 	
 	// Use this for initialization
 	void Start ()
 	{
-		
 	}
 	
 	// Update is called once per frame
@@ -18,11 +16,15 @@ public class Chain : Ability
 	
 	}
 
-	public bool EnemyInRadius(Collider enemyCol)
+	public void ActivateChainBullet(Transform location, Collider col)
 	{
-		//Put code here (use Physics.OverlapSphere)
-		
-		return true;
+	   Drone drone = col.GetComponent<Drone>();
+
+        if (drone != null)
+        {
+			drone.inactive = true;
+          	drone.MoveDrone(drone.transform.position, location.position, drone.speed * Time.deltaTime);
+        }
 	}
 }
 

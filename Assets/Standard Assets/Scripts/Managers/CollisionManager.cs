@@ -17,7 +17,12 @@ public class CollisionManager : Singleton<CollisionManager>
 			
 			if(otherCollider.name == "Chain")
 			{
-				Debug.Log("Chain!!!!!!!!!!!!!");
+//				for(int i = 0; i < WeaponManager.Instance..Length; i++)
+//				{
+//					WeaponManager.Instance.clone.SetAbilities(PickupManager.Instance.abilityCollection[(int)AbilityTypes.Chain]);
+//				}
+				
+				Debug.Log("Chain!!!!!!!!"  + PickupManager.Instance.abilityCollection[(int)AbilityTypes.Chain]);
 			}
 		}
 	}
@@ -60,9 +65,9 @@ public class CollisionManager : Singleton<CollisionManager>
 		{
 			if(otherCollider.tag == "Bullet")
 			{
-				otherCollider.GetComponent<Bullet>().Deactivate();
+				//otherCollider.GetComponent<Bullet>().Deactivate();
 				
-				droneRef.health -= WeaponManager.Instance.Damage;	
+				//droneRef.health -= WeaponManager.Instance.Damage;	
 			}
 			//Debug.Log("Col = " + otherCollider.name);
 		}

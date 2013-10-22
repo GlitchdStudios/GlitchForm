@@ -4,7 +4,6 @@ using System.Collections;
 public class EnemyManager : Singleton<EnemyManager>
 {
 	public GameObject drone;
-	public GameObject droneAnchor;
 	public GameObject target;
 	public float droneHeight;
 	
