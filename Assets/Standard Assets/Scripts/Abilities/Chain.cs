@@ -18,12 +18,16 @@ public class Chain : Ability
 
 	public void ActivateChainBullet(Transform location, Collider col)
 	{
-	   Drone drone = col.GetComponent<Drone>();
+	   Drone drone = col.transform.parent.GetComponent<Drone>();
 
         if (drone != null)
         {
-			drone.inactive = true;
-          	drone.MoveDrone(drone.transform.position, location.position, drone.speed * Time.deltaTime);
+			if(!drone.inactive)
+			{
+				drone.inactive = true;
+			}
+			
+			drone.targetPos = location.position;
         }
 	}
 }

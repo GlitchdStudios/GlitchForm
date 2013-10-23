@@ -5,7 +5,6 @@ public class Drone : MonoBehaviour
 {
 	private DroneTrigger droneTrigger;
 	private PlayerTrigger playerTrigger;
-	private Vector3 targetPos;
 	private Vector3 targetDir;
 	private int range;
 	private float deviationX;
@@ -18,6 +17,7 @@ public class Drone : MonoBehaviour
 	public bool fleetUp;
 	public bool damagePlayer;
 	public bool inactive;   // use for general innactivity
+	public Vector3 targetPos;
 	
 	
 	void Awake()
@@ -49,9 +49,10 @@ public class Drone : MonoBehaviour
 		
 		if(EnemyManager.Instance.target != null)
 		{
-			if(inactive == false)
-				MoveDrone(transform.position, targetPos, speed * Time.deltaTime);
+			MoveDrone(transform.position, targetPos, speed * Time.deltaTime);
 		}
+		
+		Debug.Log("inactive: " + inactive);
 		
 		droneTrigger.SetTriggerHeight(transform.position.y);
 		
@@ -62,7 +63,7 @@ public class Drone : MonoBehaviour
 	
 	public void MoveDrone (Vector3 start, Vector3 target, float maxDistDelta) 
 	{	
-		transform.position = Vector3.MoveTowards(start, target, maxDistDelta);
+		transform.position = Vector3.MoveTowards(start, target, maxDistDelta);	
     }
 	
 	public void TargetPlayer()

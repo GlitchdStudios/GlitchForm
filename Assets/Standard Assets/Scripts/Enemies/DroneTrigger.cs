@@ -6,7 +6,6 @@ public class DroneTrigger : MonoBehaviour
 	public void OnTriggerEnter(Collider col)
 	{
 		CollisionManager.Instance.DroneTriggerEnter(col, transform);
-		Debug.Log("Col = " + col.name);
 	}
 	
 	public void SetTriggerHeight(float height)

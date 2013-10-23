@@ -10,10 +10,10 @@ public class Bullet : MonoBehaviour
 	
 	public bool inactive;
 	
-    void Awake()
-    {
-        thisTransform = transform;
-    }
+	void Start()
+	{
+		thisTransform = transform;
+	}
 
     // Update is called once per frame
     void FixedUpdate ()
@@ -56,21 +56,17 @@ public class Bullet : MonoBehaviour
 	} 
 	
 	public void ActivateChain(Collider otherCollider)
-	{
-		if(abilities[0])
-		{
-			//do nothing
-		}
-		
-		else if(abilities[(int)AbilityTypes.Chain])  // if chain ability
-		{
+	{	
+		//if(abilities.Contains(WeaponManager.Instance.chainScr))  // if chain ability
+		//{
 			WeaponManager.Instance.chainScr.ActivateChainBullet(transform, otherCollider);
-		}
+		//}
 	}
 	
 	public void OnTriggerStay(Collider col)
 	{
 		ActivateChain(col);
+		
 		inactive = true;
 	}
 }
