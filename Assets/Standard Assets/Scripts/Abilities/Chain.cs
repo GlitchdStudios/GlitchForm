@@ -22,12 +22,7 @@ public class Chain : Ability
 
         if (drone != null)
         {
-			if(!drone.inactive)
-			{
-				drone.inactive = true;
-			}
-			
-			drone.targetPos = location.position;
+			drone.TargetBullet(location.position.x, location.position.z, false);
         }
 	}
 }

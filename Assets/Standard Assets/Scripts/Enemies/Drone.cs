@@ -16,7 +16,7 @@ public class Drone : MonoBehaviour
 	public float speed;
 	public bool fleetUp;
 	public bool damagePlayer;
-	public bool inactive;   // use for general innactivity
+	public bool m_targetPlayer; 
 	public Vector3 targetPos;
 	
 	
@@ -34,6 +34,7 @@ public class Drone : MonoBehaviour
 		health = 20;
 		damage = 1;
 		speed = 5f;
+		m_targetPlayer = true;
 		
 		Angle = Random.Range(-20,20);
 		
@@ -52,8 +53,6 @@ public class Drone : MonoBehaviour
 			MoveDrone(transform.position, targetPos, speed * Time.deltaTime);
 		}
 		
-		Debug.Log("inactive: " + inactive);
-		
 		droneTrigger.SetTriggerHeight(transform.position.y);
 		
 		CheckDroneStatus();
@@ -66,11 +65,32 @@ public class Drone : MonoBehaviour
 		transform.position = Vector3.MoveTowards(start, target, maxDistDelta);	
     }
 	
+	public void TargetBullet(float x, float z, bool targetPlayer)
+	{
+		m_targetPlayer = targetPlayer;
+		
+		if(EnemyManager.Instance.target != null)
+		{	
+			if(!m_targetPlayer)
+			{
+				targetPos = new Vector3(x, height, z);
+				transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,height, height),transform.position.z);
+			}
+		}
+		
+	}
+	
 	public void TargetPlayer()
 	{
 		if(EnemyManager.Instance.target != null)
-			targetPos = new Vector3(EnemyManager.Instance.target.transform.position.x + deviationX, height, EnemyManager.Instance.target.transform.position.z + deviationZ);
-			transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,height, height),transform.position.z);
+		{
+			if(m_targetPlayer)
+			{
+				targetPos = new Vector3(EnemyManager.Instance.target.transform.position.x + deviationX, height, EnemyManager.Instance.target.transform.position.z + deviationZ);
+				transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,height, height),transform.position.z);
+			}
+		}
+		
 	}
 	
 	private void CheckDroneStatus()

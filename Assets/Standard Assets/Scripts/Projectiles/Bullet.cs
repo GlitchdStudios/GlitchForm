@@ -21,6 +21,18 @@ public class Bullet : MonoBehaviour
 		MoveProjectile();
         LifeSpan();
     }
+	
+	void OnDisable()
+	{
+		for(int i = 0; i < EnemyManager.Instance.clone.Length; i++)
+		{
+			EnemyManager.Instance.droneScr[i] = EnemyManager.Instance.clone[i].GetComponent<Drone>();
+			if(!EnemyManager.Instance.droneScr[i].m_targetPlayer)
+			{
+				EnemyManager.Instance.droneScr[i].m_targetPlayer = true;
+			}
+		}
+	}
 
     private void MoveProjectile()
     { 

@@ -6,8 +6,9 @@ public class EnemyManager : Singleton<EnemyManager>
 	public GameObject drone;
 	public GameObject target;
 	public float droneHeight;
+	public Drone[] droneScr;
+	public GameObject[] clone;
 	
-	private GameObject[] clone;
 	private int numOfDrones;
 	
 	void Start()
@@ -15,6 +16,7 @@ public class EnemyManager : Singleton<EnemyManager>
 		numOfDrones = 10;
 		droneHeight = -5;
 		
+		droneScr = new Drone[numOfDrones];
 		clone = new GameObject[numOfDrones];
 		
 		StartCoroutine("LoadandInit");
