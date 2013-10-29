@@ -57,14 +57,18 @@ public class CollisionManager : Singleton<CollisionManager>
 	public void DroneTriggerEnter(Collider otherCollider, Transform trigger)
 	{
 		Drone droneRef = trigger.transform.parent.GetComponent<Drone>();
+		Bullet bulletRef = otherCollider.GetComponent<Bullet>();
 		
-		if(otherCollider != null && trigger != null)
+		if(bulletRef != null && droneRef != null)
 		{
-			if(otherCollider.tag == "Bullet")
+			if(bulletRef.tag == "Bullet")
 			{
-				//otherCollider.GetComponent<Bullet>().Deactivate();
+				if(!WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
+				{
+					otherCollider.GetComponent<Bullet>().Deactivate();
+				}
 				
-				//droneRef.health -= WeaponManager.Instance.Damage;	
+				droneRef.health -= WeaponManager.Instance.Damage;	
 			}
 		}
 	}

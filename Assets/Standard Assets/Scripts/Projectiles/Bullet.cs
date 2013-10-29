@@ -6,7 +6,6 @@ public class Bullet : MonoBehaviour
 {
     private float time;
     private Transform thisTransform;
-	private List<Ability> abilities = new List<Ability>();
 	
 	public bool inactive;
 	
@@ -24,14 +23,23 @@ public class Bullet : MonoBehaviour
 	
 	void OnDisable()
 	{
-		for(int i = 0; i < EnemyManager.Instance.clone.Length; i++)
+		if(inactive)
 		{
-			EnemyManager.Instance.droneScr[i] = EnemyManager.Instance.clone[i].GetComponent<Drone>();
-			if(!EnemyManager.Instance.droneScr[i].m_targetPlayer)
+			for(int i = 0; i < EnemyManager.Instance.clone.Length; i++)
 			{
-				EnemyManager.Instance.droneScr[i].m_targetPlayer = true;
+				if(EnemyManager.Instance.clone[i] != null)
+				{
+					EnemyManager.Instance.droneScr[i] = EnemyManager.Instance.clone[i].GetComponent<Drone>();
+				
+					if(!EnemyManager.Instance.droneScr[i].m_targetPlayer)
+					{
+						EnemyManager.Instance.droneScr[i].m_targetPlayer = true;
+					}
+				}
 			}
 		}
+		
+		inactive = false;
 	}
 
     private void MoveProjectile()
@@ -64,22 +72,23 @@ public class Bullet : MonoBehaviour
 	public void SetAbilities(Ability newAbilities) //Pass the abilities that are actively on the weapon
 	{
 		if(newAbilities != null)
-			abilities.Add(newAbilities);
+			WeaponManager.Instance.abilities.Add(newAbilities);
 	} 
 	
 	public void ActivateChain(Collider otherCollider)
 	{	
-		//if(abilities.Contains(WeaponManager.Instance.chainScr))  // if chain ability
-		//{
+		if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))  // if chain ability
+		{
 			WeaponManager.Instance.chainScr.ActivateChainBullet(transform, otherCollider);
-		//}
+			
+			Debug.Log("Chain is Active!");
+		}
 	}
 	
 	public void OnTriggerStay(Collider col)
 	{
 		ActivateChain(col);
-		
-		inactive = true;
+		Debug.Log(col);
 	}
 }
 

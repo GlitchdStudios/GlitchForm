@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WeaponManager : Singleton<WeaponManager>
 {
@@ -12,10 +13,11 @@ public class WeaponManager : Singleton<WeaponManager>
 	public GameObject machineGun;
 	public GameObject bullet;
 	public GameObject chain;
-	public Bullet bulletScr;
+	public List<Ability> abilities = new List<Ability>();
 	
 	//Abilities
 	public Chain chainScr;
+	public Bullet bulletScr;
 	
 	void Start()
 	{
