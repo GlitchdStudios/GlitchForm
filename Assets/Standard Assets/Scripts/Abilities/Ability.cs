@@ -11,7 +11,5 @@ public class Ability : MonoBehaviour
 	{
 		playerScr = player.GetComponent<Player>();
 	}
-	
-	//public Ability ObtainedAbility(Ability abilityPickup) { return abilityPickup; } //Use this function to pass the obtained ability from the ability pickup
 }
 
