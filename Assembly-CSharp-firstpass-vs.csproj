@@ -61,9 +61,11 @@
      <Compile Include="Assets\Standard Assets\Scripts\Player Scripts\PlayerTrigger.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\States\AbstractState.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\States\ChainActive.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\States\Damaged.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\States\Dead.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\States\Enemy States\Base State\EnemyState.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\States\Enemy States\Orbiting.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\States\Player States\ChainActive.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Weapons\MachineGun.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
