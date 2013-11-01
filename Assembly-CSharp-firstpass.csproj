@@ -54,6 +54,7 @@
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\WorldtoScreen.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Managers\StateManager.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Player Scripts\Player.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Player Scripts\PlayerInnerTrigger.cs" />

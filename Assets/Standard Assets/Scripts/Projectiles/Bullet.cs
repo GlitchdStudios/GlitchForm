@@ -77,18 +77,18 @@ public class Bullet : MonoBehaviour
 	
 	public void ActivateChain(Collider otherCollider)
 	{	
-		if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))  // if chain ability
-		{
-			WeaponManager.Instance.chainScr.ActivateChainBullet(transform, otherCollider);
-			
-			Debug.Log("Chain is Active!");
-		}
+		StateManager.Instance.chainActive.SetupChain(otherCollider, transform);
+		StateManager.Instance.ActivateState();
+	}
+	
+	public void OnTriggerEnter(Collider col)
+	{
+		StateManager.Instance.CurState = StateManager.Instance.chainActive;
 	}
 	
 	public void OnTriggerStay(Collider col)
 	{
 		ActivateChain(col);
-		Debug.Log(col);
 	}
 }
 

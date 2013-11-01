@@ -11,8 +11,9 @@ public class CollisionManager : Singleton<CollisionManager>
 			if(otherCollider.name == "DroneTrigger")
 			{
 				Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
-				droneRef.speed = 0;		
-				//otherCollider.transform.parent.parent = null;
+				droneRef.speed = 0;	
+				
+				StateManager.Instance.CurState = StateManager.Instance.orbiting;
 			}
 			
 			if(otherCollider.name == "Chain")
@@ -29,11 +30,12 @@ public class CollisionManager : Singleton<CollisionManager>
 		if(otherCollider != null)
 		{
 			if(otherCollider.name == "DroneTrigger")
-			{	
+			{
+				
 				Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
 				Player playerRef = trigger.parent.GetComponent<Player>();
 				
-				otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, otherCollider.transform.parent.GetComponent<Drone>().Angle * Time.deltaTime);
+				StateManager.Instance.orbiting.SetOrbit(otherCollider, trigger);
 				
 				if(!droneRef.damagePlayer)
 					StartCoroutine(DroneAttack(playerRef, droneRef));
