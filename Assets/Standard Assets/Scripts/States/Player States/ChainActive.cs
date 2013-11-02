@@ -17,8 +17,6 @@ public class ChainActive : AbstractState
 		if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))  // if chain ability
 		{
 			WeaponManager.Instance.chainScr.ActivateChainBullet(trigger, otherCollider);
-			
-			Debug.Log("Chain is Active!");
 		}
 	}
 }

@@ -18,7 +18,7 @@ public class Drone : MonoBehaviour
 	public bool damagePlayer;
 	public bool m_targetPlayer; 
 	public Vector3 targetPos;
-	
+	public AbstractState absState;
 	
 	void Awake()
 	{
@@ -98,6 +98,16 @@ public class Drone : MonoBehaviour
 		if(health <= 0)
 			Destroy(gameObject);
 	}
+	
+	public void ActivateState()
+	{
+		if(CurDroneState != null)
+		{
+			CurDroneState.ResolveState();
+		}
+	}
+	
+	public AbstractState CurDroneState { get { return absState;} set { absState = value; }}
 	public int Angle { get {return range; } set { range = value; } }
 }
 

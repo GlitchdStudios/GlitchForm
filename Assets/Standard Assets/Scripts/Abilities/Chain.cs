@@ -17,16 +17,16 @@ public class Chain : Ability
 	}
 
 	public void ActivateChainBullet(Transform location, Collider col)
-	{
-	    Drone drone = col.transform.parent.GetComponent<Drone>();
-		Bullet bullet = location.GetComponent<Bullet>();
-		
-        if (drone != null)
+	{	
+		if (col != null && location != null)
         {
+	    	Drone drone = col.transform.parent.GetComponent<Drone>();
+			Bullet bullet = location.GetComponent<Bullet>();
+	   
 			drone.TargetBullet(location.position.x, location.position.z, false);
+			
+			bullet.inactive = true;
         }
-		
-		bullet.inactive = true;
 	}
 }
 

@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     private Transform thisTransform;
 	
 	public bool inactive;
+	public AbstractState absState;
 	
 	void Start()
 	{
@@ -39,6 +40,18 @@ public class Bullet : MonoBehaviour
 			}
 		}
 		
+		for(int i = 0; i < EnemyManager.Instance.clone.Length; i++)
+		{
+			if(EnemyManager.Instance.clone[i] != null)
+			{
+				EnemyManager.Instance.droneScr[i] = EnemyManager.Instance.clone[i].GetComponent<Drone>();
+				
+				if(!CurBulletState == StateManager.Instance.chainActive)
+				{
+					EnemyManager.Instance.droneScr[i].CurDroneState = StateManager.Instance.orbiting;
+				}
+			}
+		}
 		inactive = false;
 	}
 
@@ -75,15 +88,25 @@ public class Bullet : MonoBehaviour
 			WeaponManager.Instance.abilities.Add(newAbilities);
 	} 
 	
+	public void ActivateState()
+	{
+		if(CurBulletState != null)
+		{
+			CurBulletState.ResolveState();
+		}
+	}
+	
+	public AbstractState CurBulletState { get { return absState;} set { absState = value; }}
+	
 	public void ActivateChain(Collider otherCollider)
 	{	
 		StateManager.Instance.chainActive.SetupChain(otherCollider, transform);
-		StateManager.Instance.ActivateState();
+		ActivateState();
 	}
 	
 	public void OnTriggerEnter(Collider col)
 	{
-		StateManager.Instance.CurState = StateManager.Instance.chainActive;
+		CurBulletState = StateManager.Instance.chainActive;
 	}
 	
 	public void OnTriggerStay(Collider col)

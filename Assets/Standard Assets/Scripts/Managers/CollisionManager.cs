@@ -11,9 +11,7 @@ public class CollisionManager : Singleton<CollisionManager>
 			if(otherCollider.name == "DroneTrigger")
 			{
 				Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
-				droneRef.speed = 0;	
-				
-				StateManager.Instance.CurState = StateManager.Instance.orbiting;
+				droneRef.speed = 0;		
 			}
 			
 			if(otherCollider.name == "Chain")
@@ -31,16 +29,19 @@ public class CollisionManager : Singleton<CollisionManager>
 		{
 			if(otherCollider.name == "DroneTrigger")
 			{
-				
-				Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
-				Player playerRef = trigger.parent.GetComponent<Player>();
-				
-				StateManager.Instance.orbiting.SetOrbit(otherCollider, trigger);
-				
-				if(!droneRef.damagePlayer)
-					StartCoroutine(DroneAttack(playerRef, droneRef));
-				
-				//Debug.Log("Health: " + playerRef.health);
+				if(otherCollider != null && trigger != null)
+				{
+					Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
+					Player playerRef = trigger.parent.GetComponent<Player>();
+					
+					StateManager.Instance.orbiting.SetOrbit(otherCollider, trigger);
+					droneRef.ActivateState();
+						
+					if(!droneRef.damagePlayer)
+						StartCoroutine(DroneAttack(playerRef, droneRef));
+					
+					//Debug.Log("Health: " + playerRef.health);
+				}
 			}
 		}
 	}
@@ -68,9 +69,8 @@ public class CollisionManager : Singleton<CollisionManager>
 				if(!WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 				{
 					otherCollider.GetComponent<Bullet>().Deactivate();
+					droneRef.health -= WeaponManager.Instance.Damage;	
 				}
-				
-				droneRef.health -= WeaponManager.Instance.Damage;	
 			}
 		}
 	}
