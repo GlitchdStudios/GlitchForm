@@ -9,10 +9,12 @@ public class Bullet : MonoBehaviour
 	
 	public bool inactive;
 	public AbstractState absState;
+	public List<Drone> passDroneRef;
 	
 	void Start()
 	{
 		thisTransform = transform;
+		passDroneRef = new List<Drone>();
 	}
 
     // Update is called once per frame
@@ -40,18 +42,8 @@ public class Bullet : MonoBehaviour
 			}
 		}
 		
-		for(int i = 0; i < EnemyManager.Instance.clone.Length; i++)
-		{
-			if(EnemyManager.Instance.clone[i] != null)
-			{
-				EnemyManager.Instance.droneScr[i] = EnemyManager.Instance.clone[i].GetComponent<Drone>();
-				
-				if(!CurBulletState == StateManager.Instance.chainActive)
-				{
-					EnemyManager.Instance.droneScr[i].CurDroneState = StateManager.Instance.orbiting;
-				}
-			}
-		}
+		RevertState(passDroneRef);
+		
 		inactive = false;
 	}
 
@@ -88,6 +80,23 @@ public class Bullet : MonoBehaviour
 			WeaponManager.Instance.abilities.Add(newAbilities);
 	} 
 	
+	public void RevertState(List<Drone> droneRef)
+	{
+		for(int i = 0; i < droneRef.Count; i++)
+		{	
+			if(droneRef[i] != null)
+			{
+				droneRef[i].CurDroneState = StateManager.Instance.orbiting;
+				droneRef[i].speed *= -1;
+				
+				if(gameObject.activeSelf)
+				{
+					StartCoroutine(droneRef[i].ResetSpeed());
+				}
+			}
+		}
+	}
+	
 	public void ActivateState()
 	{
 		if(CurBulletState != null)
@@ -106,7 +115,17 @@ public class Bullet : MonoBehaviour
 	
 	public void OnTriggerEnter(Collider col)
 	{
-		CurBulletState = StateManager.Instance.chainActive;
+		Drone droneRef = col.transform.parent.GetComponent<Drone>();
+		passDroneRef.Add(droneRef);
+		
+		if(droneRef != null)
+		{ 
+			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
+			{
+				droneRef.CurDroneState = StateManager.Instance.chainActive;
+				droneRef.speed = 5f;
+			}
+		}
 	}
 	
 	public void OnTriggerStay(Collider col)

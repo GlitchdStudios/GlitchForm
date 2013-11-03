@@ -26,12 +26,13 @@ public class CollisionManager : Singleton<CollisionManager>
 	public void PlayerTriggerStay(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null)
-		{
+		{	
+			Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
 			if(otherCollider.name == "DroneTrigger")
 			{
 				if(otherCollider != null && trigger != null)
 				{
-					Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
+					
 					Player playerRef = trigger.parent.GetComponent<Player>();
 					
 					StateManager.Instance.orbiting.SetOrbit(otherCollider, trigger);
@@ -42,7 +43,7 @@ public class CollisionManager : Singleton<CollisionManager>
 					
 					//Debug.Log("Health: " + playerRef.health);
 				}
-			}
+			}	
 		}
 	}
 	

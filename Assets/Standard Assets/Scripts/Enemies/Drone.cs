@@ -41,6 +41,8 @@ public class Drone : MonoBehaviour
 		if(EnemyManager.Instance.target != null) 
 			deviationX = Random.Range(-(playerTrigger.collider as SphereCollider).radius, (playerTrigger.collider as SphereCollider).radius);
 			deviationZ = Random.Range(-(playerTrigger.collider as SphereCollider).radius, (playerTrigger.collider as SphereCollider).radius);
+		
+		CurDroneState = StateManager.Instance.orbiting;
 	}
 	
 	// Update is called once per frame
@@ -104,6 +106,15 @@ public class Drone : MonoBehaviour
 		if(CurDroneState != null)
 		{
 			CurDroneState.ResolveState();
+		}
+	}
+	
+	public IEnumerator ResetSpeed()
+	{
+		yield return new WaitForSeconds(2.0f);
+		if(speed < 0)
+		{
+			speed = 5f;
 		}
 	}
 	

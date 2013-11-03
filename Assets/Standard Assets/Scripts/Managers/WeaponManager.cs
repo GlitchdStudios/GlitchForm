@@ -30,7 +30,7 @@ public class WeaponManager : Singleton<WeaponManager>
 		switch(gameObject.name)
 		{
 			case "MachineGun":
-					rof = 0.1f;
+					rof = 0.2f;
 					projectileSpeed = 10f;
 					damage = 5;
 			break;

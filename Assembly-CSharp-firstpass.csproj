@@ -48,8 +48,9 @@
      <Compile Include="Assets\Standard Assets\Scripts\Abilities\Chain.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Drone.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\DroneBounds.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\PickupManager.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\PlayerBounds.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\ScreenBounds.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\Singleton.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\WorldtoScreen.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" />
