@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour
     private Transform thisTransform;
 	
 	public bool inactive;
-	public AbstractState absState;
 	public List<Drone> passDroneRef;
 	
 	void Start()
@@ -86,7 +85,7 @@ public class Bullet : MonoBehaviour
 		{	
 			if(droneRef[i] != null)
 			{
-				droneRef[i].CurDroneState = StateManager.Instance.orbiting;
+				droneRef[i].enemyState.CurDroneState = StateManager.Instance.orbiting;
 				droneRef[i].speed *= -1;
 				
 				if(gameObject.activeSelf)
@@ -96,16 +95,6 @@ public class Bullet : MonoBehaviour
 			}
 		}
 	}
-	
-	public void ActivateState()
-	{
-		if(CurBulletState != null)
-		{
-			CurBulletState.ResolveState();
-		}
-	}
-	
-	public AbstractState CurBulletState { get { return absState;} set { absState = value; }}
 	
 	public void ActivateChain(Collider otherCollider)
 	{	

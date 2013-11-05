@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Orbiting : AbstractState
+public class Orbiting : EnemyState
 {
 	public Collider otherCollider;
 	public Transform trigger;

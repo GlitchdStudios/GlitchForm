@@ -3,17 +3,17 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-	private PlayerMovement playerMovement;
+	public PlayerMovement playerMovement;
+	public MachineGun machineGun;
+	public PlayerState playerState;
 	public int health;
-	
-	void Awake()
-	{
-		playerMovement = GetComponent<PlayerMovement>();
-	}
 	
 	// Use this for initialization
 	void Start ()
 	{
+		playerMovement = GetComponent<PlayerMovement>();
+		machineGun = GetComponentInChildren<MachineGun>();
+		playerState = new PlayerState();
 		health = 100;
 	}
 	

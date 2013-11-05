@@ -18,11 +18,13 @@ public class Drone : MonoBehaviour
 	public bool damagePlayer;
 	public bool m_targetPlayer; 
 	public Vector3 targetPos;
-	public AbstractState absState;
+	public EnemyState enemyState;
 	
 	void Awake()
 	{
 		droneTrigger = gameObject.GetComponentInChildren<DroneTrigger>();	
+		
+		enemyState = new EnemyState();
 		
 		if(EnemyManager.Instance.target != null) 
 			playerTrigger = EnemyManager.Instance.target.GetComponentInChildren<PlayerTrigger>();
@@ -42,7 +44,7 @@ public class Drone : MonoBehaviour
 			deviationX = Random.Range(-(playerTrigger.collider as SphereCollider).radius, (playerTrigger.collider as SphereCollider).radius);
 			deviationZ = Random.Range(-(playerTrigger.collider as SphereCollider).radius, (playerTrigger.collider as SphereCollider).radius);
 		
-		CurDroneState = StateManager.Instance.orbiting;
+		enemyState.CurDroneState = StateManager.Instance.orbiting;
 	}
 	
 	// Update is called once per frame
@@ -101,14 +103,6 @@ public class Drone : MonoBehaviour
 			Destroy(gameObject);
 	}
 	
-	public void ActivateState()
-	{
-		if(CurDroneState != null)
-		{
-			CurDroneState.ResolveState();
-		}
-	}
-	
 	public IEnumerator ResetSpeed()
 	{
 		yield return new WaitForSeconds(2.0f);
@@ -118,7 +112,6 @@ public class Drone : MonoBehaviour
 		}
 	}
 	
-	public AbstractState CurDroneState { get { return absState;} set { absState = value; }}
 	public int Angle { get {return range; } set { range = value; } }
 }
 

@@ -36,7 +36,7 @@ public class CollisionManager : Singleton<CollisionManager>
 					Player playerRef = trigger.parent.GetComponent<Player>();
 					
 					StateManager.Instance.orbiting.SetOrbit(otherCollider, trigger);
-					droneRef.ActivateState();
+					droneRef.enemyState.ActivateState();
 						
 					if(!droneRef.damagePlayer)
 						StartCoroutine(DroneAttack(playerRef, droneRef));
