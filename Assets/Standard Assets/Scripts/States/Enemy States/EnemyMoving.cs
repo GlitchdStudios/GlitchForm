@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Moving : EnemyState
+public class EnemyMoving : EnemyState
 {
  	public override void ResolveState()
 	{

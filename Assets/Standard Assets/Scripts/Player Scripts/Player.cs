@@ -5,7 +5,6 @@ public class Player : MonoBehaviour
 {
 	public PlayerMovement playerMovement;
 	public MachineGun machineGun;
-	public PlayerState playerState;
 	public int health;
 	
 	// Use this for initialization
@@ -13,14 +12,14 @@ public class Player : MonoBehaviour
 	{
 		playerMovement = GetComponent<PlayerMovement>();
 		machineGun = GetComponentInChildren<MachineGun>();
-		playerState = new PlayerState();
 		health = 100;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-		playerMovement.Movement();
+		StateManager.Instance.playerState.CurPlayerState = StateManager.Instance.playerMoving;
+		StateManager.Instance.playerState.ActivateState();
 		CheckStatus();
 	}
 	

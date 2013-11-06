@@ -7,7 +7,7 @@ public class PlayerState : AbstractState
 	
 	void Start()
 	{
-		player = new Player();
+		player = gameObject.GetComponent<Player>();
 	}
 	
 	public void ActivateState()

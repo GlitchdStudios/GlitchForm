@@ -99,7 +99,7 @@ public class Bullet : MonoBehaviour
 	public void ActivateChain(Collider otherCollider)
 	{	
 		StateManager.Instance.chainActive.SetupChain(otherCollider, transform);
-		ActivateState();
+		StateManager.Instance.playerState.ActivateState();
 	}
 	
 	public void OnTriggerEnter(Collider col)
@@ -111,7 +111,7 @@ public class Bullet : MonoBehaviour
 		{ 
 			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 			{
-				droneRef.CurDroneState = StateManager.Instance.chainActive;
+				StateManager.Instance.enemyState.CurDroneState = StateManager.Instance.chained;
 				droneRef.speed = 5f;
 			}
 		}
