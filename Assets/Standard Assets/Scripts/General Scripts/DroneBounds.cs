@@ -3,12 +3,6 @@ using System.Collections;
 
 public class DroneBounds : ScreenBounds
 {
-	private WorldtoScreen worldtoScreen;
-	
-	private float top;
-	private float bottom;
-	private float left;
-	private float right;
 	private Drone droneScr;
 	
 	void Awake()

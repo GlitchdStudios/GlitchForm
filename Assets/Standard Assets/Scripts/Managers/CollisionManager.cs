@@ -32,10 +32,9 @@ public class CollisionManager : Singleton<CollisionManager>
 			{
 				if(otherCollider != null && trigger != null)
 				{
-					
 					Player playerRef = trigger.parent.GetComponent<Player>();
 					
-					StateManager.Instance.orbiting.SetOrbit(otherCollider, trigger);
+					droneRef.enemyState.orbiting.SetOrbit(otherCollider, trigger);
 					droneRef.enemyState.ActivateState();
 						
 					if(!droneRef.damagePlayer)

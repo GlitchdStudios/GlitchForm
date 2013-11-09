@@ -3,11 +3,11 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-	private float speed;
+	private float playerSpeed;
 	
 	void Start()
 	{
-		speed  = 3f;
+		playerSpeed  = 3f;
 	}
 	
 	public void Movement()
@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
 		Screen.showCursor = false;
 		Screen.lockCursor = true;
 		
-		float xPos = Input.GetAxis("Mouse Y") * speed;
-		float zPos = Input.GetAxis("Mouse X") * -speed;
+		float xPos = Input.GetAxis("Mouse Y") * playerSpeed;
+		float zPos = Input.GetAxis("Mouse X") * -playerSpeed;
 		
         xPos *= Time.deltaTime;
 		zPos *= Time.deltaTime;

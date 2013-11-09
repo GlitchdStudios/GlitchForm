@@ -3,12 +3,12 @@ using System.Collections;
 
 public class ScreenBounds : MonoBehaviour
 {
-	private WorldtoScreen worldtoScreen;
+	public WorldtoScreen worldtoScreen;
 	
-	private float top;
-	private float bottom;
-	private float left;
-	private float right;
+	public float top;
+	public float bottom;
+	public float left;
+	public float right;
 		
 	public Mesh mesh;
 	

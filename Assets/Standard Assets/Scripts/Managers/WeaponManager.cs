@@ -34,7 +34,6 @@ public class WeaponManager : Singleton<WeaponManager>
 					projectileSpeed = 10f;
 					damage = 5;
 			break;
-					
 		}
 	}
 	

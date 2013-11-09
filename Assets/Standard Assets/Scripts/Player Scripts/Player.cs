@@ -3,23 +3,31 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-	public PlayerMovement playerMovement;
 	public MachineGun machineGun;
 	public int health;
+	
+	//States
+	private PlayerState playerState;
+	
+	void Awake()
+	{
+		playerState = GetComponent<PlayerState>();
+	}
 	
 	// Use this for initialization
 	void Start ()
 	{
-		playerMovement = GetComponent<PlayerMovement>();
 		machineGun = GetComponentInChildren<MachineGun>();
 		health = 100;
+		
+		playerState.CurPlayerState = playerState.playerMoving;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-		StateManager.Instance.playerState.CurPlayerState = StateManager.Instance.playerMoving;
-		StateManager.Instance.playerState.ActivateState();
+		playerState.ActivateState();
+		
 		CheckStatus();
 	}
 	

@@ -3,6 +3,13 @@ using System.Collections;
 
 public class EnemyState : AbstractState
 {
+	public Orbiting orbiting;
+	
+	void Awake()
+	{
+		orbiting = gameObject.GetComponent<Orbiting>();
+	}
+	
 	public void ActivateState()
 	{
 		if(CurDroneState != null)

@@ -85,7 +85,7 @@ public class Bullet : MonoBehaviour
 		{	
 			if(droneRef[i] != null)
 			{
-				droneRef[i].enemyState.CurDroneState = StateManager.Instance.orbiting;
+				droneRef[i].enemyState.CurDroneState = droneRef[i].enemyState.orbiting;
 				droneRef[i].speed *= -1;
 				
 				if(gameObject.activeSelf)
@@ -98,8 +98,10 @@ public class Bullet : MonoBehaviour
 	
 	public void ActivateChain(Collider otherCollider)
 	{	
+		Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
+		
 		StateManager.Instance.chainActive.SetupChain(otherCollider, transform);
-		StateManager.Instance.playerState.ActivateState();
+		droneRef.enemyState.ActivateState();
 	}
 	
 	public void OnTriggerEnter(Collider col)
@@ -111,7 +113,7 @@ public class Bullet : MonoBehaviour
 		{ 
 			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 			{
-				StateManager.Instance.enemyState.CurDroneState = StateManager.Instance.chained;
+				droneRef.enemyState.CurDroneState = StateManager.Instance.chainActive;
 				droneRef.speed = 5f;
 			}
 		}

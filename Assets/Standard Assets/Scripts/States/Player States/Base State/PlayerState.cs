@@ -3,11 +3,11 @@ using System.Collections;
 
 public class PlayerState : AbstractState
 {
-	public Player player;
+	public PlayerMoving playerMoving;
 	
 	void Start()
 	{
-		player = gameObject.GetComponent<Player>();
+		playerMoving = gameObject.GetComponent<PlayerMoving>();
 	}
 	
 	public void ActivateState()
