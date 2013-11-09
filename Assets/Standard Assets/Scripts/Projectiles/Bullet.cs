@@ -10,10 +10,14 @@ public class Bullet : MonoBehaviour
 	public bool inactive;
 	public List<Drone> passDroneRef;
 	
+	//State
+	public BulletState bulletState;
+	
 	void Start()
 	{
 		thisTransform = transform;
 		passDroneRef = new List<Drone>();
+		bulletState = gameObject.GetComponent<BulletState>();
 	}
 
     // Update is called once per frame
@@ -100,8 +104,8 @@ public class Bullet : MonoBehaviour
 	{	
 		Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
 		
-		StateManager.Instance.chainActive.SetupChain(otherCollider, transform);
-		droneRef.enemyState.ActivateState();
+		bulletState.chainActive.SetupChain(otherCollider, transform);
+		bulletState.ActivateState();
 	}
 	
 	public void OnTriggerEnter(Collider col)
@@ -113,7 +117,7 @@ public class Bullet : MonoBehaviour
 		{ 
 			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 			{
-				droneRef.enemyState.CurDroneState = StateManager.Instance.chainActive;
+				bulletState.CurBulletState = bulletState.chainActive;
 				droneRef.speed = 5f;
 			}
 		}

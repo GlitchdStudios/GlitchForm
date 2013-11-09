@@ -37,8 +37,8 @@ public class CollisionManager : Singleton<CollisionManager>
 					droneRef.enemyState.orbiting.SetOrbit(otherCollider, trigger);
 					droneRef.enemyState.ActivateState();
 						
-					if(!droneRef.damagePlayer)
-						StartCoroutine(DroneAttack(playerRef, droneRef));
+//					if(!droneRef.damagePlayer)
+//						StartCoroutine(DroneAttack(playerRef, droneRef));
 					
 					//Debug.Log("Health: " + playerRef.health);
 				}

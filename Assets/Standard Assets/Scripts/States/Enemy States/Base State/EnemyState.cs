@@ -4,10 +4,12 @@ using System.Collections;
 public class EnemyState : AbstractState
 {
 	public Orbiting orbiting;
+	public Chained chained;
 	
 	void Awake()
 	{
 		orbiting = gameObject.GetComponent<Orbiting>();
+		chained = gameObject.GetComponent<Chained>();
 	}
 	
 	public void ActivateState()
