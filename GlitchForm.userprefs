@@ -1,24 +1,28 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\States\Bullet States\Base State\BulletState.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs">
     <Files>
-      <File FileName="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" Line="20" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\StateManager.cs" Line="17" Column="33" />
-      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerMovement.cs" Line="6" Column="28" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Player States\PlayerMoving.cs" Line="8" Column="12" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\EnemyMoving.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Attacking.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\Player.cs" Line="23" Column="57" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Player States\Base State\PlayerState.cs" Line="11" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="41" Column="58" />
-      <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="51" Column="40" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Base State\EnemyState.cs" Line="23" Column="89" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Abstract State\AbstractState.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Abilities\Chain.cs" Line="24" Column="3" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Chained.cs" Line="17" Column="101" />
-      <File FileName="Assets\Standard Assets\Scripts\Abilities\Ability.cs" Line="12" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\ChainActive.cs" Line="4" Column="39" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\Base State\BulletState.cs" Line="10" Column="3" />
+      <File FileName="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" Line="48" Column="3" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\StateManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="112" Column="3" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Player States\PlayerMoving.cs" Line="11" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\EnemyMoving.cs" Line="4" Column="41" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Attacking.cs" Line="4" Column="39" />
+      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\Player.cs" Line="19" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Player States\Base State\PlayerState.cs" Line="10" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="74" Column="65" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Base State\EnemyState.cs" Line="16" Column="48" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Abstract State\AbstractState.cs" Line="12" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Abilities\Chain.cs" Line="24" Column="4" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Chained.cs" Line="17" Column="33" />
+      <File FileName="Assets\Standard Assets\Scripts\Abilities\Ability.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\ChainActive.cs" Line="4" Column="41" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\Base State\BulletState.cs" Line="16" Column="29" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Orbiting.cs" Line="4" Column="38" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Universal States\Dead.cs" Line="13" Column="81" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Universal States\Damaged.cs" Line="8" Column="11" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -29,14 +33,15 @@
                 <Node name="Scripts" expanded="True">
                   <Node name="Abilities" expanded="True" />
                   <Node name="Enemies" expanded="True" />
-                  <Node name="Managers" expanded="True" />
+                  <Node name="Managers" expanded="True">
+                    <Node name="CollisionManager.cs" selected="True" />
+                  </Node>
                   <Node name="Player Scripts" expanded="True" />
+                  <Node name="Projectiles" expanded="True" />
                   <Node name="States" expanded="True">
                     <Node name="Abstract State" expanded="True" />
                     <Node name="Bullet States" expanded="True">
-                      <Node name="Base State" expanded="True">
-                        <Node name="BulletState.cs" selected="True" />
-                      </Node>
+                      <Node name="Base State" expanded="True" />
                     </Node>
                     <Node name="Enemy States" expanded="True">
                       <Node name="Base State" expanded="True" />
@@ -44,7 +49,9 @@
                     <Node name="Player States" expanded="True">
                       <Node name="Base State" expanded="True" />
                     </Node>
+                    <Node name="Universal States" expanded="True" />
                   </Node>
+                  <Node name="Weapons" expanded="True" />
                 </Node>
               </Node>
             </Node>

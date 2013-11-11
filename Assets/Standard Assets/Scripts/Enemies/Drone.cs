@@ -21,7 +21,6 @@ public class Drone : MonoBehaviour
 	
 	//States
 	public EnemyState enemyState;
-	public Orbiting orbiting;
 	
 	void Awake()
 	{
@@ -40,7 +39,6 @@ public class Drone : MonoBehaviour
 		m_targetPlayer = true;
 		
 		enemyState = gameObject.GetComponent<EnemyState>();
-		
 		
 		Angle = Random.Range(-20,20);
 		
@@ -98,13 +96,6 @@ public class Drone : MonoBehaviour
 				transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,height, height),transform.position.z);
 			}
 		}
-		
-	}
-	
-	private void CheckDroneStatus()
-	{
-		if(health <= 0)
-			Destroy(gameObject);
 	}
 	
 	public IEnumerator ResetSpeed()
@@ -114,6 +105,15 @@ public class Drone : MonoBehaviour
 		{
 			speed = 5f;
 		}
+	}
+	
+	private void CheckDroneStatus()
+	{
+		
+		if(health <= 0) //dead
+			enemyState.CurDroneState = enemyState.dead;
+			enemyState.dead.DeadGameObject = gameObject;
+			enemyState.ActivateState();
 	}
 	
 	public int Angle { get {return range; } set { range = value; } }

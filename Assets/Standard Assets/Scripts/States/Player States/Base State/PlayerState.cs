@@ -5,7 +5,7 @@ public class PlayerState : AbstractState
 {
 	public PlayerMoving playerMoving;
 	
-	void Start()
+	void Awake()
 	{
 		playerMoving = gameObject.GetComponent<PlayerMoving>();
 	}

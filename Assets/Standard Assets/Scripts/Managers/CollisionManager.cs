@@ -69,7 +69,9 @@ public class CollisionManager : Singleton<CollisionManager>
 				if(!WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 				{
 					otherCollider.GetComponent<Bullet>().Deactivate();
-					droneRef.health -= WeaponManager.Instance.Damage;	
+					
+					droneRef.enemyState.CurGameObjStatus = droneRef.enemyState.damaged;
+					droneRef.enemyState.damaged.CalcDamage(droneRef, bulletRef.);
 				}
 			}
 		}

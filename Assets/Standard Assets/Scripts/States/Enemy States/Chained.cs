@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Chained : EnemyState
+public class Chained : AbstractState
 {
 	public Collider otherCollider;
 	public Transform location;
@@ -14,7 +14,7 @@ public class Chained : EnemyState
 	
 	public override void ResolveState() 
 	{
-		otherCollider.GetComponent<Drone>().TargetBullet(location.position.x, location.position.z, false);
+		otherCollider.transform.parent.GetComponent<Drone>().TargetBullet(location.position.x, location.position.z, false);
 	}
 }
 

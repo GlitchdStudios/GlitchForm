@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerMoving : PlayerState
+public class PlayerMoving : AbstractState
 {
 	public PlayerMovement playerMovement;
 	
-	void Awake()
+	void Start()
 	{
 		playerMovement = GetComponent<PlayerMovement>();
 	}

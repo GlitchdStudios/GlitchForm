@@ -5,11 +5,15 @@ public class EnemyState : AbstractState
 {
 	public Orbiting orbiting;
 	public Chained chained;
+	public Dead dead;
+	public Damaged damaged;
 	
 	void Awake()
 	{
 		orbiting = gameObject.GetComponent<Orbiting>();
 		chained = gameObject.GetComponent<Chained>();
+		dead = gameObject.GetComponent<Dead>();
+		damaged = gameObject.GetComponent<Damaged>();
 	}
 	
 	public void ActivateState()

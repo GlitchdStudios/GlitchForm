@@ -7,17 +7,13 @@ public class Player : MonoBehaviour
 	public int health;
 	
 	//States
-	private PlayerState playerState;
-	
-	void Awake()
-	{
-		playerState = GetComponent<PlayerState>();
-	}
+	public PlayerState playerState;
 	
 	// Use this for initialization
 	void Start ()
 	{
 		machineGun = GetComponentInChildren<MachineGun>();
+		playerState = GetComponent<PlayerState>();
 		health = 100;
 		
 		playerState.CurPlayerState = playerState.playerMoving;
