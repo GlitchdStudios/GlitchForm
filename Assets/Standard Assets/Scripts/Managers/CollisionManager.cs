@@ -71,7 +71,9 @@ public class CollisionManager : Singleton<CollisionManager>
 					otherCollider.GetComponent<Bullet>().Deactivate();
 					
 					droneRef.enemyState.CurGameObjStatus = droneRef.enemyState.damaged;
-					droneRef.enemyState.damaged.CalcDamage(droneRef, bulletRef.);
+					droneRef.enemyState.damaged.Attacker = bulletRef;
+					droneRef.enemyState.damaged.Defender = droneRef;
+					
 				}
 			}
 		}
@@ -92,8 +94,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		
 		yield return new WaitForSeconds(2.0f);
 		
-		player.health -= drone.damage;
-		
+		player.Health -= drone.Damage;
 		drone.damagePlayer = false;
 	}
 }

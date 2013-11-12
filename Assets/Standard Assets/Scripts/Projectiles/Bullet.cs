@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Bullet : MonoBehaviour
+public class Bullet : BaseEntity
 {
     private float time;
     private Transform thisTransform;

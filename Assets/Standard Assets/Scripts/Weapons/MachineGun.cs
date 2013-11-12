@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MachineGun : MonoBehaviour
+public class MachineGun : BaseEntity
 {
     public GameObject projectilePrefab;
 	public GameObject[] clone;
@@ -17,6 +17,11 @@ public class MachineGun : MonoBehaviour
 		clone = new GameObject[WeaponManager.Instance.Ammo]; 					// This needs to run before the projectiles are instantiated
         InstantiateProjectiles();
     }
+	
+	void Start()
+	{
+		baseDamage = 5;
+	}
 	
     // Update is called once per frame
     void Update ()

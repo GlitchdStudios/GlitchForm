@@ -46,6 +46,7 @@
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Scripts\Abilities\Ability.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Abilities\Chain.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Base Entity\BaseEntity.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Drone.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\DroneBounds.cs" />

@@ -1,10 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour
+public class Player : BaseEntity
 {
 	public MachineGun machineGun;
-	public int health;
 	
 	//States
 	public PlayerState playerState;
@@ -14,7 +13,7 @@ public class Player : MonoBehaviour
 	{
 		machineGun = GetComponentInChildren<MachineGun>();
 		playerState = GetComponent<PlayerState>();
-		health = 100;
+		baseHealth = 100;
 		
 		playerState.CurPlayerState = playerState.playerMoving;
 	}
@@ -29,7 +28,7 @@ public class Player : MonoBehaviour
 	
 	private void CheckStatus()
 	{
-		if(health <= 0)
+		if(baseHealth <= 0)
 			Destroy(gameObject);
 	}
 }

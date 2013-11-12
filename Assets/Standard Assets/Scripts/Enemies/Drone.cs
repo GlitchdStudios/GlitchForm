@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Drone : MonoBehaviour
+public class Drone : BaseEntity
 {
 	private DroneTrigger droneTrigger;
 	private PlayerTrigger playerTrigger;
@@ -11,8 +11,6 @@ public class Drone : MonoBehaviour
 	private float deviationZ;
 	
 	public float height;
-	public int health;
-	public int damage;
 	public float speed;
 	public bool fleetUp;
 	public bool damagePlayer;
@@ -33,8 +31,8 @@ public class Drone : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		health = 20;
-		damage = 1;
+		baseHealth = 20;
+		baseDamage = 1;
 		speed = 5f;
 		m_targetPlayer = true;
 		
@@ -110,7 +108,7 @@ public class Drone : MonoBehaviour
 	private void CheckDroneStatus()
 	{
 		
-		if(health <= 0) //dead
+		if(baseHealth <= 0) //dead
 			enemyState.CurDroneState = enemyState.dead;
 			enemyState.dead.DeadGameObject = gameObject;
 			enemyState.ActivateState();
