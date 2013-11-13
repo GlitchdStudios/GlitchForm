@@ -34,6 +34,7 @@ public class CollisionManager : Singleton<CollisionManager>
 				{
 					Player playerRef = trigger.parent.GetComponent<Player>();
 					
+					//Orbiting
 					droneRef.enemyState.orbiting.SetOrbit(otherCollider, trigger);
 					droneRef.enemyState.ActivateState();
 						
@@ -70,10 +71,10 @@ public class CollisionManager : Singleton<CollisionManager>
 				{
 					otherCollider.GetComponent<Bullet>().Deactivate();
 					
-					droneRef.enemyState.CurGameObjStatus = droneRef.enemyState.damaged;
-					droneRef.enemyState.damaged.Attacker = bulletRef;
-					droneRef.enemyState.damaged.Defender = droneRef;
-					
+					droneRef.enemyState.CurGameObjStatus = StateManager.Instance.damaged;
+					StateManager.Instance.damaged.Attacker = bulletRef;
+					StateManager.Instance.damaged.Defender = droneRef;
+					droneRef.enemyState.ActivateState();
 				}
 			}
 		}

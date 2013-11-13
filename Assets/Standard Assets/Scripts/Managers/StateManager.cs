@@ -10,24 +10,14 @@ public class StateManager : Singleton<StateManager>
 	//Entity Classes
 	public Player playerScr; 
 	
-	//Base State Classes
-	public PlayerState playerState;
-
-	//States - Bullet
-	public ChainActive chainActive;
-	
-	public AbstractState absState;
+	public Damaged damaged;
 	
 	void Start()
 	{
 		//Entity Classes
-		playerScr = player.GetComponent<Player>();
+		playerScr = player.GetComponent<Player>();	
 		
-		//Base State Classes
-		playerState = player.GetComponent<PlayerState>();
-		
-		//States - Bullet
-		chainActive = stateDummy.GetComponentInChildren<ChainActive>();
+		damaged = stateDummy.GetComponent<Damaged>();
 	}
 }
 

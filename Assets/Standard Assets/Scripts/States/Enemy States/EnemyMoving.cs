@@ -5,6 +5,7 @@ public class EnemyMoving : AbstractState
 {
  	public override void ResolveState()
 	{
+		
 	}
 }
 
