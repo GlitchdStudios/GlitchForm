@@ -28,23 +28,7 @@ public class Bullet : BaseEntity
     }
 	
 	void OnDisable()
-	{
-		if(inactive)
-		{
-			for(int i = 0; i < EnemyManager.Instance.clone.Length; i++)
-			{
-				if(EnemyManager.Instance.clone[i] != null)
-				{
-					EnemyManager.Instance.droneScr[i] = EnemyManager.Instance.clone[i].GetComponent<Drone>();
-				
-					if(!EnemyManager.Instance.droneScr[i].m_targetPlayer)
-					{
-						EnemyManager.Instance.droneScr[i].m_targetPlayer = true;
-					}
-				}
-			}
-		}
-		
+	{	
 		RevertState(passDroneRef);
 		
 		inactive = false;

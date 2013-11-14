@@ -36,7 +36,8 @@ public class EnemyManager : Singleton<EnemyManager>
 	{
 		droneHeight += 0.5f;
 		
-		clone[index].GetComponent<Drone>().height = droneHeight;
+		clone[index].GetComponent<EnemyMoving>().height = droneHeight;
+		clone[index].GetComponent<Chained>().height = droneHeight;
 	}
 }
 

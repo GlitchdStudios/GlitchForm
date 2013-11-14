@@ -7,6 +7,8 @@ public class StateManager : Singleton<StateManager>
 	public GameObject player;
 	public GameObject drone;
 	
+	public Vector3 targetPos;
+	
 	//Entity Classes
 	public Player playerScr; 
 	
