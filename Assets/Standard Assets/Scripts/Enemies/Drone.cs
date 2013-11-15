@@ -18,8 +18,7 @@ public class Drone : BaseEntity
 	{
 		droneTrigger = gameObject.GetComponentInChildren<DroneTrigger>();	
 		
-		if(EnemyManager.Instance.target != null) 
-			playerTrigger = EnemyManager.Instance.target.GetComponentInChildren<PlayerTrigger>();
+		
 	}
 	
 	// Use this for initialization
@@ -33,22 +32,24 @@ public class Drone : BaseEntity
 		
 		Angle = Random.Range(-20,20);
 		
-		enemyState.CurDroneState = enemyState.enemyMoving;
-		enemyState.enemyMoving.enemyMovingSpeed = speed;
-		enemyState.enemyMoving.playerTriggerRef = playerTrigger;
-		
+		enemyState.CurDroneState = enemyState.enemyMoving;	
 	}
 	
 	// Update is called once per frame
 	void Update ()
-	{		
-		enemyState.ActivateState();
+	{	
+		if(enemyState.CurDroneState == enemyState.enemyMoving)
+		{
+			enemyState.enemyMoving.enemyMovingSpeed = speed;
+			enemyState.enemyMoving.playerTriggerRef = playerTrigger;
+			enemyState.ActivateState();
+		}
 		
 		droneTrigger.SetTriggerHeight(transform.position.y);
 		
 		CheckDroneStatus();
 		
-		//Debug.Log("Height " + height);
+		Debug.Log("Current Drone State: " + enemyState.CurDroneState);
 	}
 	
 	public IEnumerator ResetSpeed()
@@ -64,7 +65,7 @@ public class Drone : BaseEntity
 	{
 		
 		if(baseHealth <= 0) //dead
-			enemyState.CurDroneState = enemyState.dead;
+			enemyState.CurGameObjStatus = enemyState.dead;
 			enemyState.dead.DeadGameObject = gameObject;
 			enemyState.ActivateState();
 	}

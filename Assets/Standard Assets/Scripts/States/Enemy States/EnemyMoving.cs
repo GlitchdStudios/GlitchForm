@@ -6,13 +6,15 @@ public class EnemyMoving : AbstractState
 	private float deviationX;
 	private float deviationZ;
 	
-	
 	public float height;
 	public float enemyMovingSpeed;
 	public PlayerTrigger playerTriggerRef;
 
 	void Start()
 	{
+		if(EnemyManager.Instance.target != null) 
+			playerTriggerRef = EnemyManager.Instance.target.GetComponentInChildren<PlayerTrigger>();
+		
 		if(EnemyManager.Instance.target != null) 
 			deviationX = Random.Range(-(playerTriggerRef.collider as SphereCollider).radius, (playerTriggerRef.collider as SphereCollider).radius);
 			deviationZ = Random.Range(-(playerTriggerRef.collider as SphereCollider).radius, (playerTriggerRef.collider as SphereCollider).radius);

@@ -11,6 +11,7 @@ public class CollisionManager : Singleton<CollisionManager>
 			if(otherCollider.name == "DroneTrigger")
 			{
 				Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
+				droneRef.enemyState.CurDroneState = droneRef.enemyState.orbiting;
 				droneRef.speed = 0;		
 			}
 			
