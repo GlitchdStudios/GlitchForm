@@ -18,6 +18,14 @@ public class PlayerState : AbstractState
 		}
 	}
 	
+	public void ActivateStatus()
+	{
+		if(CurPlayerState != null)
+		{
+			CurGameObjStatus.ResolveState();
+		}
+	}
+	
 	public AbstractState CurPlayerState { get { return absState;} set { absState = value; }}
 }
 

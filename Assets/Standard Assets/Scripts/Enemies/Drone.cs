@@ -17,8 +17,6 @@ public class Drone : BaseEntity
 	void Awake()
 	{
 		droneTrigger = gameObject.GetComponentInChildren<DroneTrigger>();	
-		
-		
 	}
 	
 	// Use this for initialization
@@ -63,11 +61,12 @@ public class Drone : BaseEntity
 	
 	private void CheckDroneStatus()
 	{
-		
-		if(baseHealth <= 0) //dead
+		if(baseHealth <= 0)//dead
+		{
 			enemyState.CurGameObjStatus = enemyState.dead;
 			enemyState.dead.DeadGameObject = gameObject;
-			enemyState.ActivateState();
+			enemyState.ActivateStatus();
+		}
 	}
 	
 	public int Angle { get {return range; } set { range = value; } }

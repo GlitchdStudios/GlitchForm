@@ -24,6 +24,14 @@ public class EnemyState : AbstractState
 		}
 	}
 	
+	public void ActivateStatus()
+	{
+		if(CurGameObjStatus != null)
+		{
+			CurGameObjStatus.ResolveState();
+		}
+	}
+	
 	public AbstractState CurDroneState { get { return absState;} set { absState = value; }}
 }
 
