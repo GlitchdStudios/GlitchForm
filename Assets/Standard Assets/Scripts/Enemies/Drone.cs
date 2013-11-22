@@ -4,7 +4,6 @@ using System.Collections;
 public class Drone : BaseEntity
 {
 	private DroneTrigger droneTrigger;
-	private PlayerTrigger playerTrigger;
 	private int range;
 	
 	public float height;
@@ -39,7 +38,6 @@ public class Drone : BaseEntity
 		if(enemyState.CurDroneState == enemyState.enemyMoving)
 		{
 			enemyState.enemyMoving.enemyMovingSpeed = speed;
-			enemyState.enemyMoving.playerTriggerRef = playerTrigger;
 			enemyState.ActivateState();
 		}
 		

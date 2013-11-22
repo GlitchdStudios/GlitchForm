@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class CollisionManager : Singleton<CollisionManager>
 {	
+	public GameObject player;
+	
 	public void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
 	{
 		if(otherCollider != null && trigger != null)
@@ -12,7 +14,7 @@ public class CollisionManager : Singleton<CollisionManager>
 			{
 				Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
 				droneRef.enemyState.CurDroneState = droneRef.enemyState.orbiting;
-				droneRef.speed = 0;		
+				droneRef.speed = 0f;		
 			}
 			
 			if(otherCollider.name == "Chain")
@@ -66,8 +68,9 @@ public class CollisionManager : Singleton<CollisionManager>
 	{
 		Drone droneRef = trigger.transform.parent.GetComponent<Drone>();
 		Bullet bulletRef = otherCollider.GetComponent<Bullet>();
+		MachineGun machineGunRef = player.GetComponentInChildren<MachineGun>();
 		
-		if(bulletRef != null && droneRef != null)
+		if(bulletRef != null && droneRef != null && machineGunRef != null)
 		{
 			if(bulletRef.tag == "Bullet")
 			{
@@ -75,10 +78,10 @@ public class CollisionManager : Singleton<CollisionManager>
 				{
 					otherCollider.GetComponent<Bullet>().Deactivate();
 					
-					droneRef.enemyState.CurGameObjStatus = StateManager.Instance.damaged;
-					StateManager.Instance.damaged.Attacker = bulletRef;
-					StateManager.Instance.damaged.Defender = droneRef;
-					droneRef.enemyState.ActivateState();
+ 					droneRef.enemyState.CurGameObjStatus = StateManager.Instance.damaged;
+					StateManager.Instance.damaged.Attacker = (BaseEntity)machineGunRef;
+					StateManager.Instance.damaged.Defender = (BaseEntity)droneRef;
+					droneRef.enemyState.ActivateStatus();
 				}
 			}
 		}
@@ -86,10 +89,14 @@ public class CollisionManager : Singleton<CollisionManager>
 	
 	public void PlayerInnerTriggerEnter(Collider otherCollider)
 	{
+		Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
 		if(otherCollider != null)
 		{
 			if(otherCollider.name == "DroneTrigger")
-				otherCollider.transform.parent.GetComponent<Drone>().speed = -5f;
+			{
+				droneRef.speed = -5f;
+				droneRef.enemyState.CurDroneState = droneRef.enemyState.enemyMoving;
+			}
 		}
 	}
 	

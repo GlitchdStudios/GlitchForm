@@ -10,7 +10,6 @@ public class WeaponManager : Singleton<WeaponManager>
 	private float projectileSpeed;
 	private int damage;
 	
-	public GameObject machineGun;
 	public GameObject bullet;
 	public GameObject chain;
 	public List<Ability> abilities = new List<Ability>();
