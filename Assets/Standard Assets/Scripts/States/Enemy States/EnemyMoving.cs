@@ -5,6 +5,8 @@ public class EnemyMoving : AbstractState
 {
 	private float deviationX;
 	private float deviationZ;
+	private float x;
+	private float z;
 	
 	public float height;
 	public float enemyMovingSpeed;
@@ -42,7 +44,16 @@ public class EnemyMoving : AbstractState
 	
  	public override void ResolveState()
 	{
+		TargetPlayer();
 		MoveDrone(transform.position, StateManager.Instance.targetPos, enemyMovingSpeed * Time.deltaTime);
+
+		if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
+		{
+			TargetBullet(X, Z);
+		}
 	}
+
+	public float X {set { x = value;} get{ return x; } }
+	public float Z {set { z = value;} get{ return z; } }
 }
 

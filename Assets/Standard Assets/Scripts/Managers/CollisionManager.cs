@@ -76,7 +76,8 @@ public class CollisionManager : Singleton<CollisionManager>
 			{
 				if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 				{	
-					droneRef.enemyState.enemyMoving.TargetBullet(otherCollider.transform.position.x, otherCollider.transform.position.z);
+					droneRef.enemyState.enemyMoving.X = otherCollider.transform.position.x;
+					droneRef.enemyState.enemyMoving.Z = otherCollider.transform.position.z;
 				}
 
 				else
