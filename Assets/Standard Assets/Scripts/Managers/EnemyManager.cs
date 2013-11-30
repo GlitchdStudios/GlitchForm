@@ -13,7 +13,7 @@ public class EnemyManager : Singleton<EnemyManager>
 	
 	void Start()
 	{
-		numOfDrones = 10;
+		numOfDrones = 1;
 		droneHeight = -5;
 		
 		droneScr = new Drone[numOfDrones];

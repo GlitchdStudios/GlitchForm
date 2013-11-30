@@ -86,8 +86,6 @@ public class Bullet : BaseEntity
 	
 	public void ActivateChain(Collider otherCollider)
 	{	
-		Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
-		
 		bulletState.chainActive.SetupChain(otherCollider, transform);
 		bulletState.ActivateState();
 	}
