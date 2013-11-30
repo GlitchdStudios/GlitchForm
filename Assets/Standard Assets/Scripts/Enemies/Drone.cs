@@ -29,7 +29,8 @@ public class Drone : BaseEntity
 		
 		Angle = Random.Range(-20,20);
 		
-		enemyState.CurDroneState = enemyState.enemyMoving;	
+		enemyState.CurDroneState = enemyState.enemyMoving;
+		enemyState.enemyMoving.TargetPlayer();
 	}
 	
 	// Update is called once per frame

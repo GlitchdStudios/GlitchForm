@@ -73,9 +73,10 @@ public class Bullet : BaseEntity
 		{	
 			if(droneRef[i] != null)
 			{
-				droneRef[i].enemyState.CurDroneState = droneRef[i].enemyState.orbiting;
+				droneRef[i].enemyState.enemyMoving.TargetPlayer();
 				droneRef[i].speed *= -1;
-				
+				droneRef[i].enemyState.CurDroneState = droneRef[i].enemyState.enemyMoving;
+
 				if(gameObject.activeSelf)
 				{
 					StartCoroutine(droneRef[i].ResetSpeed());

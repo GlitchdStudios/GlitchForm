@@ -74,11 +74,16 @@ public class CollisionManager : Singleton<CollisionManager>
 		{
 			if(bulletRef.tag == "Bullet")
 			{
-				if(!WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
+				if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
+				{	
+					droneRef.enemyState.enemyMoving.TargetBullet(otherCollider.transform.position.x, otherCollider.transform.position.z);
+				}
+
+				else
 				{
 					otherCollider.GetComponent<Bullet>().Deactivate();
 					
- 					droneRef.enemyState.CurGameObjStatus = StateManager.Instance.damaged;
+					droneRef.enemyState.CurGameObjStatus = StateManager.Instance.damaged;
 					StateManager.Instance.damaged.Attacker = (BaseEntity)machineGunRef;
 					StateManager.Instance.damaged.Defender = (BaseEntity)droneRef;
 					droneRef.enemyState.ActivateStatus();

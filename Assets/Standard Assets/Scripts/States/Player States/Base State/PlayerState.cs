@@ -25,7 +25,7 @@ public class PlayerState : AbstractState
 			CurGameObjStatus.ResolveState();
 		}
 	}
-	
+
 	public AbstractState CurPlayerState { get { return absState;} set { absState = value; }}
 }
 
