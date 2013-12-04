@@ -7,7 +7,7 @@ public class EnemyState : AbstractState
 	public Orbiting orbiting;
 	public Chained chained;
 	public Dead dead;
-	
+
 	void Awake()
 	{
 		enemyMoving = gameObject.GetComponent<EnemyMoving>();
@@ -15,7 +15,7 @@ public class EnemyState : AbstractState
 		chained = gameObject.GetComponent<Chained>();
 		dead = gameObject.GetComponent<Dead>();
 	}
-	
+
 	public void ActivateState()
 	{
 		if(CurDroneState != null)

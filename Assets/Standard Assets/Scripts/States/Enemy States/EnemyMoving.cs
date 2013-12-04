@@ -5,12 +5,10 @@ public class EnemyMoving : AbstractState
 {
 	private float deviationX;
 	private float deviationZ;
-	private float x;
-	private float z;
 	
 	public float height;
-	public float enemyMovingSpeed;
 	public PlayerTrigger playerTriggerRef;
+	public float speedMoving;
 
 	void Start()
 	{
@@ -30,30 +28,15 @@ public class EnemyMoving : AbstractState
 			transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,height, height),transform.position.z);
 		}
 	}
-
-	public void TargetBullet(float x, float z)
-	{
-		StateManager.Instance.targetPos = new Vector3(x, height, z);
-		transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,height, height),transform.position.z);
-	}
-
-	private void MoveDrone (Vector3 start, Vector3 target, float maxDistDelta) 
+	
+	public void MoveDrone (Vector3 start, Vector3 target, float maxDistDelta) 
 	{	
 		transform.position = Vector3.MoveTowards(start, target, maxDistDelta);	
-    }
+	}
 	
- 	public override void ResolveState()
+	public override void ResolveState()
 	{
 		TargetPlayer();
-		MoveDrone(transform.position, StateManager.Instance.targetPos, enemyMovingSpeed * Time.deltaTime);
-
-		if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
-		{
-			TargetBullet(X, Z);
-		}
+		MoveDrone(transform.position, StateManager.Instance.targetPos, speedMoving * Time.deltaTime);
 	}
-
-	public float X {set { x = value;} get{ return x; } }
-	public float Z {set { z = value;} get{ return z; } }
 }
-

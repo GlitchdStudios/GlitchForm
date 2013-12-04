@@ -18,6 +18,11 @@ public class Bullet : BaseEntity
 		thisTransform = transform;
 		passDroneRef = new List<Drone>();
 		bulletState = gameObject.GetComponent<BulletState>();
+
+		if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
+		{
+			(collider as SphereCollider).radius = 3f;
+		}
 	}
 
     // Update is called once per frame
@@ -73,7 +78,6 @@ public class Bullet : BaseEntity
 		{	
 			if(droneRef[i] != null)
 			{
-				droneRef[i].enemyState.enemyMoving.TargetPlayer();
 				droneRef[i].speed *= -1;
 				droneRef[i].enemyState.CurDroneState = droneRef[i].enemyState.enemyMoving;
 
@@ -100,6 +104,7 @@ public class Bullet : BaseEntity
 		{ 
 			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 			{
+				inactive = true;
 				bulletState.CurBulletState = bulletState.chainActive;
 				droneRef.speed = 5f;
 			}

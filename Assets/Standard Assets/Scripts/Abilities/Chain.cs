@@ -21,8 +21,6 @@ public class Chain : Ability
 				drone.enemyState.chained.Setup(col, location);
 				drone.enemyState.CurDroneState = drone.enemyState.chained;
 			}
-			
-			bullet.inactive = true;
         }
 	}
 }

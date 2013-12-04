@@ -20,8 +20,6 @@ public class CollisionManager : Singleton<CollisionManager>
 			if(otherCollider.name == "Chain")
 			{
 				WeaponManager.Instance.bulletScr.SetAbilities(PickupManager.Instance.abilityCollection[(int)AbilityTypes.Chain]);
-					
-				Debug.Log("Chain!!!!!!!!"  + PickupManager.Instance.abilityCollection[(int)AbilityTypes.Chain]);
 			}
 		}
 	}
@@ -74,13 +72,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		{
 			if(bulletRef.tag == "Bullet")
 			{
-				if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
-				{	
-					droneRef.enemyState.enemyMoving.X = otherCollider.transform.position.x;
-					droneRef.enemyState.enemyMoving.Z = otherCollider.transform.position.z;
-				}
-
-				else
+				if(!WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 				{
 					otherCollider.GetComponent<Bullet>().Deactivate();
 					

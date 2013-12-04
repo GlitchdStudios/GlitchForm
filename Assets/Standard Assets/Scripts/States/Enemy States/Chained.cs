@@ -6,7 +6,8 @@ public class Chained : AbstractState
 	public float height;
 	public Collider otherCollider;
 	public Transform location;
-	
+	public float speedChained;
+
 	public void Setup(Collider m_otherCollider, Transform m_location)
 	{
 		otherCollider = m_otherCollider;
@@ -19,8 +20,7 @@ public class Chained : AbstractState
 		{	
 			StateManager.Instance.targetPos = new Vector3(x, height, z);
 			transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, height, height),transform.position.z);
-		}
-		
+		}	
 	}
 	
 	public void MoveDrone (Vector3 start, Vector3 target, float maxDistDelta) 
@@ -31,6 +31,7 @@ public class Chained : AbstractState
 	public override void ResolveState() 
 	{
 		TargetBullet(location.position.x, location.position.z);
+		MoveDrone(transform.position, StateManager.Instance.targetPos, speedChained * Time.deltaTime);
 	}
 }
 

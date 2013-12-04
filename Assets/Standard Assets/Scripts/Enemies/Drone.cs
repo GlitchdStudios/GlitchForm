@@ -24,13 +24,12 @@ public class Drone : BaseEntity
 		baseHealth = 20;
 		baseDamage = 1;
 		speed = 5f;
-		
+
 		enemyState = gameObject.GetComponent<EnemyState>();
 		
 		Angle = Random.Range(-20,20);
 		
 		enemyState.CurDroneState = enemyState.enemyMoving;
-		enemyState.enemyMoving.TargetPlayer();
 	}
 	
 	// Update is called once per frame
@@ -38,7 +37,8 @@ public class Drone : BaseEntity
 	{	
 		if(enemyState.CurDroneState == enemyState.enemyMoving)
 		{
-			enemyState.enemyMoving.enemyMovingSpeed = speed;
+			enemyState.enemyMoving.speedMoving = speed;
+			enemyState.chained.speedChained = speed;
 			enemyState.ActivateState();
 		}
 		
