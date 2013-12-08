@@ -15,13 +15,13 @@ public class PlayerMovement : MonoBehaviour
 		Screen.showCursor = false;
 		Screen.lockCursor = true;
 		
-		float xPos = Input.GetAxis("Mouse Y") * playerSpeed;
-		float zPos = Input.GetAxis("Mouse X") * -playerSpeed;
+		float xPos = Input.GetAxis("Mouse X") * playerSpeed;
+		float yPos = Input.GetAxis("Mouse Y") * playerSpeed;
 		
         xPos *= Time.deltaTime;
-		zPos *= Time.deltaTime;
+		yPos *= Time.deltaTime;
 		
-        transform.Translate(xPos,0,zPos);
+        transform.Translate(xPos,yPos, 0);
 	}
 }
 

@@ -1,38 +1,39 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\States\Enemy States\Chained.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\General Scripts\DroneBounds.cs">
     <Files>
-      <File FileName="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="16" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" Line="41" Column="2" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="39" Column="6" />
       <File FileName="Assets\Standard Assets\Scripts\States\Player States\PlayerMoving.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\EnemyMoving.cs" Line="31" Column="2" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\EnemyMoving.cs" Line="7" Column="26" />
       <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Attacking.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Player Scripts\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Player States\Base State\PlayerState.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Base State\EnemyState.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Abstract State\AbstractState.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Abilities\Chain.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Chained.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Chained.cs" Line="16" Column="43" />
       <File FileName="Assets\Standard Assets\Scripts\Abilities\Ability.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\ChainActive.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\Base State\BulletState.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Orbiting.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Orbiting.cs" Line="17" Column="72" />
       <File FileName="Assets\Standard Assets\Scripts\States\Universal States\Dead.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Universal States\Damaged.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Weapons\MachineGun.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Base Entity\BaseEntity.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Weapons\MachineGun.cs" Line="23" Column="18" />
+      <File FileName="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" Line="13" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Base Entity\BaseEntity.cs" Line="8" Column="11" />
       <File FileName="Assets\Standard Assets\Scripts\Managers\StateManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerInnerTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="54" Column="41" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" Line="15" Column="19" />
+      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerTrigger.cs" Line="12" Column="23" />
+      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerInnerTrigger.cs" Line="6" Column="23" />
+      <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="52" Column="25" />
       <File FileName="Assets\Standard Assets\Scripts\General Scripts\Singleton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\General Scripts\DroneBounds.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\General Scripts\WorldtoScreen.cs" Line="18" Column="23" />
-      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerMovement.cs" Line="24" Column="35" />
-      <File FileName="Assets\Standard Assets\Scripts\General Scripts\ScreenBounds.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\DroneBounds.cs" Line="30" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\WorldtoScreen.cs" Line="5" Column="2" />
+      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerMovement.cs" Line="19" Column="43" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\ScreenBounds.cs" Line="44" Column="59" />
+      <File FileName="Assets\Standard Assets\Scripts\Camera Scripts\SmoothFollow.js" Line="50" Column="42" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -40,11 +41,14 @@
           <Node name="Assembly-CSharp-firstpass" expanded="True">
             <Node name="Standard Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="States" expanded="True">
-                  <Node name="Enemy States" expanded="True">
-                    <Node name="Chained.cs" selected="True" />
-                  </Node>
+                <Node name="Enemies" expanded="True" />
+                <Node name="General Scripts" expanded="True">
+                  <Node name="DroneBounds.cs" selected="True" />
                 </Node>
+                <Node name="Managers" expanded="True" />
+                <Node name="Player Scripts" expanded="True" />
+                <Node name="Projectiles" expanded="True" />
+                <Node name="Weapons" expanded="True" />
               </Node>
             </Node>
           </Node>

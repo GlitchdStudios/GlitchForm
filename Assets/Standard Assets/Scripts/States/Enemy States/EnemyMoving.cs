@@ -4,9 +4,8 @@ using System.Collections;
 public class EnemyMoving : AbstractState
 {
 	private float deviationX;
-	private float deviationZ;
-	
-	public float height;
+	private float deviationY;
+
 	public PlayerTrigger playerTriggerRef;
 	public float speedMoving;
 
@@ -17,15 +16,15 @@ public class EnemyMoving : AbstractState
 		
 		if(EnemyManager.Instance.target != null) 
 			deviationX = Random.Range(-(playerTriggerRef.collider as SphereCollider).radius, (playerTriggerRef.collider as SphereCollider).radius);
-			deviationZ = Random.Range(-(playerTriggerRef.collider as SphereCollider).radius, (playerTriggerRef.collider as SphereCollider).radius);
+			deviationY = Random.Range(-(playerTriggerRef.collider as SphereCollider).radius, (playerTriggerRef.collider as SphereCollider).radius);
 	}
 	
 	public void TargetPlayer()
 	{
 		if(EnemyManager.Instance.target != null)
 		{
-			StateManager.Instance.targetPos = new Vector3(EnemyManager.Instance.target.transform.position.x + deviationX, height, EnemyManager.Instance.target.transform.position.z + deviationZ);
-			transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,height, height),transform.position.z);
+			StateManager.Instance.targetPos = new Vector3(EnemyManager.Instance.target.transform.position.x + deviationX, EnemyManager.Instance.target.transform.position.y + deviationY);
+			transform.position = new Vector3(transform.position.x, transform.position.y);
 		}
 	}
 	
@@ -33,7 +32,7 @@ public class EnemyMoving : AbstractState
 	{	
 		transform.position = Vector3.MoveTowards(start, target, maxDistDelta);	
 	}
-	
+
 	public override void ResolveState()
 	{
 		TargetPlayer();

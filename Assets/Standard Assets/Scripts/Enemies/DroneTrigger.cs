@@ -7,13 +7,6 @@ public class DroneTrigger : MonoBehaviour
 	{
 		CollisionManager.Instance.DroneTriggerEnter(col, transform);
 	}
-	
-	public void SetTriggerHeight(float height)
-	{
-		height *= -1;
-		
-		transform.localPosition = new Vector3(0f, height, 0f);
-	}
 }
 
 

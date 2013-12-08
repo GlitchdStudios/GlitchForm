@@ -4,15 +4,15 @@ using System.Collections;
 public class Drone : BaseEntity
 {
 	private DroneTrigger droneTrigger;
+	private SpriteRenderer spriteDraw;
 	private int range;
-	
-	public float height;
+
 	public float speed;
 	public bool damagePlayer;
 	
 	//States
 	public EnemyState enemyState;
-	
+
 	void Awake()
 	{
 		droneTrigger = gameObject.GetComponentInChildren<DroneTrigger>();	
@@ -30,6 +30,8 @@ public class Drone : BaseEntity
 		Angle = Random.Range(-20,20);
 		
 		enemyState.CurDroneState = enemyState.enemyMoving;
+		drawOrder -= 1;
+		gameObject.renderer.sortingOrder = drawOrder;
 	}
 	
 	// Update is called once per frame
@@ -41,12 +43,10 @@ public class Drone : BaseEntity
 			enemyState.chained.speedChained = speed;
 			enemyState.ActivateState();
 		}
-		
-		droneTrigger.SetTriggerHeight(transform.position.y);
-		
+
 		CheckDroneStatus();
 		
-		Debug.Log("Current Drone State: " + enemyState.CurDroneState);
+		//Debug.Log("Current Drone State: " + enemyState.CurDroneState);
 	}
 	
 	public IEnumerator ResetSpeed()
@@ -57,7 +57,7 @@ public class Drone : BaseEntity
 			speed = 5f;
 		}
 	}
-	
+
 	private void CheckDroneStatus()
 	{
 		if(baseHealth <= 0)//dead

@@ -14,6 +14,6 @@ public class Orbiting : AbstractState
 	
 	public override void ResolveState()
 	{
-		otherCollider.transform.parent.RotateAround(trigger.position, Vector3.up, otherCollider.transform.parent.GetComponent<Drone>().Angle * Time.deltaTime);
+		otherCollider.transform.parent.RotateAround(trigger.position, Vector3.back, otherCollider.transform.parent.GetComponent<Drone>().Angle * Time.deltaTime);
 	}
 }

@@ -28,20 +28,20 @@ public class ScreenBounds : MonoBehaviour
 	{
 		Boundary();
 	}
-	
+
 	public virtual void Boundary()
 	{
-		transform.position = new Vector3( 	Mathf.Clamp(transform.position.x, bottom, top),
-									  		transform.position.y,
-									  		Mathf.Clamp(transform.position.z, right, left));									 
+		transform.position = new Vector3( 	Mathf.Clamp(transform.position.x, left, right),
+		                                 	Mathf.Clamp(transform.position.y, bottom, top),
+								  			transform.position.z);									 
 	}
 	
 	public virtual void SetBounds()
 	{
-		top = worldtoScreen.top - mesh.bounds.extents.x;
-		bottom = worldtoScreen.bottom + mesh.bounds.extents.x;
-		left = worldtoScreen.left - mesh.bounds.extents.z;
-		right = worldtoScreen.right + mesh.bounds.extents.z;
+		top = worldtoScreen.top - renderer.bounds.extents.y;
+		bottom = worldtoScreen.bottom + renderer.bounds.extents.y;
+		left = worldtoScreen.left + renderer.bounds.extents.x;
+		right = worldtoScreen.right - renderer.bounds.extents.x;
 	}
 }
 
