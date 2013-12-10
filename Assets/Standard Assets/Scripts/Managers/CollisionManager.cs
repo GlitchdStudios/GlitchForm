@@ -34,13 +34,20 @@ public class CollisionManager : Singleton<CollisionManager>
 				if(otherCollider != null && trigger != null)
 				{
 					Player playerRef = trigger.parent.GetComponent<Player>();
-					
+					float dist = Vector3.Distance(otherCollider.transform.position, trigger.position);
+
+					if(dist <= 1.5)
+					{
+						droneRef.speed = -5;
+						droneRef.enemyState.CurDroneState = droneRef.enemyState.enemyMoving;
+					}
+
 					//Orbiting
 					droneRef.enemyState.orbiting.SetOrbit(otherCollider, trigger);
 					droneRef.enemyState.ActivateState();
-						
-//					if(!droneRef.damagePlayer)
-//						StartCoroutine(DroneAttack(playerRef, droneRef));
+					
+					//					if(!droneRef.damagePlayer)
+					//						StartCoroutine(DroneAttack(playerRef, droneRef));
 					
 					//Debug.Log("Health: " + playerRef.health);
 				}
@@ -85,19 +92,6 @@ public class CollisionManager : Singleton<CollisionManager>
 		}
 	}
 	
-	public void PlayerInnerTriggerEnter(Collider otherCollider)
-	{
-		Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
-		if(otherCollider != null)
-		{
-			if(otherCollider.name == "DroneTrigger")
-			{
-				droneRef.speed = -5f;
-				droneRef.enemyState.CurDroneState = droneRef.enemyState.enemyMoving;
-			}
-		}
-	}
-	
 	private IEnumerator DroneAttack(Player player, Drone drone)
 	{	
 		drone.damagePlayer = true;
@@ -105,7 +99,6 @@ public class CollisionManager : Singleton<CollisionManager>
 		yield return new WaitForSeconds(2.0f);
 		
 		player.Health -= drone.Damage;
-		drone.damagePlayer = false;
+		drone.damagePlayer = false;                                                                                                            
 	}
 }
-

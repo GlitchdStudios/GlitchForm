@@ -5,7 +5,9 @@ public class PlayerInnerTrigger : MonoBehaviour
 {
 	public void OnTriggerEnter(Collider col)
 	{
-		CollisionManager.Instance.PlayerInnerTriggerEnter(col);
+		//CollisionManager.Instance.PlayerInnerTriggerEnter(col);
+
+		Debug.Log("PlayerInnerTriggerEnter");
 	}
 }
 

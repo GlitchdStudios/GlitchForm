@@ -25,7 +25,7 @@ public class DroneBounds : ScreenBounds
 	
 	public override void Boundary()
 	{
-		if(transform.position.x > top || transform.position.x < bottom || transform.position.z > left || transform.position.z < right)
+		if(transform.position.y > top || transform.position.y < bottom || transform.position.x < left || transform.position.x > right)
 		{
 			StartCoroutine(droneScr.ResetSpeed());
 		}
@@ -33,10 +33,15 @@ public class DroneBounds : ScreenBounds
 	
 	public override void SetBounds()
 	{
-		top = worldtoScreen.top;
-		bottom = worldtoScreen.bottom;
-		left = worldtoScreen.left;
-		right = worldtoScreen.right;
+		top = worldtoScreen.top + 2f;
+		bottom = worldtoScreen.bottom - 2f;
+		left = worldtoScreen.left - 2f;
+		right = worldtoScreen.right + 2f;
+
+		Debug.Log("Top: " + top);
+		Debug.Log("Bottom: " + bottom);
+		Debug.Log("Left: " + left);
+		Debug.Log("Right: " + right);
 	}
 }
 

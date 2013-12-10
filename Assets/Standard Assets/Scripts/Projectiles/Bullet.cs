@@ -44,7 +44,7 @@ public class Bullet : BaseEntity
 		if(inactive == false)
 		{
 	        float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
-	        thisTransform.Translate(Vector3.right * movement);
+	        thisTransform.Translate(Vector3.up * movement);
 		}
     }
 
