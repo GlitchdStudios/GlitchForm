@@ -36,7 +36,7 @@ public class CollisionManager : Singleton<CollisionManager>
 					Player playerRef = trigger.parent.GetComponent<Player>();
 					float dist = Vector3.Distance(otherCollider.transform.position, trigger.position);
 
-					if(dist <= 1.5)
+					if(dist <= 2.0 && (droneRef.enemyState.CurDroneState != droneRef.enemyState.chained))
 					{
 						droneRef.speed = -5;
 						droneRef.enemyState.CurDroneState = droneRef.enemyState.enemyMoving;

@@ -23,14 +23,14 @@ public class EnemyMoving : AbstractState
 	{
 		if(EnemyManager.Instance.target != null)
 		{
-			StateManager.Instance.targetPos = new Vector3(EnemyManager.Instance.target.transform.position.x + deviationX, EnemyManager.Instance.target.transform.position.y + deviationY);
-			transform.position = new Vector3(transform.position.x, transform.position.y);
+			StateManager.Instance.targetPos = new Vector2(EnemyManager.Instance.target.transform.position.x + deviationX, EnemyManager.Instance.target.transform.position.y + deviationY);
+			transform.position = new Vector2(transform.position.x, transform.position.y);
 		}
 	}
 	
-	public void MoveDrone (Vector3 start, Vector3 target, float maxDistDelta) 
+	public void MoveDrone (Vector2 start, Vector2 target, float maxDistDelta) 
 	{	
-		transform.position = Vector3.MoveTowards(start, target, maxDistDelta);	
+		transform.position = Vector2.MoveTowards(start, target, maxDistDelta);	
 	}
 
 	public override void ResolveState()

@@ -35,17 +35,12 @@ public class Bullet : BaseEntity
 	void OnDisable()
 	{	
 		RevertState(passDroneRef);
-		
-		inactive = false;
 	}
 
     private void MoveProjectile()
     { 
-		if(inactive == false)
-		{
-	        float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
-	        thisTransform.Translate(Vector3.up * movement);
-		}
+		float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
+	    thisTransform.Translate(Vector3.up * movement);
     }
 
     public void Activate()
@@ -104,7 +99,6 @@ public class Bullet : BaseEntity
 		{ 
 			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 			{
-				inactive = true;
 				bulletState.CurBulletState = bulletState.chainActive;
 				droneRef.speed = 5f;
 			}

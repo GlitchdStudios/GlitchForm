@@ -12,7 +12,7 @@ public class EnemyManager : Singleton<EnemyManager>
 	
 	void Start()
 	{
-		numOfDrones = 1;
+		numOfDrones = 10;
 		
 		droneScr = new Drone[numOfDrones];
 		clone = new GameObject[numOfDrones];

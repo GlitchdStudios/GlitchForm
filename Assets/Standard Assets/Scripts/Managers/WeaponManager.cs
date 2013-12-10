@@ -30,12 +30,12 @@ public class WeaponManager : Singleton<WeaponManager>
 		{
 			case "MachineGun":
 					rof = 0.2f;
-					projectileSpeed = 10f;
+					projectileSpeed = 8f;
 					damage = 5;
 			break;
 		}
 	}
-	
+
 	public int Ammo 				{ get {return ammo;}  }
 	public float LifeTime 		{ get {return lifeTime;}  }
 	public int Damage			{ get {return damage;} }
