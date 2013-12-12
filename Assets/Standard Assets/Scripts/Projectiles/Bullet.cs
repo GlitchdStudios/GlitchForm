@@ -4,10 +4,9 @@ using System.Collections.Generic;
 
 public class Bullet : BaseEntity
 {
-    private float time;
-    private Transform thisTransform;
-	
-	public bool inactive;
+	private float time;
+	private Transform thisTransform;
+
 	public List<Drone> passDroneRef;
 	
 	//State
@@ -18,48 +17,48 @@ public class Bullet : BaseEntity
 		thisTransform = transform;
 		passDroneRef = new List<Drone>();
 		bulletState = gameObject.GetComponent<BulletState>();
-
+		
 		if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 		{
 			(collider as SphereCollider).radius = 3f;
 		}
 	}
-
-    // Update is called once per frame
-    void FixedUpdate ()
-    {
+	
+	// Update is called once per frame
+	void FixedUpdate ()
+	{
 		MoveProjectile();
-        LifeSpan();
-    }
+		LifeSpan();
+	}
 	
 	void OnDisable()
 	{	
 		RevertState(passDroneRef);
 	}
-
-    private void MoveProjectile()
-    { 
+	
+	private void MoveProjectile()
+	{ 
 		float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
-	    thisTransform.Translate(Vector3.up * movement);
-    }
-
-    public void Activate()
-    {
-        time = Time.time + WeaponManager.Instance.LifeTime;
-    }
-
-    public void Deactivate()
-    {
-        gameObject.SetActive(false);
-    }
-
-    private void LifeSpan()
-    {
-        if(time <= Time.time)
-        {
-            Deactivate();
-        }
-    }
+		thisTransform.Translate(Vector3.up * movement);
+	}
+	
+	public void Activate()
+	{
+		time = Time.time + WeaponManager.Instance.LifeTime;
+	}
+	
+	public void Deactivate()
+	{
+		gameObject.SetActive(false);
+	}
+	
+	private void LifeSpan()
+	{
+		if(time <= Time.time)
+		{
+			Deactivate();
+		}
+	}
 	
 	public void SetAbilities(Ability newAbilities) //Pass the abilities that are actively on the weapon
 	{
@@ -75,11 +74,6 @@ public class Bullet : BaseEntity
 			{
 				droneRef[i].speed *= -1;
 				droneRef[i].enemyState.CurDroneState = droneRef[i].enemyState.enemyMoving;
-
-				if(gameObject.activeSelf)
-				{
-					StartCoroutine(droneRef[i].ResetSpeed());
-				}
 			}
 		}
 	}
@@ -110,4 +104,3 @@ public class Bullet : BaseEntity
 		ActivateChain(col);
 	}
 }
-

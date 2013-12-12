@@ -30,7 +30,7 @@ public class WeaponManager : Singleton<WeaponManager>
 		{
 			case "MachineGun":
 					rof = 0.2f;
-					projectileSpeed = 8f;
+					projectileSpeed = 5f;
 					damage = 5;
 			break;
 		}

@@ -22,9 +22,11 @@ public class Chained : AbstractState
 		}	
 	}
 	
-	public void MoveDrone (Vector3 start, Vector3 target, float maxDistDelta) 
+	public void MoveDrone (Vector2 start, Vector2 target, float maxDistDelta) 
 	{	
-		transform.position = Vector2.MoveTowards(start, target, maxDistDelta);	
+		Vector2 dir = target - start;
+		dir = dir.normalized;
+		rigidbody2D.AddForce(10 * dir);
     }
 	
 	public override void ResolveState() 
