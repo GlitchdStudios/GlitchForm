@@ -6,7 +6,18 @@ public class Chained : AbstractState
 	public Collider otherCollider;
 	public Transform location;
 	public float speedChained;
+	public Transform center;
+	public Vector3 desiredPosition;
+	public float radius = 2.0f;
+	public float rotationSpeed = 80.0f;
 
+	void Start()
+	{
+		center = transform;
+		transform.position = (transform.position - center.position).normalized * radius + center.position;
+		radius = 2.0f;
+	}
+	
 	public void Setup(Collider m_otherCollider, Transform m_location)
 	{
 		otherCollider = m_otherCollider;
@@ -24,9 +35,9 @@ public class Chained : AbstractState
 	
 	public void MoveDrone (Vector2 start, Vector2 target, float maxDistDelta) 
 	{	
-		Vector2 dir = target - start;
-		dir = dir.normalized;
-		rigidbody2D.AddForce(10 * dir);
+		transform.RotateAround (center.position, Vector3.back, rotationSpeed * Time.deltaTime);
+		desiredPosition = (transform.position - center.position).normalized * radius + center.position;
+        transform.position = Vector2.MoveTowards(transform.position, desiredPosition, Time.deltaTime * maxDistDelta);
     }
 	
 	public override void ResolveState() 

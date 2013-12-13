@@ -1,25 +1,25 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs">
     <Files>
-      <File FileName="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" Line="59" Column="17" />
+      <File FileName="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" Line="76" Column="5" />
       <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="25" Column="3" />
       <File FileName="Assets\Standard Assets\Scripts\States\Player States\PlayerMoving.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\EnemyMoving.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\EnemyMoving.cs" Line="25" Column="4" />
       <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Attacking.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Player Scripts\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Player States\Base State\PlayerState.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Base State\EnemyState.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Base State\EnemyState.cs" Line="25" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Abstract State\AbstractState.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Abilities\Chain.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Chained.cs" Line="29" Column="26" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Chained.cs" Line="38" Column="56" />
       <File FileName="Assets\Standard Assets\Scripts\Abilities\Ability.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\ChainActive.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\Base State\BulletState.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Orbiting.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Orbiting.cs" Line="19" Column="2" />
       <File FileName="Assets\Standard Assets\Scripts\States\Universal States\Dead.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Universal States\Damaged.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" Line="33" Column="25" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" Line="10" Column="32" />
       <File FileName="Assets\Standard Assets\Scripts\Weapons\MachineGun.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Base Entity\BaseEntity.cs" Line="1" Column="1" />
@@ -27,7 +27,7 @@
       <File FileName="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerTrigger.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerInnerTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="42" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\General Scripts\Singleton.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\General Scripts\DroneBounds.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\General Scripts\WorldtoScreen.cs" Line="1" Column="1" />
@@ -45,13 +45,15 @@
                 <Node name="Abilities" expanded="True" />
                 <Node name="Enemies" expanded="True" />
                 <Node name="General Scripts" expanded="True" />
-                <Node name="Managers" expanded="True">
-                  <Node name="WeaponManager.cs" selected="True" />
-                </Node>
+                <Node name="Managers" expanded="True" />
                 <Node name="Player Scripts" expanded="True" />
-                <Node name="Projectiles" expanded="True" />
+                <Node name="Projectiles" expanded="True">
+                  <Node name="Bullet.cs" selected="True" />
+                </Node>
                 <Node name="States" expanded="True">
-                  <Node name="Enemy States" expanded="True" />
+                  <Node name="Enemy States" expanded="True">
+                    <Node name="Base State" expanded="True" />
+                  </Node>
                 </Node>
               </Node>
             </Node>
@@ -68,13 +70,14 @@
           <Value>defender.Health</Value>
           <Value>droneRef.enemyState.CurDroneState</Value>
           <Value>droneRef.enemyState.enemyMoving.target</Value>
+          <Value>speed</Value>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\States\Enemy States\Chained.cs" line="29" />
+      <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\Enemies\Drone.cs" line="42" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

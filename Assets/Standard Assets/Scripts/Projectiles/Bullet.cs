@@ -6,9 +6,10 @@ public class Bullet : BaseEntity
 {
 	private float time;
 	private Transform thisTransform;
+	private bool inactive;
 
 	public List<Drone> passDroneRef;
-	
+
 	//State
 	public BulletState bulletState;
 	
@@ -37,9 +38,10 @@ public class Bullet : BaseEntity
 	}
 	
 	private void MoveProjectile()
-	{ 
-		float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
-		thisTransform.Translate(Vector3.up * movement);
+	{
+
+			float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
+			thisTransform.Translate(Vector3.up * movement);
 	}
 	
 	public void Activate()
@@ -72,6 +74,7 @@ public class Bullet : BaseEntity
 		{	
 			if(droneRef[i] != null)
 			{
+				droneRef[i].rigidbody2D.velocity = new Vector2(0,0);
 				droneRef[i].speed *= -1;
 				droneRef[i].enemyState.CurDroneState = droneRef[i].enemyState.enemyMoving;
 			}
@@ -93,6 +96,7 @@ public class Bullet : BaseEntity
 		{ 
 			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 			{
+				inactive = true;
 				bulletState.CurBulletState = bulletState.chainActive;
 				droneRef.speed = 5f;
 			}
