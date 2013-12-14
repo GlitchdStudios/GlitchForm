@@ -3,7 +3,13 @@ using System.Collections;
 
 public class Chain : Ability
 {
-	private int numOfChains;
+	private float speedReduction;
+
+	void Start()
+	{
+		speedReduction = 7f;
+		WeaponManager.Instance.SetAbilityStats(0, -speedReduction, 0, 5f);
+	}
 
 	public void ActivateChainBullet(Transform location, Collider col)
 	{	
@@ -18,7 +24,7 @@ public class Chain : Ability
 			}
 			else
 			{
-				drone.enemyState.chained.Setup(col, location);
+				drone.enemyState.chained.Setup(location);
 				drone.enemyState.CurDroneState = drone.enemyState.chained;
 			}
         }

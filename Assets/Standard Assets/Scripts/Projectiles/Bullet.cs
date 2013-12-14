@@ -6,7 +6,6 @@ public class Bullet : BaseEntity
 {
 	private float time;
 	private Transform thisTransform;
-	private bool inactive;
 
 	public List<Drone> passDroneRef;
 
@@ -21,7 +20,7 @@ public class Bullet : BaseEntity
 		
 		if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 		{
-			(collider as SphereCollider).radius = 3f;
+			(collider as SphereCollider).radius = 5f;
 		}
 	}
 	
@@ -39,9 +38,8 @@ public class Bullet : BaseEntity
 	
 	private void MoveProjectile()
 	{
-
-			float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
-			thisTransform.Translate(Vector3.up * movement);
+		float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
+		thisTransform.Translate(Vector3.up * movement);
 	}
 	
 	public void Activate()
@@ -96,7 +94,6 @@ public class Bullet : BaseEntity
 		{ 
 			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 			{
-				inactive = true;
 				bulletState.CurBulletState = bulletState.chainActive;
 				droneRef.speed = 5f;
 			}

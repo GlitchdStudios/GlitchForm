@@ -12,7 +12,7 @@ public class MachineGun : BaseEntity
 	
     void Awake()
     {
-		WeaponManager.Instance.SetWeaponStats(gameObject);
+		WeaponManager.Instance.SetWeaponStats();
         thisTransform = transform;
 		clone = new GameObject[WeaponManager.Instance.Ammo]; 					// This needs to run before the projectiles are instantiated
         InstantiateProjectiles();

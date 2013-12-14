@@ -24,7 +24,7 @@ public class EnemyMoving : AbstractState
 		if(EnemyManager.Instance.target != null)
 		{
 			StateManager.Instance.targetPos = new Vector2(EnemyManager.Instance.target.transform.position.x + deviationX, EnemyManager.Instance.target.transform.position.y + deviationY);
-			transform.position = new Vector2(transform.position.x, transform.position.y);
+			//transform.position = new Vector2(transform.position.x, transform.position.y);
 		}
 	}
 	
