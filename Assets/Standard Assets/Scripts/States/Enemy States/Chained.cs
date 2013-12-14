@@ -18,26 +18,25 @@ public class Chained : AbstractState
 		location = m_location;
 		radius = 2.0f;
 
-		if(EnemyManager.Instance.target != null) 
-			deviationX = Random.Range(-(location.collider as SphereCollider).radius, (location.collider as SphereCollider).radius);
-			deviationY = Random.Range(-(location.collider as SphereCollider).radius, (location.collider as SphereCollider).radius);
+//		if(EnemyManager.Instance.target != null) 
+//			deviationX = Random.Range(-(location.collider as SphereCollider).radius, (location.collider as SphereCollider).radius);
+//			deviationY = Random.Range(-(location.collider as SphereCollider).radius, (location.collider as SphereCollider).radius);
 	}
 
 	public void TargetBullet(float x, float y)
 	{
 		if(EnemyManager.Instance.target != null)
 		{	
-			StateManager.Instance.targetPos = new Vector2(x + deviationX, y + deviationY);
+			StateManager.Instance.targetPos = new Vector2(x, y);
 			//transform.position = new Vector2(transform.position.x,transform.position.y);
 		}	
 	}
 	
 	public void MoveDrone (Vector2 start, Vector2 target, float maxDistDelta) 
 	{	
-		//dir = (transform.position - StateManager.Instance.targetPos).normalized * radius + StateManager.Instance.targetPos; 
-		transform.RotateAround(target, Vector3.back, 80);
-
-		transform.position = Vector2.MoveTowards(start, target, maxDistDelta);
+		dir = (transform.position - StateManager.Instance.targetPos).normalized * radius + StateManager.Instance.targetPos; 
+		transform.position = Vector2.MoveTowards(start, dir, maxDistDelta);
+		transform.RotateAround(target, Vector3.back, 3);
     }
 	
 	public override void ResolveState() 

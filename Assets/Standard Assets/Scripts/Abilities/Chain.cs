@@ -17,12 +17,8 @@ public class Chain : Ability
         {
 			Bullet bullet = location.GetComponent<Bullet>();
 			Drone drone = col.transform.parent.GetComponent<Drone>();
-			
-			if(drone.enemyState.CurDroneState == drone.enemyState.chained)
-			{
-				drone.enemyState.ActivateState();
-			}
-			else
+
+			if(drone.enemyState.CurDroneState != drone.enemyState.chained)
 			{
 				drone.enemyState.chained.Setup(location);
 				drone.enemyState.CurDroneState = drone.enemyState.chained;

@@ -48,6 +48,14 @@ public class Drone : BaseEntity
 		
 		//Debug.Log("Current Drone State: " + enemyState.CurDroneState);
 	}
+
+	void FixedUpdate()
+	{
+		if(enemyState.CurDroneState == enemyState.chained)
+		{
+			enemyState.ActivateState();
+		}
+	}
 	
 	public IEnumerator ResetSpeed()
 	{
