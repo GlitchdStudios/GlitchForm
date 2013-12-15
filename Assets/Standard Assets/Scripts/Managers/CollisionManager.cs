@@ -13,13 +13,17 @@ public class CollisionManager : Singleton<CollisionManager>
 			if(otherCollider.name == "DroneTrigger")
 			{
 				Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
-				droneRef.enemyState.CurDroneState = droneRef.enemyState.orbiting;
-				droneRef.speed = 0f;		
+				if(droneRef.enemyState.CurDroneState != droneRef.enemyState.chained)
+				{
+					droneRef.enemyState.CurDroneState = droneRef.enemyState.orbiting;
+					droneRef.speed = 0f;
+				}
 			}
 			
 			if(otherCollider.name == "Chain")
 			{
 				WeaponManager.Instance.bulletScr.SetAbilities(PickupManager.Instance.abilityCollection[(int)AbilityTypes.Chain]);
+				WeaponManager.Instance.SetAbilityStats(0, -WeaponManager.Instance.chainScr.speedReduction, -4, 5f);
 			}
 		}
 	}
@@ -33,23 +37,26 @@ public class CollisionManager : Singleton<CollisionManager>
 			{
 				if(otherCollider != null && trigger != null)
 				{
-					Player playerRef = trigger.parent.GetComponent<Player>();
-					float dist = Vector3.Distance(otherCollider.transform.position, trigger.position);
-
-					if(dist <= 2.0 && (droneRef.enemyState.CurDroneState != droneRef.enemyState.chained))
+					if(droneRef.enemyState.CurDroneState != droneRef.enemyState.chained)
 					{
-						droneRef.speed = -5;
-						droneRef.enemyState.CurDroneState = droneRef.enemyState.enemyMoving;
-					}
+						Player playerRef = trigger.parent.GetComponent<Player>();
+						float dist = Vector3.Distance(otherCollider.transform.position, trigger.position);
 
-					//Orbiting
-					droneRef.enemyState.orbiting.SetOrbit(otherCollider, trigger);
-					droneRef.enemyState.ActivateState();
-					
-					//					if(!droneRef.damagePlayer)
-					//						StartCoroutine(DroneAttack(playerRef, droneRef));
-					
-					//Debug.Log("Health: " + playerRef.health);
+						if(dist <= 2.0)
+						{
+							droneRef.speed = -5;
+							droneRef.enemyState.CurDroneState = droneRef.enemyState.enemyMoving;
+						}
+
+						//Orbiting
+						droneRef.enemyState.orbiting.SetOrbit(otherCollider, trigger);
+						droneRef.enemyState.ActivateState();
+						
+						if(!droneRef.damagePlayer)
+							StartCoroutine(DroneAttack(playerRef, droneRef));
+						
+						//Debug.Log("Health: " + playerRef.health);
+					}
 				}
 			}	
 		}
@@ -62,9 +69,12 @@ public class CollisionManager : Singleton<CollisionManager>
 			if(otherCollider.name == "DroneTrigger")
 			{
 				Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
-				
-				droneRef.speed = 5f;
-				droneRef.enemyState.CurDroneState = droneRef.enemyState.enemyMoving;
+
+				if(droneRef.enemyState.CurDroneState != droneRef.enemyState.chained)
+				{
+					droneRef.speed = 5f;
+					droneRef.enemyState.CurDroneState = droneRef.enemyState.enemyMoving;
+				}
 			}
 		}
 	}

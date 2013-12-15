@@ -3,12 +3,15 @@ using System.Collections;
 
 public class Chain : Ability
 {
-	private float speedReduction;
+	private MachineGun machineGunRef;
 
+	public float speedReduction;
+	public GameObject machineGun;
+	
 	void Start()
 	{
+		machineGunRef = machineGun.GetComponent<MachineGun>();
 		speedReduction = 7f;
-		WeaponManager.Instance.SetAbilityStats(0, -speedReduction, 0, 5f);
 	}
 
 	public void ActivateChainBullet(Transform location, Collider col)
@@ -23,7 +26,17 @@ public class Chain : Ability
 				drone.enemyState.chained.Setup(location);
 				drone.enemyState.CurDroneState = drone.enemyState.chained;
 			}
+			StartCoroutine(ChainDot(drone));
         }
+	}
+
+	private IEnumerator ChainDot(Drone droneRef)
+	{	
+		yield return new WaitForSeconds(2.0f);
+		droneRef.enemyState.CurGameObjStatus = StateManager.Instance.damaged;
+		StateManager.Instance.damaged.Attacker = (BaseEntity)machineGunRef;
+		StateManager.Instance.damaged.Defender = (BaseEntity)droneRef;
+		droneRef.enemyState.ActivateStatus();
 	}
 }
 

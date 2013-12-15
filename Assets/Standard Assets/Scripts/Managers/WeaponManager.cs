@@ -8,40 +8,43 @@ public class WeaponManager : Singleton<WeaponManager>
 	private float lifeTime;
     private float rof;
 	private float projectileSpeed;
-	private int damage;
 	
 	public GameObject bullet;
 	public GameObject chain;
+	public GameObject machineGun;
 	public List<Ability> abilities = new List<Ability>();
-	
+
+	public MachineGun machineGunScr;
+	public Bullet bulletScr;
+
 	//Abilities
 	public Chain chainScr;
-	public Bullet bulletScr;
 	
 	void Start()
 	{
-		chainScr = WeaponManager.Instance.chain.GetComponent<Chain>();
-		bulletScr = WeaponManager.Instance.bullet.GetComponent<Bullet>();
+		chainScr = chain.GetComponent<Chain>();
+
+		machineGunScr = machineGun.GetComponent<MachineGun>();
+		bulletScr = bullet.GetComponent<Bullet>();
 	}
 	 
 	public void SetWeaponStats()
 	{
 		rof = 0.2f;
 		projectileSpeed = 10f;
-		damage = 5;
+		lifeTime = 2f;
 	}
 
 	public void SetAbilityStats(float rofChange, float speedChange, int damageChange, float lifeTimeChange)
 	{
 		rof += rofChange;
 		projectileSpeed += speedChange;
-		damage += damageChange;
-		lifeTime = lifeTimeChange;
+		machineGunScr.Damage += damageChange;
+		lifeTime += lifeTimeChange;
 	}
 
 	public int Ammo 				{ get {return ammo;}  }
 	public float LifeTime 		{ get {return lifeTime;}  }
-	public int Damage			{ get {return damage;} }
 	
 	public float RoF 				{ set { rof = value; } get {return rof;}  }
 	public float ProjectileSpeed 	{ set { projectileSpeed = value; } get {return projectileSpeed;}  }
