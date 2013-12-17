@@ -23,7 +23,8 @@ public class CollisionManager : Singleton<CollisionManager>
 			if(otherCollider.name == "Chain")
 			{
 				WeaponManager.Instance.bulletScr.SetAbilities(PickupManager.Instance.abilityCollection[(int)AbilityTypes.Chain]);
-				WeaponManager.Instance.SetAbilityStats(0, -WeaponManager.Instance.chainScr.speedReduction, -4, 5f);
+				WeaponManager.Instance.SetAbilityStats(0, -PickupManager.Instance.chainScr.speedReduction, -4, 5f);
+				Destroy(otherCollider.gameObject);
 			}
 		}
 	}

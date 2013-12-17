@@ -8,11 +8,12 @@ public class StateManager : Singleton<StateManager>
 	public GameObject drone;
 	
 	public Vector3 targetPos;
-	
-	//Entity Classes
+
 	public Player playerScr; 
-	
+
+	//Universal States
 	public Damaged damaged;
+	public Dead dead;
 	
 	void Start()
 	{
@@ -20,6 +21,7 @@ public class StateManager : Singleton<StateManager>
 		playerScr = player.GetComponent<Player>();	
 		
 		damaged = stateDummy.GetComponent<Damaged>();
+		dead = stateDummy.GetComponent<Dead>();
 	}
 }
 
