@@ -72,9 +72,9 @@ public class Bullet : BaseEntity
 		{	
 			if(droneRef[i] != null)
 			{
-				droneRef[i].rigidbody2D.velocity = new Vector2(0,0);
-				droneRef[i].speed *= -1;
 				droneRef[i].enemyState.CurDroneState = droneRef[i].enemyState.enemyMoving;
+				droneRef[i].enemyState.CurMovementDirState = droneRef[i].enemyState.backward;
+				droneRef[i].enemyState.ActivateMovementDirState((BaseEntity)droneRef[i]);
 			}
 		}
 	}
@@ -95,7 +95,8 @@ public class Bullet : BaseEntity
 			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 			{
 				bulletState.CurBulletState = bulletState.chainActive;
-				droneRef.speed = 5f;
+				droneRef.enemyState.CurMovementDirState = droneRef.enemyState.forward;
+				droneRef.enemyState.ActivateMovementDirState((BaseEntity)droneRef);
 			}
 		}
 	}

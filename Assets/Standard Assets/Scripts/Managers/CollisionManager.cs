@@ -16,14 +16,16 @@ public class CollisionManager : Singleton<CollisionManager>
 				if(droneRef.enemyState.CurDroneState != droneRef.enemyState.chained)
 				{
 					droneRef.enemyState.CurDroneState = droneRef.enemyState.orbiting;
-					droneRef.speed = 0f;
+
+					droneRef.enemyState.CurMovementDirState = droneRef.enemyState.stopped;
+					droneRef.enemyState.ActivateMovementDirState(droneRef);
 				}
 			}
 			
 			if(otherCollider.name == "Chain")
 			{
 				WeaponManager.Instance.bulletScr.SetAbilities(PickupManager.Instance.abilityCollection[(int)AbilityTypes.Chain]);
-				WeaponManager.Instance.SetAbilityStats(0, -PickupManager.Instance.chainScr.speedReduction, -4, 5f);
+				WeaponManager.Instance.SetAbilityStats(2f, -PickupManager.Instance.chainScr.speedReduction, -4, 5f);
 				Destroy(otherCollider.gameObject);
 			}
 		}
@@ -45,7 +47,9 @@ public class CollisionManager : Singleton<CollisionManager>
 
 						if(dist <= 2.0)
 						{
-							droneRef.speed = -5;
+							droneRef.enemyState.CurMovementDirState = droneRef.enemyState.backward;
+							droneRef.enemyState.ActivateMovementDirState(droneRef);
+
 							droneRef.enemyState.CurDroneState = droneRef.enemyState.enemyMoving;
 						}
 
@@ -73,8 +77,10 @@ public class CollisionManager : Singleton<CollisionManager>
 
 				if(droneRef.enemyState.CurDroneState != droneRef.enemyState.chained)
 				{
-					droneRef.speed = 5f;
 					droneRef.enemyState.CurDroneState = droneRef.enemyState.enemyMoving;
+
+					droneRef.enemyState.CurMovementDirState = droneRef.enemyState.forward;
+					droneRef.enemyState.ActivateMovementDirState(droneRef);
 				}
 			}
 		}

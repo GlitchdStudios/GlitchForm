@@ -6,8 +6,7 @@ public class Drone : BaseEntity
 	private DroneTrigger droneTrigger;
 	private SpriteRenderer spriteDraw;
 	private int range;
-
-	public float speed;
+	
 	public bool damagePlayer;
 	
 	//States
@@ -23,7 +22,7 @@ public class Drone : BaseEntity
 	{
 		baseHealth = 20;
 		baseDamage = 1;
-		speed = 5f;
+		baseSpeed = 5f;
 
 		enemyState = gameObject.GetComponent<EnemyState>();
 		
@@ -39,8 +38,8 @@ public class Drone : BaseEntity
 	{	
 		if(enemyState.CurDroneState == enemyState.enemyMoving)
 		{
-			enemyState.enemyMoving.speedMoving = speed;
-			enemyState.chained.speedChained = speed;
+			enemyState.enemyMoving.speedMoving = baseSpeed;
+			enemyState.chained.speedChained = baseSpeed;
 			enemyState.ActivateState();
 		}
 
@@ -60,9 +59,9 @@ public class Drone : BaseEntity
 	public IEnumerator ResetSpeed()
 	{
 		yield return new WaitForSeconds(2.0f);
-		if(speed < 0)
+		if(baseSpeed < 0)
 		{
-			speed = 5f;
+			baseSpeed = 5f;
 		}
 	}
 
