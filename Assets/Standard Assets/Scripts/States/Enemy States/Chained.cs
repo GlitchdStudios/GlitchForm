@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Chained : AbstractState
 {
-
 	private float deviation;
 
 	public Transform location;
@@ -15,10 +14,10 @@ public class Chained : AbstractState
 	{
 		//otherCollider = m_otherCollider;
 		location = m_location;
-		radius = 2.0f;
+		radius = 1.0f;
 
 		if(EnemyManager.Instance.target != null) 
-			deviation = Random.Range(0f, (location.collider as SphereCollider).radius - 3f);
+			deviation = Random.Range(0.5f, (location.collider as SphereCollider).radius - 2f);
 	}
 
 	public void TargetBullet(float x, float y)

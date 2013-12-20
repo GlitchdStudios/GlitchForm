@@ -45,7 +45,7 @@ public class CollisionManager : Singleton<CollisionManager>
 						Player playerRef = trigger.parent.GetComponent<Player>();
 						float dist = Vector3.Distance(otherCollider.transform.position, trigger.position);
 
-						if(dist <= 2.0)
+						if(dist <= 2.0f && droneRef.enemyState.CurDroneState != droneRef.enemyState.chained)
 						{
 							droneRef.enemyState.CurMovementDirState = droneRef.enemyState.backward;
 							droneRef.enemyState.ActivateMovementDirState(droneRef);
