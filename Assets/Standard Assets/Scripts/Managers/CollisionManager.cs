@@ -25,7 +25,6 @@ public class CollisionManager : Singleton<CollisionManager>
 			if(otherCollider.name == "Chain")
 			{
 				WeaponManager.Instance.bulletScr.SetAbilities(PickupManager.Instance.abilityCollection[(int)AbilityTypes.Chain]);
-				WeaponManager.Instance.SetAbilityStats(2f, -PickupManager.Instance.chainScr.speedReduction, -4, 5f);
 				Destroy(otherCollider.gameObject);
 			}
 		}
@@ -90,9 +89,8 @@ public class CollisionManager : Singleton<CollisionManager>
 	{
 		Drone droneRef = trigger.transform.parent.GetComponent<Drone>();
 		Bullet bulletRef = otherCollider.GetComponent<Bullet>();
-		MachineGun machineGunRef = player.GetComponentInChildren<MachineGun>();
 		
-		if(bulletRef != null && droneRef != null && machineGunRef != null)
+		if(bulletRef != null && droneRef != null)
 		{
 			if(bulletRef.tag == "Bullet")
 			{
@@ -101,7 +99,7 @@ public class CollisionManager : Singleton<CollisionManager>
 					otherCollider.GetComponent<Bullet>().Deactivate();
 					
 					droneRef.enemyState.CurGameObjStatus = StateManager.Instance.damaged;
-					StateManager.Instance.damaged.Attacker = (BaseEntity)machineGunRef;
+					StateManager.Instance.damaged.Attacker = (BaseEntity)bulletRef;
 					StateManager.Instance.damaged.Defender = (BaseEntity)droneRef;
 					droneRef.enemyState.ActivateStatus();
 				}

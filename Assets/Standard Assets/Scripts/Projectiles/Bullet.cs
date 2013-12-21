@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 public class Bullet : BaseEntity
 {
-	private float time;
-	private Transform thisTransform;
+	public float time;
+	public Transform thisTransform;
+	public float projectileSpeed;
+	public float lifeTime;
 
 	public List<Drone> passDroneRef;
 
@@ -17,7 +19,7 @@ public class Bullet : BaseEntity
 		thisTransform = transform;
 		passDroneRef = new List<Drone>();
 		bulletState = gameObject.GetComponent<BulletState>();
-		
+
 		if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
 		{
 			(collider as SphereCollider).radius = 5f;
@@ -38,13 +40,13 @@ public class Bullet : BaseEntity
 	
 	private void MoveProjectile()
 	{
-		float movement = WeaponManager.Instance.ProjectileSpeed * Time.deltaTime;
+		float movement = projectileSpeed * Time.deltaTime;
 		thisTransform.Translate(Vector3.up * movement);
 	}
 	
 	public void Activate()
 	{
-		time = Time.time + WeaponManager.Instance.LifeTime;
+		time = Time.time + lifeTime;
 	}
 	
 	public void Deactivate()
@@ -83,6 +85,14 @@ public class Bullet : BaseEntity
 	{	
 		bulletState.chainActive.SetupChain(otherCollider, transform);
 		bulletState.ActivateState();
+	}
+
+	public void SetAbilityStats(float rofChange, float speedChange, int damageChange, float lifeTimeChange)
+	{
+		WeaponManager.Instance.RoF += rofChange;
+		projectileSpeed += speedChange;
+		baseDamage += damageChange;
+		lifeTime += lifeTimeChange;
 	}
 	
 	public void OnTriggerEnter(Collider col)

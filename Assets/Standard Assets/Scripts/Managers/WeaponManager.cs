@@ -35,18 +35,9 @@ public class WeaponManager : Singleton<WeaponManager>
 		lifeTime = 2f;
 	}
 	
-	public void SetAbilityStats(float rofChange, float speedChange, int damageChange, float lifeTimeChange)
-	{
-		rof += rofChange;
-		projectileSpeed += speedChange;
-		machineGunScr.Damage += damageChange;
-		lifeTime += lifeTimeChange;
-	}
-	
 	public int Ammo 				{ get {return ammo;}  }
 	public float LifeTime 		{ get {return lifeTime;}  }
 	
 	public float RoF 				{ set { rof = value; } get {return rof;}  }
 	public float ProjectileSpeed 	{ set { projectileSpeed = value; } get {return projectileSpeed;}  }
 }
-

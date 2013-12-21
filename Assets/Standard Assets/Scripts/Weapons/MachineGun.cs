@@ -3,97 +3,106 @@ using System.Collections;
 
 public class MachineGun : BaseEntity
 {
-    public GameObject projectilePrefab;
+	public GameObject projectilePrefab;
 	public GameObject[] clone;
 	
 	private int lastBullet;
 	private Transform thisTransform;
 	private bool locked;
+	private Bullet bulletRef;
 	
-    void Awake()
-    {
+	void Awake()
+	{
 		WeaponManager.Instance.SetWeaponStats();
-        thisTransform = transform;
+		thisTransform = transform;
 		clone = new GameObject[WeaponManager.Instance.Ammo]; 					// This needs to run before the projectiles are instantiated
-        InstantiateProjectiles();
-    }
+		InstantiateProjectiles();
+	}
 	
 	void Start()
 	{
 		baseDamage = 5;
 	}
 	
-    // Update is called once per frame
-    void Update ()
-    {
-        if(Input.GetKey(KeyCode.Space))
-        {   
-            if(IsInputLocked()){}
-
-            else
-            {
-				SetNextBullet();
-                ActivateProjectiles();
-                Lock();
-            }
-        }
-    }
-
-
-    private void InstantiateProjectiles()
-    {
-        for(int i = 0; i < clone.Length; i++)
-        {
-            clone[i] = (Instantiate(projectilePrefab, thisTransform.position, thisTransform.rotation) as GameObject);
-            clone[i].SetActive(false);
-        }
-
-    }
-
-    private void ActivateProjectiles()
+	// Update is called once per frame
+	void Update ()
 	{
-        if(clone[GetNextBullet()].activeSelf == false)
-        {
-			//clone[GetLastBullet()].rigidbody.velocity.Set(Vector3.zero);  //Use if isKinematic causes problems
-            clone[GetNextBullet()].SetActive(true);
-            clone[GetNextBullet()].GetComponent<Bullet>().Activate();
-            clone[GetNextBullet()].transform.position = thisTransform.position;
-        }   
-    }
+		if(Input.GetKey(KeyCode.Space))
+		{   
+			if(IsInputLocked()){}
+			
+			else
+			{
+				SetNextBullet();
+				ActivateProjectiles();
+				Lock();
+			}
+		}
+	}
+	
+	
+	private void InstantiateProjectiles()
+	{
+		for(int i = 0; i < clone.Length; i++)
+		{
+			clone[i] = (Instantiate(projectilePrefab, thisTransform.position, thisTransform.rotation) as GameObject);
+			clone[i].SetActive(false);
+		}
+		
+	}
+	
+	private void ActivateProjectiles()
+	{
+		if(clone[GetNextBullet()].activeSelf == false)
+		{
+			bulletRef = clone[GetNextBullet()].GetComponent<Bullet>();
 
-    private void Lock()
-    {
-        locked = true;
+			//Initialize Bullet variables
+			bulletRef.projectileSpeed = WeaponManager.Instance.ProjectileSpeed;
+			bulletRef.lifeTime = WeaponManager.Instance.LifeTime;
 
-        Invoke("Unlock", WeaponManager.Instance.RoF);
-    }
+			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
+			{
+				bulletRef.SetAbilityStats(2f, -PickupManager.Instance.chainScr.speedReduction, -4, 5f);
+			}
 
-    private void Unlock()
-    {
-        locked = false;
-    }
-
-    private bool IsInputLocked()
-    {
-        return locked;
-    }	
+			clone[GetNextBullet()].SetActive(true);
+			clone[GetNextBullet()].GetComponent<Bullet>().Activate();
+			clone[GetNextBullet()].transform.position = thisTransform.position;
+		}   
+	}
+	
+	private void Lock()
+	{
+		locked = true;
+		
+		Invoke("Unlock", WeaponManager.Instance.RoF);
+	}
+	
+	private void Unlock()
+	{
+		locked = false;
+	}
+	
+	private bool IsInputLocked()
+	{
+		return locked;
+	}	
 	
 	private void SetNextBullet()
 	{
 		lastBullet += 1;
-        if(lastBullet >= WeaponManager.Instance.Ammo -1)
-        {
-            lastBullet = 0;//reset the loop
-        }
-
-       // Debug.Log("LastBullet = " + lastBullet);
+		if(lastBullet >= WeaponManager.Instance.Ammo -1)
+		{
+			lastBullet = 0;//reset the loop
+		}
+		
+		// Debug.Log("LastBullet = " + lastBullet);
 	}
 	
-    private int GetNextBullet()
-    {
-        return lastBullet;
-    }
-    
+	private int GetNextBullet()
+	{
+		return lastBullet;
+	}
+	
 }
-
-
