@@ -1,9 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs">
     <Files>
-      <File FileName="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="27" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" Line="23" Column="18" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="98" Column="6" />
       <File FileName="Assets\Standard Assets\Scripts\States\Player States\PlayerMoving.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\EnemyMoving.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Attacking.cs" Line="1" Column="1" />
@@ -14,12 +14,12 @@
       <File FileName="Assets\Standard Assets\Scripts\Abilities\Chain.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Chained.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Abilities\Ability.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\ChainActive.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\ChainActive.cs" Line="17" Column="42" />
       <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\Base State\BulletState.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Orbiting.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Universal States\Dead.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Universal States\Damaged.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Weapons\MachineGun.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Weapons\MachineGun.cs" Line="16" Column="43" />
       <File FileName="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Base Entity\BaseEntity.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Managers\StateManager.cs" Line="1" Column="1" />
@@ -37,8 +37,9 @@
       <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Forward.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Backward.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Stopped.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" Line="43" Column="17" />
       <File FileName="Assets\Standard Assets\Scripts\Enemies\Bosses\MotherDrone.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\PickupManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -46,10 +47,21 @@
           <Node name="Assembly-CSharp-firstpass" expanded="True">
             <Node name="Standard Assets" expanded="True">
               <Node name="Scripts" expanded="True">
+                <Node name="Abilities" expanded="True" />
+                <Node name="Enemies" expanded="True" />
                 <Node name="General Scripts" expanded="True" />
                 <Node name="Managers" expanded="True">
-                  <Node name="CollisionManager.cs" selected="True" />
+                  <Node name="WeaponManager.cs" selected="True" />
                 </Node>
+                <Node name="Projectiles" expanded="True" />
+                <Node name="States" expanded="True">
+                  <Node name="Bullet States" expanded="True" />
+                  <Node name="Enemy States" expanded="True">
+                    <Node name="Base State" expanded="True" />
+                  </Node>
+                  <Node name="Universal States" expanded="True" />
+                </Node>
+                <Node name="Weapons" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -73,7 +85,9 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" line="79" />
+      <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" line="104" />
+      <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\States\Universal States\Damaged.cs" line="11" />
+      <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" line="70" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

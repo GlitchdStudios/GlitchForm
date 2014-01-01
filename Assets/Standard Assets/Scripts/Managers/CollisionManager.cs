@@ -94,7 +94,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		{
 			if(bulletRef.tag == "Bullet")
 			{
-				if(!WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
+				if(!WeaponManager.Instance.CurAbilitySet.Contains(WeaponManager.Instance.chainScr))
 				{
 					otherCollider.GetComponent<Bullet>().Deactivate();
 					

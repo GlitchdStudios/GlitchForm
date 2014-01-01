@@ -20,7 +20,9 @@ public class Bullet : BaseEntity
 		passDroneRef = new List<Drone>();
 		bulletState = gameObject.GetComponent<BulletState>();
 
-		if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
+		baseDamage = 5;
+
+		if(WeaponManager.Instance.CurAbilitySet.Contains(WeaponManager.Instance.chainScr))
 		{
 			(collider as SphereCollider).radius = 5f;
 		}
@@ -65,7 +67,7 @@ public class Bullet : BaseEntity
 	public void SetAbilities(Ability newAbilities) //Pass the abilities that are actively on the weapon
 	{
 		if(newAbilities != null)
-			WeaponManager.Instance.abilities.Add(newAbilities);
+			WeaponManager.Instance.CurAbilitySet.Add(newAbilities);
 	} 
 	
 	public void RevertState(List<Drone> droneRef)
@@ -102,7 +104,7 @@ public class Bullet : BaseEntity
 		
 		if(droneRef != null)
 		{ 
-			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
+			if(WeaponManager.Instance.CurAbilitySet.Contains(WeaponManager.Instance.chainScr))
 			{
 				bulletState.CurBulletState = bulletState.chainActive;
 				droneRef.enemyState.CurMovementDirState = droneRef.enemyState.forward;

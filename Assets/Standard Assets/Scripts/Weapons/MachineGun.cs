@@ -19,11 +19,6 @@ public class MachineGun : BaseEntity
 		InstantiateProjectiles();
 	}
 	
-	void Start()
-	{
-		baseDamage = 5;
-	}
-	
 	// Update is called once per frame
 	void Update ()
 	{
@@ -61,13 +56,13 @@ public class MachineGun : BaseEntity
 			bulletRef.projectileSpeed = WeaponManager.Instance.ProjectileSpeed;
 			bulletRef.lifeTime = WeaponManager.Instance.LifeTime;
 
-			if(WeaponManager.Instance.abilities.Contains(WeaponManager.Instance.chainScr))
+			if(WeaponManager.Instance.CurAbilitySet.Contains(WeaponManager.Instance.chainScr))
 			{
 				bulletRef.SetAbilityStats(2f, -PickupManager.Instance.chainScr.speedReduction, -4, 5f);
 			}
 
 			clone[GetNextBullet()].SetActive(true);
-			clone[GetNextBullet()].GetComponent<Bullet>().Activate();
+			bulletRef.GetComponent<Bullet>().Activate();
 			clone[GetNextBullet()].transform.position = thisTransform.position;
 		}   
 	}
