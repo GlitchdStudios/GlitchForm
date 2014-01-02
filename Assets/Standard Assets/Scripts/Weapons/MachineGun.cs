@@ -4,17 +4,25 @@ using System.Collections;
 public class MachineGun : BaseEntity
 {
 	public GameObject projectilePrefab;
+	public GameObject generalScrDummy;
 	public GameObject[] clone;
 	
 	private int lastBullet;
 	private Transform thisTransform;
-	private bool locked;
 	private Bullet bulletRef;
+	private RofController[] rofController;
 	
 	void Awake()
 	{
 		WeaponManager.Instance.SetWeaponStats();
 
+		rofController = new RofController[2];
+
+		for (int i = 0; i < rofController.Length; i++)
+		{
+			rofController[i] = generalScrDummy.GetComponent<RofController>();
+		}
+			
 		thisTransform = transform;
 		clone = new GameObject[WeaponManager.Instance.Ammo]; 					// This needs to run before the projectiles are instantiated
 		InstantiateProjectiles();
@@ -25,13 +33,13 @@ public class MachineGun : BaseEntity
 	{
 		if(Input.GetKey(KeyCode.Space))
 		{   
-			if(IsInputLocked()){}
-			
+			if(rofController[WeaponManager.Instance.AbilitySetIndex].IsInputLocked()){}
+
 			else
 			{
 				SetNextBullet();
 				ActivateProjectiles();
-				Lock();
+				rofController[WeaponManager.Instance.AbilitySetIndex].Lock();
 			}
 		}
 	}
@@ -70,23 +78,6 @@ public class MachineGun : BaseEntity
 			clone[GetNextBullet()].transform.position = thisTransform.position;
 		}   
 	}
-	
-	private void Lock()
-	{
-		locked = true;
-		
-		Invoke("Unlock", WeaponManager.Instance.RoF);
-	}
-	
-	public void Unlock()
-	{
-		locked = false;
-	}
-	
-	private bool IsInputLocked()
-	{
-		return locked;
-	}	
 	
 	private void SetNextBullet()
 	{
