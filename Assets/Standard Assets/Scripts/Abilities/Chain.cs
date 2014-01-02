@@ -3,14 +3,10 @@ using System.Collections;
 
 public class Chain : Ability
 {
-	private MachineGun machineGunRef;
-
 	public float speedReduction;
-	public GameObject machineGun;
 	
 	void Start()
 	{
-		machineGunRef = machineGun.GetComponent<MachineGun>();
 		speedReduction = 7f;
 	}
 
@@ -26,15 +22,15 @@ public class Chain : Ability
 				drone.enemyState.chained.Setup(location);
 				drone.enemyState.CurDroneState = drone.enemyState.chained;
 			}
-			StartCoroutine(ChainDot(drone));
+			StartCoroutine(ChainDot(drone, bullet));
         }
 	}
 
-	private IEnumerator ChainDot(Drone droneRef)
+	private IEnumerator ChainDot(Drone droneRef, Bullet bulletRef)
 	{	
 		yield return new WaitForSeconds(2.0f);
 		droneRef.enemyState.CurGameObjStatus = StateManager.Instance.damaged;
-		StateManager.Instance.damaged.Attacker = (BaseEntity)machineGunRef;
+		StateManager.Instance.damaged.Attacker = (BaseEntity)bulletRef;
 		StateManager.Instance.damaged.Defender = (BaseEntity)droneRef;
 		droneRef.enemyState.ActivateStatus();
 	}

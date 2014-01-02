@@ -8,6 +8,7 @@ public class WeaponManager : Singleton<WeaponManager>
 	private float lifeTime;
 	private float rof;
 	private float projectileSpeed;
+	private float cooldown;
 	private List<Ability>[] abilities = new List<Ability>[2];
 	private List<Ability> curAbilityList = new List<Ability>();
 
@@ -23,6 +24,8 @@ public class WeaponManager : Singleton<WeaponManager>
 	
 	void Start()
 	{
+		cooldown = 0.2f; 
+
 		for (int i = 0; i < abilities.Length; i++)
 		{
 			abilities[i] = new List<Ability>();
@@ -31,9 +34,13 @@ public class WeaponManager : Singleton<WeaponManager>
 		curAbilityList = abilities[0];
 
 		chainScr = chain.GetComponent<Chain>();
-		
 		machineGunScr = machineGun.GetComponent<MachineGun>();
 		bulletScr = bullet.GetComponent<Bullet>();
+	}
+
+	void Update()
+	{
+		ChangeAbilitySet();
 	}
 
 	public void SetWeaponStats()

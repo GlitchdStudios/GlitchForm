@@ -14,6 +14,7 @@ public class MachineGun : BaseEntity
 	void Awake()
 	{
 		WeaponManager.Instance.SetWeaponStats();
+
 		thisTransform = transform;
 		clone = new GameObject[WeaponManager.Instance.Ammo]; 					// This needs to run before the projectiles are instantiated
 		InstantiateProjectiles();
@@ -55,10 +56,13 @@ public class MachineGun : BaseEntity
 			//Initialize Bullet variables
 			bulletRef.projectileSpeed = WeaponManager.Instance.ProjectileSpeed;
 			bulletRef.lifeTime = WeaponManager.Instance.LifeTime;
+			WeaponManager.Instance.SetWeaponStats();
+			bulletRef.Damage = 5;
 
 			if(WeaponManager.Instance.CurAbilitySet.Contains(WeaponManager.Instance.chainScr))
 			{
 				bulletRef.SetAbilityStats(2f, -PickupManager.Instance.chainScr.speedReduction, -4, 5f);
+			    (bulletRef.collider as SphereCollider).radius = 5f;
 			}
 
 			clone[GetNextBullet()].SetActive(true);
@@ -74,7 +78,7 @@ public class MachineGun : BaseEntity
 		Invoke("Unlock", WeaponManager.Instance.RoF);
 	}
 	
-	private void Unlock()
+	public void Unlock()
 	{
 		locked = false;
 	}

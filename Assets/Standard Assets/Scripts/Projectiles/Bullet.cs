@@ -19,13 +19,6 @@ public class Bullet : BaseEntity
 		thisTransform = transform;
 		passDroneRef = new List<Drone>();
 		bulletState = gameObject.GetComponent<BulletState>();
-
-		baseDamage = 5;
-
-		if(WeaponManager.Instance.CurAbilitySet.Contains(WeaponManager.Instance.chainScr))
-		{
-			(collider as SphereCollider).radius = 5f;
-		}
 	}
 	
 	// Update is called once per frame
