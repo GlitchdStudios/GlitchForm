@@ -1,0 +1,116 @@
+{"frames": {
+
+"ShieldDrone_PowerCore0.png":
+{
+	"frame": {"x":660,"y":330,"w":328,"h":326},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore1.png":
+{
+	"frame": {"x":330,"y":330,"w":328,"h":326},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore10.png":
+{
+	"frame": {"x":2,"y":660,"w":328,"h":326},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore11.png":
+{
+	"frame": {"x":330,"y":330,"w":328,"h":326},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore12.png":
+{
+	"frame": {"x":660,"y":330,"w":328,"h":326},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore2.png":
+{
+	"frame": {"x":2,"y":660,"w":328,"h":326},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore3.png":
+{
+	"frame": {"x":2,"y":330,"w":328,"h":326},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore4.png":
+{
+	"frame": {"x":662,"y":2,"w":328,"h":326},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore5.png":
+{
+	"frame": {"x":332,"y":2,"w":328,"h":326},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore6.png":
+{
+	"frame": {"x":2,"y":2,"w":328,"h":326},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore7.png":
+{
+	"frame": {"x":332,"y":2,"w":328,"h":326},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore8.png":
+{
+	"frame": {"x":662,"y":2,"w":328,"h":326},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+},
+"ShieldDrone_PowerCore9.png":
+{
+	"frame": {"x":2,"y":330,"w":328,"h":326},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":93,"w":328,"h":326},
+	"sourceSize": {"w":512,"h":512}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "ShieldDrone_PowerCorePulse.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4cbce1b2cf926bf313ca75ce852704ba:9fe44a776ac3c3d1583fc8ce3d9e61b4:01dd331d2f412008efce585c7c5389b1$"
+}
+}

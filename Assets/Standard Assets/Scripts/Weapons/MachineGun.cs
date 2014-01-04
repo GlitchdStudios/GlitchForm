@@ -31,6 +31,8 @@ public class MachineGun : BaseEntity
 	// Update is called once per frame
 	void Update ()
 	{
+		WeaponManager.Instance.ChangeAbilitySet();
+
 		if(Input.GetKey(KeyCode.Space))
 		{   
 			if(rofController[WeaponManager.Instance.AbilitySetIndex].IsInputLocked()){}

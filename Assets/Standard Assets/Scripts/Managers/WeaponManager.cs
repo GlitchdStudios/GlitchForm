@@ -11,10 +11,12 @@ public class WeaponManager : Singleton<WeaponManager>
 	private List<Ability>[] abilities = new List<Ability>[2];
 	private List<Ability> curAbilityList = new List<Ability>();
 	private int abilitySetIndex;
+	private RofController rofController;
 
 	public GameObject bullet;
 	public GameObject chain;
 	public GameObject machineGun;
+	public GameObject generalScrDummy;
 
 	public MachineGun machineGunScr;
 	public Bullet bulletScr;
@@ -36,11 +38,7 @@ public class WeaponManager : Singleton<WeaponManager>
 		chainScr = chain.GetComponent<Chain>();
 		machineGunScr = machineGun.GetComponent<MachineGun>();
 		bulletScr = bullet.GetComponent<Bullet>();
-	}
-
-	void Update()
-	{
-		ChangeAbilitySet();
+		rofController = generalScrDummy.GetComponent<RofController>();
 	}
 
 	public void SetWeaponStats()
