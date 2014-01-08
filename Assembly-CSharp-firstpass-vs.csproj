@@ -50,6 +50,7 @@
      <Compile Include="Assets\Standard Assets\Scripts\Abilities\Chain.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Base Entity\BaseEntity.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Bosses\MotherDrone.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Enemies\Bosses\Shield Drones\ShieldEmission.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Drone.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\DroneBounds.cs" />
