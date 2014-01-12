@@ -4,10 +4,12 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 	private float playerSpeed;
-	
+	private Transform thisTransform;
+
 	void Start()
 	{
 		playerSpeed  = 3f;
+		thisTransform = transform;
 	}
 	
 	public void Movement()
@@ -21,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         xPos *= Time.deltaTime;
 		yPos *= Time.deltaTime;
 		
-        transform.Translate(xPos,yPos, 0);
+        thisTransform.Translate(xPos,yPos, 0);
 	}
 }
 

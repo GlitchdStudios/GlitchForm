@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DroneTrigger : MonoBehaviour
 {
-	public void OnTriggerEnter(Collider col)
+	public void OnTriggerEnter2D(Collider2D col)
 	{
 		CollisionManager.Instance.DroneTriggerEnter(col, transform);
 	}

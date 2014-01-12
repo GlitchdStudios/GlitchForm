@@ -6,7 +6,7 @@ public class CollisionManager : Singleton<CollisionManager>
 {	
 	public GameObject player;
 	
-	public void PlayerTriggerEnter(Collider otherCollider, Transform trigger)
+	public void PlayerTriggerEnter(Collider2D otherCollider, Transform trigger)
 	{
 		if(otherCollider != null && trigger != null)
 		{
@@ -30,13 +30,13 @@ public class CollisionManager : Singleton<CollisionManager>
 		}
 	}
 	
-	public void PlayerTriggerStay(Collider otherCollider, Transform trigger)
+	public void PlayerTriggerStay(Collider2D otherCollider, Transform trigger)
 	{
 		if(otherCollider != null)
 		{	
-			Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
 			if(otherCollider.name == "DroneTrigger")
 			{
+				Drone droneRef = otherCollider.transform.parent.GetComponent<Drone>();
 				if(otherCollider != null && trigger != null)
 				{
 					if(droneRef.enemyState.CurDroneState != droneRef.enemyState.chained)
@@ -66,7 +66,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		}
 	}
 	
-	public void PlayerTriggerExit(Collider otherCollider)
+	public void PlayerTriggerExit(Collider2D otherCollider)
 	{	
 		if(otherCollider != null)
 		{
@@ -85,7 +85,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		}
 	}
 	
-	public void DroneTriggerEnter(Collider otherCollider, Transform trigger)
+	public void DroneTriggerEnter(Collider2D otherCollider, Transform trigger)
 	{
 		Drone droneRef = trigger.transform.parent.GetComponent<Drone>();
 		Bullet bulletRef = otherCollider.GetComponent<Bullet>();
@@ -106,7 +106,19 @@ public class CollisionManager : Singleton<CollisionManager>
 			}
 		}
 	}
-	
+
+	public void ShieldWaveTriggerEnter(Collider2D col)
+	{
+		if(col != null)
+		{
+			Bullet bulletRef = col.GetComponent<Bullet>();
+			if(bulletRef.tag == "Bullet")
+			{
+				bulletRef.Deactivate();
+			}
+		}
+	}
+
 	private IEnumerator DroneAttack(Player player, Drone drone)
 	{	
 		drone.damagePlayer = true;

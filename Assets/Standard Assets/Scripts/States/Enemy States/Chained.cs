@@ -17,7 +17,7 @@ public class Chained : AbstractState
 		radius = 1.0f;
 
 		if(EnemyManager.Instance.target != null) 
-			deviation = Random.Range(0.5f, (location.collider as SphereCollider).radius - 2f);
+			deviation = Random.Range(0.5f, (location.collider2D as CircleCollider2D).radius - 2f);
 	}
 
 	public void TargetBullet(float x, float y)

@@ -10,7 +10,7 @@ public class Chain : Ability
 		speedReduction = 7f;
 	}
 
-	public void ActivateChainBullet(Transform location, Collider col)
+	public void ActivateChainBullet(Transform location, Collider2D col)
 	{	
 		if (col != null && location != null)
         {

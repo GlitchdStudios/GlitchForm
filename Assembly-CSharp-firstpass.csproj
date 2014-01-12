@@ -50,6 +50,7 @@
      <Compile Include="Assets\Standard Assets\Scripts\Abilities\Chain.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Base Entity\BaseEntity.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Bosses\MotherDrone.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Enemies\Bosses\Shield Drones\ShieldCol.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Bosses\Shield Drones\ShieldEmission.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Drone.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" />
@@ -65,7 +66,6 @@
      <Compile Include="Assets\Standard Assets\Scripts\Managers\StateManager.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Player Scripts\Player.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Player Scripts\PlayerInnerTrigger.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Player Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Player Scripts\PlayerTrigger.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" />

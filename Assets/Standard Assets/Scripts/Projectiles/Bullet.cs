@@ -69,16 +69,19 @@ public class Bullet : BaseEntity
 		{	
 			if(droneRef[i] != null)
 			{
-				droneRef[i].enemyState.CurDroneState = droneRef[i].enemyState.enemyMoving;
-				droneRef[i].enemyState.CurMovementDirState = droneRef[i].enemyState.backward;
-				droneRef[i].enemyState.ActivateMovementDirState((BaseEntity)droneRef[i]);
+				if(WeaponManager.Instance.CurAbilitySet.Contains(WeaponManager.Instance.chainScr))
+				{
+					droneRef[i].enemyState.CurDroneState = droneRef[i].enemyState.enemyMoving;
+					droneRef[i].enemyState.CurMovementDirState = droneRef[i].enemyState.backward;
+					droneRef[i].enemyState.ActivateMovementDirState((BaseEntity)droneRef[i]);
+				}
 			}
 		}
 	}
 	
-	public void ActivateChain(Collider otherCollider)
+	public void ActivateChain(Collider2D otherCollider)
 	{	
-		bulletState.chainActive.SetupChain(otherCollider, transform);
+		bulletState.chainActive.SetupChain(otherCollider, thisTransform);
 		bulletState.ActivateState();
 	}
 
@@ -90,23 +93,29 @@ public class Bullet : BaseEntity
 		lifeTime += lifeTimeChange;
 	}
 	
-	public void OnTriggerEnter(Collider col)
+	public void OnTriggerEnter2D(Collider2D col)
 	{
-		Drone droneRef = col.transform.parent.GetComponent<Drone>();
-		passDroneRef.Add(droneRef);
-		
-		if(droneRef != null)
-		{ 
-			if(WeaponManager.Instance.CurAbilitySet.Contains(WeaponManager.Instance.chainScr))
+		if(col != null)
+		{
+			if(col.name == "DroneTrigger")
 			{
-				bulletState.CurBulletState = bulletState.chainActive;
-				droneRef.enemyState.CurMovementDirState = droneRef.enemyState.forward;
-				droneRef.enemyState.ActivateMovementDirState((BaseEntity)droneRef);
+				Drone droneRef = col.transform.parent.GetComponent<Drone>();
+				passDroneRef.Add(droneRef);
+				
+				if(droneRef != null)
+				{ 
+					if(WeaponManager.Instance.CurAbilitySet.Contains(WeaponManager.Instance.chainScr))
+					{
+						bulletState.CurBulletState = bulletState.chainActive;
+						droneRef.enemyState.CurMovementDirState = droneRef.enemyState.forward;
+						droneRef.enemyState.ActivateMovementDirState((BaseEntity)droneRef);
+					}
+				}
 			}
 		}
 	}
 	
-	public void OnTriggerStay(Collider col)
+	public void OnTriggerStay2D(Collider2D col)
 	{
 		ActivateChain(col);
 	}

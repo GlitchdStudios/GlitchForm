@@ -15,8 +15,8 @@ public class EnemyMoving : AbstractState
 			playerTriggerRef = EnemyManager.Instance.target.GetComponentInChildren<PlayerTrigger>();
 		
 		if(EnemyManager.Instance.target != null) 
-			deviationX = Random.Range(-(playerTriggerRef.collider as SphereCollider).radius, (playerTriggerRef.collider as SphereCollider).radius);
-			deviationY = Random.Range(-(playerTriggerRef.collider as SphereCollider).radius, (playerTriggerRef.collider as SphereCollider).radius);
+			deviationX = Random.Range(-(playerTriggerRef.collider2D as CircleCollider2D).radius, (playerTriggerRef.collider2D as CircleCollider2D).radius);
+			deviationY = Random.Range(-(playerTriggerRef.collider2D as CircleCollider2D).radius, (playerTriggerRef.collider2D as CircleCollider2D).radius);
 	}
 	
 	public void TargetPlayer()

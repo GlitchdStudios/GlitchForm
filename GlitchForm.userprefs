@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\Enemies\Bosses\Shield Drones\ShieldEmission.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs">
     <Files>
       <File FileName="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="1" Column="1" />
@@ -23,10 +23,9 @@
       <File FileName="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Base Entity\BaseEntity.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Managers\StateManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" Line="39" Column="4" />
       <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerInnerTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="73" Column="40" />
       <File FileName="Assets\Standard Assets\Scripts\General Scripts\Singleton.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\General Scripts\DroneBounds.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\General Scripts\WorldtoScreen.cs" Line="1" Column="1" />
@@ -41,11 +40,27 @@
       <File FileName="Assets\Standard Assets\Scripts\Enemies\Bosses\MotherDrone.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Managers\PickupManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\General Scripts\RofController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Enemies\Bosses\Shield Drones\ShieldEmission.cs" Line="12" Column="18" />
+      <File FileName="Assets\Standard Assets\Scripts\Enemies\Bosses\Shield Drones\ShieldEmission.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Enemies\Bosses\Shield Drones\ShieldCol.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\ChargeActive.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="Assembly-CSharp-firstpass" expanded="True">
+            <Node name="Standard Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Enemies" expanded="True" />
+                <Node name="Managers" expanded="True">
+                  <Node name="EnemyManager.cs" selected="True" />
+                </Node>
+                <Node name="Player Scripts" expanded="True" />
+                <Node name="Projectiles" expanded="True" />
+                <Node name="States" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />
@@ -59,6 +74,7 @@
           <Value>droneRef.enemyState.enemyMoving.target</Value>
           <Value>speed</Value>
           <Value>bullet</Value>
+          <Value>curNumOfDrones</Value>
         </State>
       </Pad>
     </Pads>
@@ -67,7 +83,6 @@
     <BreakpointStore>
       <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" line="112" />
       <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\General Scripts\testTimer.cs" line="11" />
-      <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\States\Universal States\Damaged.cs" line="11" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
