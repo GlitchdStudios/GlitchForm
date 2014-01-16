@@ -7,13 +7,13 @@ public class EnemyManager : Singleton<EnemyManager>
 	public GameObject target;
 	public Drone[] droneScr;
 	public GameObject[] clone;
-
-	public int curNumOfDrones;
 	public int numOfDrones;
-	
+
+	private int curNumOfDrones;
+
 	void Start()
 	{
-		numOfDrones = 10;
+		numOfDrones = 14;
 		droneScr = new Drone[numOfDrones];
 		clone = new GameObject[numOfDrones];
 		
@@ -38,5 +38,7 @@ public class EnemyManager : Singleton<EnemyManager>
 			curNumOfDrones++;
 		}
 	}
+
+	public int CurNumOfDrones { set { curNumOfDrones = value;} get { return curNumOfDrones; } }
 }
 

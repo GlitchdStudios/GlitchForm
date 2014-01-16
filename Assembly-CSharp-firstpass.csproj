@@ -49,7 +49,8 @@
      <Compile Include="Assets\Standard Assets\Scripts\Abilities\Ability.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Abilities\Chain.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Base Entity\BaseEntity.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Enemies\Bosses\MotherDrone.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Enemies\Bosses\Mother Drone\DroneIndicator.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Enemies\Bosses\Mother Drone\MotherDrone.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Bosses\Shield Drones\ShieldCol.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Bosses\Shield Drones\ShieldEmission.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Enemies\Drone.cs" />

@@ -69,7 +69,7 @@ public class Drone : BaseEntity
 	{
 		if(baseHealth <= 0)//dead
 		{
-			EnemyManager.Instance.curNumOfDrones -= 1;
+			EnemyManager.Instance.CurNumOfDrones -= 1;
 			EnemyManager.Instance.SpawnDrones();
 
 			enemyState.CurGameObjStatus = enemyState.dead;
