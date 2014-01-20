@@ -17,26 +17,31 @@ public class EnemyManager : Singleton<EnemyManager>
 		droneScr = new Drone[numOfDrones];
 		clone = new GameObject[numOfDrones];
 		
-		StartCoroutine(LoadandInit());
+		StartCoroutine(InitAndSpawn());
 	}
 
-	public IEnumerator LoadandInit()
+	public IEnumerator InitAndSpawn()
 	{
 		while(curNumOfDrones < numOfDrones)
 		{
-			SpawnDrones();
 			yield return new WaitForSeconds(1f);
+			SpawnDrones();
 		}
-		curNumOfDrones = numOfDrones;
+	}
+
+	public IEnumerator Spawn()
+	{
+		if(curNumOfDrones < numOfDrones)
+		{
+			yield return new WaitForSeconds(5f);
+			SpawnDrones();
+		}
 	}
 
 	public void SpawnDrones()
 	{
-		if(curNumOfDrones < numOfDrones)
-		{
-			Instantiate(drone, transform.position, Quaternion.identity);
-			curNumOfDrones++;
-		}
+		Instantiate(drone, transform.position, Quaternion.identity);
+		curNumOfDrones++;
 	}
 
 	public int CurNumOfDrones { set { curNumOfDrones = value;} get { return curNumOfDrones; } }
