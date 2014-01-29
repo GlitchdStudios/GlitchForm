@@ -1,6 +1,6 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\General Scripts\OrthographicSize.cs">
     <Files>
       <File FileName="Assets\Standard Assets\Scripts\Projectiles\Bullet.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Managers\CollisionManager.cs" Line="1" Column="1" />
@@ -23,14 +23,13 @@
       <File FileName="Assets\Standard Assets\Scripts\Enemies\DroneTrigger.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Base Entity\BaseEntity.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Managers\StateManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" Line="28" Column="18" />
+      <File FileName="Assets\Standard Assets\Scripts\Managers\EnemyManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerTrigger.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Enemies\Drone.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\General Scripts\Singleton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\General Scripts\DroneBounds.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\General Scripts\WorldtoScreen.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\DroneBounds.cs" Line="16" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\WorldtoScreen.cs" Line="11" Column="30" />
       <File FileName="Assets\Standard Assets\Scripts\Player Scripts\PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\General Scripts\ScreenBounds.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Camera Scripts\SmoothFollow.js" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Camera Scripts\MouseOrbit.js" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Enemy States\Forward.cs" Line="1" Column="1" />
@@ -42,8 +41,9 @@
       <File FileName="Assets\Standard Assets\Scripts\Enemies\Bosses\Shield Drones\ShieldEmission.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\Enemies\Bosses\Shield Drones\ShieldCol.cs" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Scripts\States\Bullet States\ChargeActive.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\Enemies\Bosses\Mother Drone\DroneIndicator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Enemies\Bosses\Mother Drone\DroneIndicator.cs" Line="9" Column="10" />
       <File FileName="Assets\Standard Assets\Scripts\Enemies\Bosses\Mother Drone\MotherDrone.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\General Scripts\OrthographicSize.cs" Line="12" Column="44" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -51,18 +51,11 @@
           <Node name="Assembly-CSharp-firstpass" expanded="True">
             <Node name="Standard Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Base Entity" expanded="True" />
-                <Node name="Enemies" expanded="True">
-                  <Node name="Bosses" expanded="True">
-                    <Node name="Mother Drone" expanded="True" />
-                    <Node name="Shield Drones" expanded="True" />
-                  </Node>
-                </Node>
-                <Node name="General Scripts" expanded="True" />
-                <Node name="Managers" expanded="True">
-                  <Node name="EnemyManager.cs" selected="True" />
+                <Node name="General Scripts" expanded="True">
+                  <Node name="OrthographicSize.cs" selected="True" />
                 </Node>
               </Node>
+              <Node name="Sprites" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -80,6 +73,7 @@
           <Value>speed</Value>
           <Value>bullet</Value>
           <Value>curNumOfDrones</Value>
+          <Value>screenBounds.ship[1].sprite.bounds</Value>
         </State>
       </Pad>
     </Pads>
@@ -88,6 +82,7 @@
     <BreakpointStore>
       <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\Managers\WeaponManager.cs" line="112" />
       <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\General Scripts\testTimer.cs" line="11" />
+      <Breakpoint file="C:\Users\Soundwave\Documents\GlitchForm\Assets\Standard Assets\Scripts\General Scripts\OrthographicSize.cs" line="52" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

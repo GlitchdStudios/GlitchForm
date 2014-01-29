@@ -20,10 +20,10 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -3
-  maxTextureSize: 4096
+  textureFormat: -1
+  maxTextureSize: 2048
   textureSettings:
-    filterMode: 2
+    filterMode: -1
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -35,82 +35,86 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
   spriteSheet:
     sprites:
     - name: MotherDrone_Idle_0
       rect:
         serializedVersion: 2
-        x: 88
-        y: 1215
-        width: 834
-        height: 666
+        x: 6
+        y: 1668
+        width: 470
+        height: 374
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: MotherDrone_Idle_1
       rect:
         serializedVersion: 2
-        x: 1111
-        y: 1215
-        width: 836
-        height: 667
+        x: 482
+        y: 1668
+        width: 470
+        height: 374
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: MotherDrone_Idle_2
       rect:
         serializedVersion: 2
-        x: 2135
-        y: 1215
-        width: 836
-        height: 667
+        x: 958
+        y: 1668
+        width: 470
+        height: 374
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: MotherDrone_Idle_3
       rect:
         serializedVersion: 2
-        x: 3159
-        y: 1215
-        width: 836
-        height: 667
+        x: 1434
+        y: 1668
+        width: 470
+        height: 374
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: MotherDrone_Idle_4
       rect:
         serializedVersion: 2
-        x: 87
-        y: 191
-        width: 836
-        height: 667
+        x: 6
+        y: 1288
+        width: 470
+        height: 374
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: MotherDrone_Idle_5
       rect:
         serializedVersion: 2
-        x: 1111
-        y: 191
-        width: 836
-        height: 667
+        x: 482
+        y: 1288
+        width: 470
+        height: 374
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: MotherDrone_Idle_6
       rect:
         serializedVersion: 2
-        x: 2136
-        y: 191
-        width: 834
-        height: 666
+        x: 958
+        y: 1288
+        width: 470
+        height: 374
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: MotherDrone_Idle_7
       rect:
         serializedVersion: 2
-        x: 3160
-        y: 191
-        width: 834
-        height: 666
+        x: 1434
+        y: 1288
+        width: 470
+        height: 374
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 

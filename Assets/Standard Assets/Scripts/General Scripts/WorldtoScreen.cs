@@ -8,7 +8,7 @@ public class WorldtoScreen : MonoBehaviour
 	public float left;
 	public float right;
 
-	public void Awake()
+	public void SetWorldtoScreen()
 	{
 		var topRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
 		var bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));

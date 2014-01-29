@@ -1,0 +1,28 @@
+{"frames": {
+
+"Shell.png":
+{
+	"frame": {"x":2,"y":2,"w":44,"h":127},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":44,"h":127},
+	"sourceSize": {"w":44,"h":127}
+},
+"WholeCenter.png":
+{
+	"frame": {"x":48,"y":2,"w":52,"h":143},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":143},
+	"sourceSize": {"w":52,"h":143}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "Ship.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:9af28d74e52c6e3bfaf9434704bdb65a:15a44d8ce559d5c411e6aba443150e45:b414237d5d24c0850d68d2887c90abec$"
+}
+}
