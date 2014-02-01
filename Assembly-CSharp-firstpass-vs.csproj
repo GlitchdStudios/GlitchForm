@@ -87,6 +87,7 @@
      <Compile Include="Assets\Standard Assets\Scripts\States\Universal States\Damaged.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\States\Universal States\Dead.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Weapons\MachineGun.cs" />
+     <None Include="Assets\Standard Assets\Sprites\Player\Ship\PowerCore.txt" />
      <None Include="Assets\Standard Assets\Sprites\Enemies\ShieldDrone\Animations\PowerCorePulse.txt" />
      <None Include="Assets\Standard Assets\Sprites\Enemies\MotherDrone\Animations\MotherDrone_Idle.txt" />
      <None Include="Assets\Standard Assets\Sprites\Player\Ship\Ship.txt" />

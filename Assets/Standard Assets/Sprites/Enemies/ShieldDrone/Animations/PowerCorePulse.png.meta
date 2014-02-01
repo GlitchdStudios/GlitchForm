@@ -20,10 +20,10 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
-    filterMode: 2
+    filterMode: 1
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -44,118 +44,271 @@ TextureImporter:
     - name: PowerCorePulse_0
       rect:
         serializedVersion: 2
-        x: 92
-        y: 1629
-        width: 328
-        height: 326
+        x: 23
+        y: 919
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_1
       rect:
         serializedVersion: 2
-        x: 604
-        y: 1629
-        width: 328
-        height: 326
+        x: 151
+        y: 919
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_2
       rect:
         serializedVersion: 2
-        x: 1116
-        y: 1629
-        width: 328
-        height: 326
+        x: 279
+        y: 919
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_3
       rect:
         serializedVersion: 2
-        x: 1628
-        y: 1629
-        width: 328
-        height: 326
+        x: 407
+        y: 919
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_4
       rect:
         serializedVersion: 2
-        x: 92
-        y: 1117
-        width: 328
-        height: 326
+        x: 23
+        y: 791
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_5
       rect:
         serializedVersion: 2
-        x: 604
-        y: 1117
-        width: 328
-        height: 326
+        x: 151
+        y: 791
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_6
       rect:
         serializedVersion: 2
-        x: 1116
-        y: 1117
-        width: 328
-        height: 326
+        x: 279
+        y: 791
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_7
       rect:
         serializedVersion: 2
-        x: 1628
-        y: 1117
-        width: 328
-        height: 326
+        x: 407
+        y: 791
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_8
       rect:
         serializedVersion: 2
-        x: 92
-        y: 605
-        width: 328
-        height: 326
+        x: 23
+        y: 663
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_9
       rect:
         serializedVersion: 2
-        x: 604
-        y: 605
-        width: 328
-        height: 326
+        x: 151
+        y: 663
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_10
       rect:
         serializedVersion: 2
-        x: 1116
-        y: 605
-        width: 328
-        height: 326
+        x: 279
+        y: 663
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_11
       rect:
         serializedVersion: 2
-        x: 1628
-        y: 605
-        width: 328
-        height: 326
+        x: 407
+        y: 663
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: PowerCorePulse_12
       rect:
         serializedVersion: 2
-        x: 92
-        y: 93
-        width: 328
-        height: 326
+        x: 23
+        y: 535
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_13
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 535
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_14
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 535
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_15
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 535
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_16
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 407
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_17
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 407
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_18
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 407
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_19
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 407
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_20
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 279
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_21
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 279
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_22
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 279
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_23
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 279
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_24
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 151
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_25
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 151
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_26
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 151
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_27
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 151
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_28
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 23
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: PowerCorePulse_29
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 23
+        width: 82
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 
