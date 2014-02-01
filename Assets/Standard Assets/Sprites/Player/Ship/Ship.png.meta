@@ -23,7 +23,7 @@ TextureImporter:
   textureFormat: -3
   maxTextureSize: 512
   textureSettings:
-    filterMode: 2
+    filterMode: 1
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -48,20 +48,20 @@ TextureImporter:
     - name: Ship_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 55
-        width: 71
-        height: 199
+        x: 8
+        y: 47
+        width: 72
+        height: 201
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: Ship_1
       rect:
         serializedVersion: 2
-        x: 75
-        y: 30
-        width: 85
-        height: 224
+        x: 88
+        y: 26
+        width: 80
+        height: 222
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
