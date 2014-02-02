@@ -9,14 +9,13 @@ public class OrthographicSize : MonoBehaviour
 
 	void Awake()
 	{
-		camera.orthographicSize = ((Screen.height / 100f)/ 2.0f); // 100f is the PixelPerUnit that you have set on your sprite. Default is 100.
+		camera.orthographicSize = ((Screen.height / 2.0f)/ 100f); // 100f is the PixelPerUnit that you have set on your sprite. Default is 100.
 		worldtoScreen = GetComponent<WorldtoScreen>();
 		worldtoScreen.SetWorldtoScreen();
 	}
 
 	void Start ()
 	{
-
 		screenBounds = new ScreenBounds();
 		screenBounds.worldtoScreen = GetComponent<WorldtoScreen>();
 		screenBounds.player = playerObj;
