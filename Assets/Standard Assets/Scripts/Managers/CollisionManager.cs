@@ -125,7 +125,7 @@ public class CollisionManager : Singleton<CollisionManager>
 		
 		yield return new WaitForSeconds(2.0f);
 		
-		player.Health -= drone.Damage;
+//		player.Health -= drone.Damage;
 		drone.damagePlayer = false;                                                                                                            
 	}
 }

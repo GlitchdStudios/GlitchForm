@@ -7,7 +7,7 @@ public class Backward : AbstractState
 
 	void Start()
 	{
-		m_speed = -5f;
+		m_speed = -200f;
 	}
 
 	public override void ResolveState(BaseEntity baseEntity)

@@ -5,12 +5,16 @@ public class EnemyMoving : AbstractState
 {
 	private float deviationX;
 	private float deviationY;
+	private Vector2 dir;
+	private Drone droneRef;
 
 	public PlayerTrigger playerTriggerRef;
 	public float speedMoving;
 
 	void Start()
 	{
+		droneRef = GetComponent<Drone>();
+
 		if(EnemyManager.Instance.target != null) 
 			playerTriggerRef = EnemyManager.Instance.target.GetComponentInChildren<PlayerTrigger>();
 		
@@ -23,14 +27,21 @@ public class EnemyMoving : AbstractState
 	{
 		if(EnemyManager.Instance.target != null)
 		{
-			StateManager.Instance.targetPos = new Vector2(EnemyManager.Instance.target.transform.position.x + deviationX, EnemyManager.Instance.target.transform.position.y + deviationY);
+			StateManager.Instance.targetPos = new Vector2(EnemyManager.Instance.target.transform.position.x, EnemyManager.Instance.target.transform.position.y);
 			//transform.position = new Vector2(transform.position.x, transform.position.y);
 		}
 	}
 	
 	public void MoveDrone (Vector2 start, Vector2 target, float maxDistDelta) 
 	{	
-		transform.position = Vector2.MoveTowards(start, target, maxDistDelta);	
+		//transform.position = Vector2.MoveTowards(start, target, maxDistDelta);
+		dir = ((Vector2)transform.position - (Vector2)target).normalized;
+		if(droneRef.enemyState.CurMovementDirState = droneRef.enemyState.backward)
+		{
+			dir = (((Vector2)transform.position - (Vector2)target).normalized) * -1;
+		}
+		//transform.LookAt(dir);
+		rigidbody2D.AddForce(dir * maxDistDelta);
 	}
 
 	public override void ResolveState()

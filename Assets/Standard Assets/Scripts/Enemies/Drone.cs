@@ -8,7 +8,8 @@ public class Drone : BaseEntity
 	private int range;
 	
 	public bool damagePlayer;
-	
+	public AbstractState tempState;
+
 	//States
 	public EnemyState enemyState;
 
@@ -22,7 +23,7 @@ public class Drone : BaseEntity
 	{
 		baseHealth = 20;
 		baseDamage = 1;
-		baseSpeed = 5f;
+		baseSpeed = 20f;
 
 		enemyState = gameObject.GetComponent<EnemyState>();
 		
@@ -36,6 +37,13 @@ public class Drone : BaseEntity
 	// Update is called once per frame
 	void Update ()
 	{	
+		CheckDroneStatus();
+
+		//Debug.Log("Current Drone State: " + enemyState.CurDroneState);
+	}
+
+	void FixedUpdate()
+	{
 		if(enemyState.CurDroneState == enemyState.enemyMoving)
 		{
 			enemyState.enemyMoving.speedMoving = baseSpeed;
@@ -43,13 +51,6 @@ public class Drone : BaseEntity
 			enemyState.ActivateState();
 		}
 
-		CheckDroneStatus();
-		
-		//Debug.Log("Current Drone State: " + enemyState.CurDroneState);
-	}
-
-	void FixedUpdate()
-	{
 		if(enemyState.CurDroneState == enemyState.chained)
 		{
 			enemyState.ActivateState();
@@ -59,10 +60,10 @@ public class Drone : BaseEntity
 	public IEnumerator ResetSpeed()
 	{
 		yield return new WaitForSeconds(2.0f);
-		if(baseSpeed < 0)
-		{
-			baseSpeed = 5f;
-		}
+
+		enemyState.CurMovementDirState = enemyState.forward;
+		tempState = enemyState.CurMovementDirState;
+		enemyState.ActivateMovementDirState(this);
 	}
 
 	private void CheckDroneStatus()

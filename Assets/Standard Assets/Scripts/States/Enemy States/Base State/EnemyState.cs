@@ -51,6 +51,5 @@ public class EnemyState : AbstractState
 	}
 
 	public AbstractState CurDroneState 		 { get { return absState;} set { absState = value; }}
-	public AbstractState CurMovementDirState { get { return movementDirState; } set {movementDirState = value;}}
 }
 

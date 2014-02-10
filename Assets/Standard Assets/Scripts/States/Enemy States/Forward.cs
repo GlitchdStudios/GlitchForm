@@ -8,7 +8,7 @@ public class Forward : AbstractState
 	// Use this for initialization
 	void Start ()
 	{
-		m_speed = 5f;
+		m_speed = 200f;
 	}
 
 	public override void ResolveState(BaseEntity baseEntity)
