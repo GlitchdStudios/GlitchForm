@@ -72,7 +72,7 @@ public class MachineGun : BaseEntity
 			if(WeaponManager.Instance.CurAbilitySet.Contains(WeaponManager.Instance.chainScr))
 			{
 				bulletRef.SetAbilityStats(2f, -PickupManager.Instance.chainScr.speedReduction, -4, 5f);
-			    (bulletRef.collider2D as CircleCollider2D).radius = 5f;
+			    (bulletRef.collider2D as CircleCollider2D).radius = 3f;
 			}
 
 			clone[GetNextBullet()].SetActive(true);

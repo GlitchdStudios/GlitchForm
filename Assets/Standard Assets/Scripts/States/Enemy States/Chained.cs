@@ -14,10 +14,10 @@ public class Chained : AbstractState
 	{
 		//otherCollider = m_otherCollider;
 		location = m_location;
-		radius = 1.0f;
+		radius = 1.5f;
 
 		if(EnemyManager.Instance.target != null) 
-			deviation = Random.Range(0.5f, (location.collider2D as CircleCollider2D).radius - 2f);
+			deviation = Random.Range(0.2f, 0.4f);
 	}
 
 	public void TargetBullet(float x, float y)
@@ -31,7 +31,7 @@ public class Chained : AbstractState
 	
 	public void MoveDrone (Vector2 start, Vector2 target, float maxDistDelta) 
 	{	
-		dir = (transform.position - StateManager.Instance.targetPos).normalized * (radius + deviation) + StateManager.Instance.targetPos; 
+		dir = (transform.position - StateManager.Instance.targetPos).normalized * radius + StateManager.Instance.targetPos; 
 		transform.position = Vector2.MoveTowards(start, dir, maxDistDelta);
 		transform.RotateAround(target, Vector3.back, 3);
     }

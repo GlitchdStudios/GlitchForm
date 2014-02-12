@@ -22,17 +22,24 @@ public class Chain : Ability
 				drone.enemyState.chained.Setup(location);
 				drone.enemyState.CurDroneState = drone.enemyState.chained;
 			}
-			StartCoroutine(ChainDot(drone, bullet));
         }
+	}
+
+	public void ChainOrbit(Drone droneRef, Bullet bulletRef)
+	{
+		StartCoroutine(ChainDot(droneRef, bulletRef));
 	}
 
 	private IEnumerator ChainDot(Drone droneRef, Bullet bulletRef)
 	{	
-		yield return new WaitForSeconds(2.0f);
-		droneRef.enemyState.CurGameObjStatus = StateManager.Instance.damaged;
-		StateManager.Instance.damaged.Attacker = (BaseEntity)bulletRef;
-		StateManager.Instance.damaged.Defender = (BaseEntity)droneRef;
-		droneRef.enemyState.ActivateStatus();
+		if(droneRef.enemyState.CurDroneState = droneRef.enemyState.chained)
+		{
+			yield return new WaitForSeconds(1.0f);
+			droneRef.enemyState.CurGameObjStatus = StateManager.Instance.damaged;
+			StateManager.Instance.damaged.Attacker = (BaseEntity)bulletRef;
+			StateManager.Instance.damaged.Defender = (BaseEntity)droneRef;
+			droneRef.enemyState.ActivateStatus();
+		}
 	}
 }
 

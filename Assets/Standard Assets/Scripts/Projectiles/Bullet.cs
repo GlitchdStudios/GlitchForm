@@ -111,12 +111,14 @@ public class Bullet : BaseEntity
 						droneRef.enemyState.ActivateMovementDirState((BaseEntity)droneRef);
 					}
 				}
+
+				ActivateChain(col);
 			}
 		}
 	}
 	
 	public void OnTriggerStay2D(Collider2D col)
 	{
-		ActivateChain(col);
+		WeaponManager.Instance.chainScr.ChainOrbit(col.transform.parent.GetComponent<Drone>(), thisTransform.GetComponent<Bullet>());
 	}
 }
