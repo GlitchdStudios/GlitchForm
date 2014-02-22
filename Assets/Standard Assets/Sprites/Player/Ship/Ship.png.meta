@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1fe31bf90930e3b42971a066a66fb767
+guid: ee043f4618103dc4083b568091dce651
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -20,10 +20,10 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -3
-  maxTextureSize: 512
+  textureFormat: -1
+  maxTextureSize: 1024
   textureSettings:
-    filterMode: 1
+    filterMode: -1
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -53,7 +53,7 @@ TextureImporter:
         width: 72
         height: 201
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
     - name: Ship_1
       rect:
         serializedVersion: 2
