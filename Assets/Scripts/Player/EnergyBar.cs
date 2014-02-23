@@ -4,6 +4,7 @@ using System.Collections;
 public class EnergyBar : MonoBehaviour
 {
 	public Sprite[] sprites;
+	public float time;
 
 	private int energy;
 	private int energyRegen;
@@ -14,8 +15,10 @@ public class EnergyBar : MonoBehaviour
 	void Start ()
 	{
 		spriteRenderer = renderer as SpriteRenderer;
-		energy = 18;
+		energy = 19;
 		energyRegen = 1;
+
+		StartCoroutine(RegenEnergy());
 	}
 
 	public void ChangeAniFrame()
@@ -32,5 +35,28 @@ public class EnergyBar : MonoBehaviour
 			ChangeAniFrame();
 		}
 	}
+
+	public IEnumerator RegenEnergy()
+	{
+		while(true)
+		{
+			yield return new WaitForSeconds(time);
+
+			if(energy < 19)
+			{
+				energy += energyRegen;
+				ChangeAniFrame();
+				Debug.Log(energy);
+			}
+
+			else
+			{
+				StartCoroutine(RegenEnergy());
+				break;
+			}
+		}
+	}
+
+	public int Energy {get{ return energy;} }
 }
 

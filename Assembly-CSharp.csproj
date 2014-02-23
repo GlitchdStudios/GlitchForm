@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Player\Bullet.cs" />
      <Compile Include="Assets\Scripts\Player\EnergyBar.cs" />
      <Compile Include="Assets\Scripts\Player\Turret.cs" />
+     <None Include="Assets\Shaders\Toony-Lighted.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

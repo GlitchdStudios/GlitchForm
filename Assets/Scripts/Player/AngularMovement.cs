@@ -26,7 +26,7 @@ public class AngularMovement : MonoBehaviour
 
 //			Debug.Log(touchPos);
 //			Debug.Log(thisTransform.rotation);
-			Debug.Log(angle);
+			//Debug.Log(angle);
 		}
 	}
 }

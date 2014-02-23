@@ -35,16 +35,19 @@ public class Turret : MonoBehaviour
 	{
 		angularMove.PointAtCursor();
 
-		if(Input.touchCount > 0)
-		{   
-			if(IsInputLocked()){}
-			
-			else
-			{
-				SetNextBullet();
-				ActivateProjectiles();
-				energyBar.UseEnergy();
-				Lock();
+		if(energyBar.Energy > 0)
+		{
+			if(Input.touchCount > 0)
+			{   
+				if(IsInputLocked()){}
+				
+				else
+				{
+					SetNextBullet();
+					ActivateProjectiles();
+					energyBar.UseEnergy();
+					Lock();
+				}
 			}
 		}
 	}
