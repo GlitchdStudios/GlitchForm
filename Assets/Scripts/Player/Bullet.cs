@@ -8,26 +8,29 @@ public class Bullet : MonoBehaviour
 	public Transform thisTransform;
 	public float projectileSpeed;
 	public float lifeTime;
-	
+
 	void Awake()
 	{
 		thisTransform = transform;
-		projectileSpeed = 500f;
-		lifeTime = 5f;
+		projectileSpeed = 100f;
+		lifeTime = 3f;
 	}
-	
+
+	void Start()
+	{
+		//MoveProjectile();
+	}
+
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
 		LifeSpan();
-		MoveProjectile();
 	}
 	
-	private void MoveProjectile()
-	{
-		float movement = projectileSpeed * Time.deltaTime;
-		rigidbody2D.velocity = thisTransform.up * movement;
-	}
+//	private void MoveProjectile()
+//	{
+//		rigidbody2D.AddForce(thisTransform.up * projectileSpeed);
+//	}
 	
 	public void Activate()
 	{

@@ -88,6 +88,7 @@ public class Turret : MonoBehaviour
 			bulletRef.GetComponent<Bullet>().Activate();
 			clone[GetNextBullet()].transform.position = thisTransform.position;
 			clone[GetNextBullet()].transform.rotation = thisTransform.rotation;
+			clone[GetNextBullet()].rigidbody2D.AddForce(bulletRef.transform.up * bulletRef.projectileSpeed);
 		}   
 	}
 
