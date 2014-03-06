@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: 109960e28a5202c4cbf50bdc23792d7b
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: ClearSkiesMenu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 81
+        height: 130
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: ClearSkiesMenu_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1
+        width: 80
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: ClearSkiesMenu_2
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 2
+        width: 80
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: ClearSkiesMenu_3
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 1
+        width: 82
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: ClearSkiesMenu_4
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1
+        width: 90
+        height: 127
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: ClearSkiesMenu_5
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 1
+        width: 85
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: ClearSkiesMenu_6
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 1
+        width: 81
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: ClearSkiesMenu_7
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 0
+        width: 40
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: ClearSkiesMenu_8
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 2
+        width: 81
+        height: 123
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: ClearSkiesMenu_9
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 1
+        width: 85
+        height: 124
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 
