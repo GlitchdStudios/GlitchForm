@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;UNITY_ANDROID_API;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_2;UNITY_4_3;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;UNITY_ANDROID_API;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_2;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -46,11 +46,24 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Pixelplacement\ScreenPlacementExtension\OrthographicSetup.cs" />
+     <Compile Include="Assets\Pixelplacement\ScreenPlacementExtension\ScreenPlacement.cs" />
+     <Compile Include="Assets\Pixelplacement\ScreenPlacementExtension\ScreenPlacementExtension.cs" />
      <Compile Include="Assets\Scripts\Asteroids\Asteroid.cs" />
      <Compile Include="Assets\Scripts\Asteroids\AsteroidCleanup.cs" />
+     <Compile Include="Assets\Scripts\Asteroids\MonsterAsteroid.cs" />
+     <Compile Include="Assets\Scripts\Asteroids\MonsterRoidCleanup.cs" />
+     <Compile Include="Assets\Scripts\EndScene\EndScene.cs" />
+     <Compile Include="Assets\Scripts\EndScene\ExitBtn.cs" />
+     <Compile Include="Assets\Scripts\EndScene\GUIManager.cs" />
+     <Compile Include="Assets\Scripts\EndScene\RetryBtn.cs" />
      <Compile Include="Assets\Scripts\General Scripts\OrthographicCamera.cs" />
      <Compile Include="Assets\Scripts\General Scripts\Singleton.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\Cloud.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\MMAsteroidManager.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Managers\AsteroidManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\EventManager.cs" />
      <Compile Include="Assets\Scripts\Player\AngularMovement.cs" />
      <Compile Include="Assets\Scripts\Player\Bullet.cs" />
      <Compile Include="Assets\Scripts\Player\EnergyBar.cs" />

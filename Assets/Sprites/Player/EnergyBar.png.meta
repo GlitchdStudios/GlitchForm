@@ -48,181 +48,181 @@ TextureImporter:
     - name: EnergyBar_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 410
-        width: 102
-        height: 102
+        x: 2
+        y: 434
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_1
       rect:
         serializedVersion: 2
-        x: 102
-        y: 410
-        width: 102
-        height: 102
+        x: 111
+        y: 434
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_2
       rect:
         serializedVersion: 2
-        x: 204
-        y: 410
-        width: 102
-        height: 102
+        x: 220
+        y: 434
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_3
       rect:
         serializedVersion: 2
-        x: 306
-        y: 410
-        width: 102
-        height: 102
+        x: 329
+        y: 434
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_4
       rect:
         serializedVersion: 2
-        x: 408
-        y: 410
-        width: 102
-        height: 102
+        x: 2
+        y: 326
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 308
-        width: 102
-        height: 102
+        x: 111
+        y: 326
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_6
       rect:
         serializedVersion: 2
-        x: 102
-        y: 308
-        width: 102
-        height: 102
+        x: 220
+        y: 326
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_7
       rect:
         serializedVersion: 2
-        x: 204
-        y: 308
-        width: 102
-        height: 102
+        x: 329
+        y: 326
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_8
       rect:
         serializedVersion: 2
-        x: 306
-        y: 308
-        width: 102
-        height: 102
+        x: 2
+        y: 218
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_9
       rect:
         serializedVersion: 2
-        x: 408
-        y: 308
-        width: 102
-        height: 102
+        x: 111
+        y: 218
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 206
-        width: 102
-        height: 102
+        x: 220
+        y: 218
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_11
       rect:
         serializedVersion: 2
-        x: 102
-        y: 206
-        width: 102
-        height: 102
+        x: 329
+        y: 218
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_12
       rect:
         serializedVersion: 2
-        x: 204
-        y: 206
-        width: 102
-        height: 102
+        x: 2
+        y: 110
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_13
       rect:
         serializedVersion: 2
-        x: 306
-        y: 206
-        width: 102
-        height: 102
+        x: 111
+        y: 110
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_14
       rect:
         serializedVersion: 2
-        x: 408
-        y: 206
-        width: 102
-        height: 102
+        x: 220
+        y: 110
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 104
-        width: 102
-        height: 102
+        x: 329
+        y: 110
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_16
       rect:
         serializedVersion: 2
-        x: 102
-        y: 104
-        width: 102
-        height: 102
+        x: 2
+        y: 2
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_17
       rect:
         serializedVersion: 2
-        x: 204
-        y: 104
-        width: 102
-        height: 102
+        x: 111
+        y: 2
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_18
       rect:
         serializedVersion: 2
-        x: 306
-        y: 104
-        width: 102
-        height: 102
+        x: 220
+        y: 2
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
     - name: EnergyBar_19
       rect:
         serializedVersion: 2
-        x: 408
-        y: 104
-        width: 102
-        height: 102
+        x: 329
+        y: 2
+        width: 106
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 

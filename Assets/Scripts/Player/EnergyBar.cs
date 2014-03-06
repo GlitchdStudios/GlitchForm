@@ -46,7 +46,7 @@ public class EnergyBar : MonoBehaviour
 			{
 				energy += energyRegen;
 				ChangeAniFrame();
-				Debug.Log(energy);
+				//Debug.Log(energy);
 			}
 
 			else

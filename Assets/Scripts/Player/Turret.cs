@@ -9,11 +9,13 @@ public class Turret : MonoBehaviour
 	private Transform thisTransform;
 	private Bullet bulletRef;
 	private bool locked;
+	private float offset;
 
 	public int ammo;
 	public float rof;
 	public GameObject bulletPrefab;
 	public GameObject[] clone;
+	public GameObject turretBaseObj;
 
 
 	void Awake()
@@ -31,7 +33,7 @@ public class Turret : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
 	{
 		angularMove.PointAtCursor();
 
@@ -51,7 +53,22 @@ public class Turret : MonoBehaviour
 			}
 		}
 	}
-	
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if(col.tag == "Bullet")
+			col.transform.parent = thisTransform;
+
+		if(col.tag == "Asteroid")
+			Application.LoadLevel("End");
+	}
+
+	void OnTriggerExit2D(Collider2D col)
+	{
+		if(col.tag == "Bullet")
+			col.transform.parent = null;
+	}
+
 	private void Lock()
 	{
 		locked = true;
@@ -106,6 +123,6 @@ public class Turret : MonoBehaviour
 	private int GetNextBullet()
 	{
 		return lastBullet;
-	}
+	}	
 }
-	
+
