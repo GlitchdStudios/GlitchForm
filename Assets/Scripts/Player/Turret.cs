@@ -1,35 +1,49 @@
 using UnityEngine;
 using System.Collections;
 
+public enum BulletType { BULLET=0, SUPER_BULLET }
+
 public class Turret : MonoBehaviour
 {
 	private AngularMovement angularMove;
 	private EnergyBar energyBar;
-	private int lastBullet;
-	private Transform thisTransform;
 	private Bullet bulletRef;
+	private TriggerHandler triggerHandler;
+	private int lastBullet;
+	private int lastSuperBullet;
+	private Transform thisTransform;
+	private Transform weaponTransform;
 	private bool locked;
 	private float offset;
 
 	public int ammo;
+	public int heavyAmmo;
 	public float rof;
 	public GameObject bulletPrefab;
+	public GameObject superBulletPrefab;
 	public GameObject[] clone;
+	public GameObject[] altClone;
 	public GameObject turretBaseObj;
+	public GameObject weapon;
 
 
 	void Awake()
 	{
 		thisTransform = transform;
+		ammo = 30;
+		heavyAmmo = 15;
 		clone = new GameObject[ammo]; 					// This needs to run before the projectiles are instantiated
+		altClone = new GameObject[heavyAmmo];
 		InstantiateProjectiles();
 	}
 
 	// Use this for initialization
 	void Start ()
 	{
+		triggerHandler = GetComponent<TriggerHandler>();
 		angularMove = GetComponent<AngularMovement>();
 		energyBar = GetComponentInChildren<EnergyBar>();
+		weaponTransform = weapon.GetComponent<Transform>();
 	}
 
 	// Update is called once per frame
@@ -37,42 +51,40 @@ public class Turret : MonoBehaviour
 	{
 		angularMove.PointAtCursor();
 
-		if(energyBar.Energy > 0)
-		{
-			if(Input.touchCount > 0)
-			{   
-				if(IsInputLocked()){}
-				
-				else
+		if(Input.touchCount > 0)
+		{   
+			if(IsInputLocked()){}
+			
+			else
+			{	
+				switch(triggerHandler.BulletState)
 				{
-					SetNextBullet();
-					ActivateProjectiles();
-					energyBar.UseEnergy();
-					Lock();
+					case BulletType.BULLET:
+						if(energyBar.Energy > energyBar.MinEnergy(triggerHandler.BulletState))
+						{	
+							SetNextBullet();
+							ActivateProjectiles(triggerHandler.BulletState);
+						}
+					break;
+
+					case BulletType.SUPER_BULLET:
+						if(energyBar.Energy > energyBar.MinEnergy(triggerHandler.BulletState))
+						{
+							SetNextSuperBullet();
+							ActivateProjectiles(triggerHandler.BulletState);
+						}
+					break;
 				}
+				energyBar.UseEnergy(triggerHandler.BulletState);
+				Lock();
 			}
 		}
-	}
-
-	void OnTriggerEnter2D(Collider2D col)
-	{
-		if(col.tag == "Bullet")
-			col.transform.parent = thisTransform;
-
-		if(col.tag == "Asteroid")
-			Application.LoadLevel("End");
-	}
-
-	void OnTriggerExit2D(Collider2D col)
-	{
-		if(col.tag == "Bullet")
-			col.transform.parent = null;
 	}
 
 	private void Lock()
 	{
 		locked = true;
-		
+
 		Invoke("Unlock", rof);
 	}
 	
@@ -93,20 +105,46 @@ public class Turret : MonoBehaviour
 			clone[i] = (Instantiate(bulletPrefab, thisTransform.position, thisTransform.rotation) as GameObject);
 			clone[i].SetActive(false);
 		}
+
+		for(int i = 0; i < altClone.Length; i++)
+		{
+			altClone[i] = (Instantiate(superBulletPrefab, thisTransform.position, thisTransform.rotation) as GameObject);
+			altClone[i].SetActive(false);
+		}
 	}
 
-	private void ActivateProjectiles()
+	private void ActivateProjectiles(BulletType bulletType)
 	{
-		if(clone[GetNextBullet()].activeSelf == false)
+		switch(bulletType)
 		{
-			bulletRef = clone[GetNextBullet()].GetComponent<Bullet>();
-			
-			clone[GetNextBullet()].SetActive(true);
-			bulletRef.GetComponent<Bullet>().Activate();
-			clone[GetNextBullet()].transform.position = thisTransform.position;
-			clone[GetNextBullet()].transform.rotation = thisTransform.rotation;
-			clone[GetNextBullet()].rigidbody2D.AddForce(bulletRef.transform.up * bulletRef.projectileSpeed);
-		}   
+			case BulletType.BULLET:
+				if(clone[GetNextBullet()].activeSelf == false)
+				{
+					bulletRef = clone[GetNextBullet()].GetComponent<Bullet>();
+					
+					rof = 0.2f;
+					clone[GetNextBullet()].SetActive(true);
+					bulletRef.GetComponent<Bullet>().Activate();
+					clone[GetNextBullet()].transform.position = weaponTransform.position;
+					clone[GetNextBullet()].transform.rotation = weaponTransform.rotation;
+					clone[GetNextBullet()].rigidbody2D.AddForce(bulletRef.transform.up * bulletRef.projectileSpeed);
+				}
+			break;
+
+			case BulletType.SUPER_BULLET:
+				if(altClone[GetNextSuperBullet()].activeSelf == false)
+				{
+					bulletRef = altClone[GetNextSuperBullet()].GetComponent<SuperBullet>();
+					
+					rof = 0.4f;
+					altClone[GetNextSuperBullet()].SetActive(true);
+					bulletRef.GetComponent<SuperBullet>().Activate();
+					altClone[GetNextSuperBullet()].transform.position = weaponTransform.position;
+					altClone[GetNextSuperBullet()].transform.rotation = weaponTransform.rotation;
+					altClone[GetNextSuperBullet()].rigidbody2D.AddForce(bulletRef.transform.up * bulletRef.projectileSpeed);
+				}
+			break;
+		}
 	}
 
 	private void SetNextBullet()
@@ -124,5 +162,19 @@ public class Turret : MonoBehaviour
 	{
 		return lastBullet;
 	}	
+
+	private void SetNextSuperBullet()
+	{
+		lastSuperBullet += 1;
+		if(lastSuperBullet >= heavyAmmo -1)
+		{
+			lastSuperBullet = 0;//reset the loop
+		}
+	}
+	
+	private int GetNextSuperBullet()
+	{
+		return lastSuperBullet;
+	}
 }
 

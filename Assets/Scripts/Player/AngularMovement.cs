@@ -36,7 +36,7 @@ public class AngularMovement : MonoBehaviour
 			thisTransform.rotation = Quaternion.Slerp(thisTransform.rotation, curRotation, speed * Time.deltaTime);
 //			Debug.Log(touchPos);
 //			Debug.Log(thisTransform.rotation);
-			Debug.Log(angle);
+			//Debug.Log(angle);
 		}
 	}
 }

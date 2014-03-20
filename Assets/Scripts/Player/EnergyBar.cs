@@ -7,6 +7,7 @@ public class EnergyBar : MonoBehaviour
 	public float time;
 
 	private int energy;
+	private int[] minEnergy;
 	private int energyRegen;
 	private SpriteRenderer spriteRenderer;
 	private int frames;
@@ -16,6 +17,9 @@ public class EnergyBar : MonoBehaviour
 	{
 		spriteRenderer = renderer as SpriteRenderer;
 		energy = 19;
+		minEnergy = new int[2];
+		minEnergy[(int)BulletType.BULLET] = 0;
+		minEnergy[(int)BulletType.SUPER_BULLET] = 4;  // Condition checks if energy is > 4
 		energyRegen = 1;
 
 		StartCoroutine(RegenEnergy());
@@ -27,13 +31,21 @@ public class EnergyBar : MonoBehaviour
 		spriteRenderer.sprite = sprites[frames];
 	}
 
-	public void UseEnergy()
+	public void UseEnergy(BulletType bulletType)
 	{
-		if(energy > 0)
+		switch(bulletType)
 		{
-			energy--;
-			ChangeAniFrame();
+			case BulletType.BULLET:
+				if(energy > minEnergy[(int)bulletType])
+					energy--;
+			break;
+
+			case BulletType.SUPER_BULLET:
+				if(energy > minEnergy[(int)bulletType])
+					energy -= 5;
+			break;
 		}
+		ChangeAniFrame();
 	}
 
 	public IEnumerator RegenEnergy()
@@ -57,6 +69,11 @@ public class EnergyBar : MonoBehaviour
 		}
 	}
 
-	public int Energy {get{ return energy;} }
+	public int MinEnergy(BulletType bulletType)
+	{ 
+		return minEnergy[(int)bulletType];	
+	}
+
+	public int Energy { get{ return energy;} }
 }
 

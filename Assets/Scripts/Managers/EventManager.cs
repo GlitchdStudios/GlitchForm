@@ -1,85 +1,77 @@
 using UnityEngine;
 using System.Collections;
 
-public enum EventStage {NORMAL, HARD, VERY_HARD, IMPOSSIBLE, NIGHTMARE};
+public enum EventStage {NORMAL=0, HARD, VERY_HARD, IMPOSSIBLE, NIGHTMARE};
 
-public class EventManager : Singleton<EventManager>
+public class EventManager : MonoBehaviour
 {
-	private EventStage curEvent;
+	private bool loaded;
 
-	public float gameTime;
+	public GameObject asteroidSpawner;
 
 	void Start()
 	{
-		StartEvent(EventStage.NORMAL);
-		DontDestroyOnLoad(gameObject);
+		SetupEvent();
 	}
 
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-		SetupEvent();
-
 		if(Application.loadedLevel == 1)
 		{
-			gameTime = Time.time;
+			Toolbox.gameTime = Time.timeSinceLevelLoad;
 		}
-
-		Debug.Log(gameTime);
 	}
 
 	private void StartEvent(EventStage eventStage)
 	{
-		switch(eventStage)
+		if(Application.loadedLevel == 1)
 		{
-			case EventStage.NORMAL:
-				StartCoroutine(AsteroidManager.Instance.CreateAsteroids(eventStage));
-			break;
+			Toolbox.curEvent = eventStage;
 
-			case EventStage.HARD:
-				AsteroidManager.Instance.CreateMonsterRoid();
-				AsteroidManager.Instance.gameObject.SetActive(false);
-			break;
+			switch(eventStage)
+			{
+				case EventStage.NORMAL:
+					Toolbox.asteroidManager.InitPool(eventStage);
+					StartCoroutine(Toolbox.asteroidManager.CreateAsteroids());
+				break;
 
-			case EventStage.VERY_HARD:
-				
-			break;
+				case EventStage.HARD:
+					Toolbox.asteroidManager.CreateMonsterRoid();
+					asteroidSpawner.SetActive(false);
+				break;
 
-			case EventStage.IMPOSSIBLE:
+				case EventStage.VERY_HARD:
+					Toolbox.asteroidManager.CreateMonsterRoid();
+					asteroidSpawner.SetActive(false);
+				break;
 
-			break;
+				case EventStage.IMPOSSIBLE:
+					Toolbox.asteroidManager.CreateMonsterRoid();
+					asteroidSpawner.SetActive(false);
+				break;
 
-			case EventStage.NIGHTMARE:
-
-			break;
+				case EventStage.NIGHTMARE:
+					Toolbox.asteroidManager.CreateMonsterRoid();
+					asteroidSpawner.SetActive(false);
+				break;
+			}
 		}
+	}
 
-		curEvent = eventStage;
+	private IEnumerator SetState(int time, EventStage eventStage)
+	{
+		yield return new WaitForSeconds(time);
+		StartEvent(eventStage);
 	}
 
 	public void SetupEvent()
 	{
-		if(gameTime == 20)
-		{
-			StartEvent(EventStage.HARD);
-		}
-
-		else if(gameTime >= 240)
-		{
-			StartEvent(EventStage.VERY_HARD);
-		}
-
-		else if(gameTime >= 480)
-		{
-			StartEvent(EventStage.IMPOSSIBLE);
-		}
-
-		else if(gameTime >= 960)
-		{
-			StartEvent(EventStage.NIGHTMARE);
-		}
+		StartCoroutine(SetState(0, EventStage.NORMAL));
+		StartCoroutine(SetState(40, EventStage.HARD));
+		StartCoroutine(SetState(80, EventStage.VERY_HARD));
+		StartCoroutine(SetState(160, EventStage.IMPOSSIBLE));
+		StartCoroutine(SetState(320, EventStage.NIGHTMARE));
 	}
-
-	public EventStage CurEvent {get{return curEvent;}}
 }
 

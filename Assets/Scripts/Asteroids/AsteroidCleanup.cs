@@ -3,18 +3,32 @@ using System.Collections;
 
 public class AsteroidCleanup : MonoBehaviour
 {
+	public GameObject asteroidSpawner;
+
 	void OnTriggerExit2D(Collider2D col)
 	{
 		if(col.tag == "Asteroid")
 		{
-			col.gameObject.SetActive(false);
-		
-			if(AsteroidManager.Instance.gameObject.activeSelf == true)
+			if(asteroidSpawner.activeSelf == true)
 			{
-				AsteroidManager.Instance.SetNextAsteroid();
+				col.gameObject.SetActive(false);
+				col.transform.position = Toolbox.asteroidManager.SpawnerPos();
 				col.gameObject.SetActive(true);
-				col.transform.position = AsteroidManager.Instance.SpawnerPos();
+
+				StartCoroutine(Toolbox.cameraShake.ShakeCamera());
 			}
+
+			else
+			{
+				Destroy(col.gameObject);
+				Toolbox.curPool--;
+				StartCoroutine(Toolbox.cameraShake.ShakeCamera());
+			}
+		}
+
+		if(col.tag == "Clouds")
+		{
+			Destroy(col.gameObject);
 		}
 	}
 }

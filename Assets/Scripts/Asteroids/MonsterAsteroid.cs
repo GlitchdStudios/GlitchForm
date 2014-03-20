@@ -7,8 +7,9 @@ public class MonsterAsteroid : Asteroid
 	void Start ()
 	{
 		thisTransform = transform;
-		rotation = new Vector3(Random.Range(-5,5),Random.Range(-5,5), Random.Range(-5,5));
-		randomScale = Random.Range(3f,4f);
+		randRotation = 3;
+		rotation = new Vector3(Random.Range(-randRotation,randRotation),Random.Range(-randRotation,randRotation), Random.Range(-randRotation,randRotation));
+		randomScale = Random.Range(2f,2.5f);
 		scale = new Vector3(randomScale, randomScale, randomScale);
 	}
 

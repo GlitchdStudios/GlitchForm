@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour
 {
-	public float time;
-	public Transform thisTransform;
+	protected float time;
+	protected Transform thisTransform;
+	protected float lifeTime;
+
 	public float projectileSpeed;
-	public float lifeTime;
 
 	void Awake()
 	{
 		thisTransform = transform;
-		projectileSpeed = 500f;
+		projectileSpeed = 300f;
 		lifeTime = 3f;
 	}
 
