@@ -1,0 +1,42 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Platforms\Platform_BaseClass\Platform.cs">
+    <Files>
+      <File FileName="Vector\Main.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\Controls\MouseLook.cs" Line="23" Column="25" />
+      <File FileName="Assets\Scripts\Player\Controls\CharacterControls.cs" Line="13" Column="28" />
+      <File FileName="Assets\Scripts\Platforms\Platform_BaseClass\Platform.cs" Line="8" Column="1" />
+      <File FileName="Assets\Scripts\Traps\Traps_BaseClass\Trap.cs" Line="15" Column="1" />
+      <File FileName="Assets\Scripts\Utility\Utility_BaseClass\Utility.cs" Line="6" Column="29" />
+      <File FileName="Assets\Scripts\Player\Controls\PlayerInteraction.cs" Line="7" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Scripts" expanded="True">
+              <Node name="Platforms" expanded="True">
+                <Node name="Platform_BaseClass" expanded="True">
+                  <Node name="Platform.cs" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Player" expanded="True">
+                <Node name="Controls" expanded="True" />
+              </Node>
+              <Node name="Traps" expanded="True">
+                <Node name="Traps_BaseClass" expanded="True" />
+              </Node>
+              <Node name="Utility" expanded="True">
+                <Node name="Utility_BaseClass" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
