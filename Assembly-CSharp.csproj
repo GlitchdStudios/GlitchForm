@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{D8501B3A-C0B7-632B-74D0-6173B131750B}</ProjectGuid>
+	<ProjectGuid>{C839773A-7867-E548-ADAA-59715913136E}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,12 +46,24 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Platforms\FallingPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platforms\HorizontalPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platforms\MovingFloor.cs" />
      <Compile Include="Assets\Scripts\Platforms\Platform_BaseClass\Platform.cs" />
+     <Compile Include="Assets\Scripts\Platforms\RotationalPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platforms\VerticalPlatform.cs" />
      <Compile Include="Assets\Scripts\Player\Controls\CharacterControls.cs" />
-     <Compile Include="Assets\Scripts\Player\Controls\ForceManipulator.cs" />
+     <Compile Include="Assets\Scripts\Player\Controls\DataManipulator.cs" />
      <Compile Include="Assets\Scripts\Player\Controls\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Player\Controls\PlayerInteraction.cs" />
+     <Compile Include="Assets\Scripts\Traps\CorruptTrap.cs" />
+     <Compile Include="Assets\Scripts\Traps\FirewallTrap.cs" />
+     <Compile Include="Assets\Scripts\Traps\GravTrap.cs" />
+     <Compile Include="Assets\Scripts\Traps\SpikeTrap.cs" />
      <Compile Include="Assets\Scripts\Traps\Traps_BaseClass\Trap.cs" />
+     <Compile Include="Assets\Scripts\Utility\DataSphere.cs" />
+     <Compile Include="Assets\Scripts\Utility\DataSphereSlot.cs" />
+     <Compile Include="Assets\Scripts\Utility\Switch.cs" />
      <Compile Include="Assets\Scripts\Utility\Utility_BaseClass\Utility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,11 +3,9 @@ using System.Collections;
 
 public abstract class Utility : MonoBehaviour
 {
-	public enum UtilityState {}
-	protected bool isPowered;
+	protected bool isActive;
 
-	abstract public bool TogglePower();
-	abstract public void CheckPower(bool curPowerState);
-	abstract public void ChangeState(UtilityState state);
+	abstract public bool ToggleState();
+	abstract public void CheckState(bool _isActive);
 }
 
