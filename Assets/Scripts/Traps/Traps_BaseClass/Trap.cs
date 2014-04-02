@@ -8,5 +8,6 @@ public abstract class Trap : MonoBehaviour
 	abstract public void AffectPlayer();
 	abstract public bool ToggleState();
 	abstract public void CheckState(bool _isActive);
+	abstract public bool IsActive { get; }
 }
 

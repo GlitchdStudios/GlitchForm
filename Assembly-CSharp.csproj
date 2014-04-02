@@ -46,16 +46,20 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DragRigidbodies.cs" />
+     <Compile Include="Assets\Scripts\General Scripts\Toolbox.cs" />
      <Compile Include="Assets\Scripts\Platforms\FallingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platforms\HorizontalPlatform.cs" />
      <Compile Include="Assets\Scripts\Platforms\MovingFloor.cs" />
      <Compile Include="Assets\Scripts\Platforms\Platform_BaseClass\Platform.cs" />
-     <Compile Include="Assets\Scripts\Platforms\RotationalPlatform.cs" />
      <Compile Include="Assets\Scripts\Platforms\VerticalPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platforms\XRotationalPlatform.cs" />
+     <Compile Include="Assets\Scripts\Platforms\YRotationalPlatform.cs" />
      <Compile Include="Assets\Scripts\Player\Controls\CharacterControls.cs" />
      <Compile Include="Assets\Scripts\Player\Controls\DataManipulator.cs" />
      <Compile Include="Assets\Scripts\Player\Controls\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Player\Controls\PlayerInteraction.cs" />
+     <Compile Include="Assets\Scripts\Player\Controls\RayCastHandler.cs" />
      <Compile Include="Assets\Scripts\Traps\CorruptTrap.cs" />
      <Compile Include="Assets\Scripts\Traps\FirewallTrap.cs" />
      <Compile Include="Assets\Scripts\Traps\GravTrap.cs" />

@@ -7,5 +7,7 @@ public abstract class Utility : MonoBehaviour
 
 	abstract public bool ToggleState();
 	abstract public void CheckState(bool _isActive);
+
+	abstract public bool IsActive { get; }
 }
 

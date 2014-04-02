@@ -23,9 +23,11 @@ public class MouseLook: MonoBehaviour
 	Quaternion yQuaternion;
 
 	private Quaternion originalRotation;
-	
+
 	void Update () 
 	{
+		Screen.showCursor = false;
+		Screen.lockCursor = true;
 		if (axes == RotationAxes.MouseXAndY) 
 		{
 			rotationX += Input.GetAxis("Mouse X") * sensitivityX;

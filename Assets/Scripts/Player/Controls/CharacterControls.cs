@@ -8,7 +8,7 @@ public class CharacterControls : MonoBehaviour
 {
 	
 	public Transform LookTransform;
-	public Vector3 Gravity = Vector3.down * 9.81f;
+	public Vector3 Gravity = Vector3.down * Toolbox.generalGravityForce;
 	public float RotationRate = 0.1f;
 	public float Velocity = 8;
 	public float GroundControl = 1.0f;
