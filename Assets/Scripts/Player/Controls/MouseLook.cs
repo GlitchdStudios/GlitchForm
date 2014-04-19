@@ -13,8 +13,8 @@ public class MouseLook: MonoBehaviour
 	float minimumX = -360;
 	float maximumX = 360;
 	
-	float minimumY = -60;
-	float maximumY = 60;
+	float minimumY = -90;
+	float maximumY = 90;
 	
 	float rotationX = 0;
 	float rotationY = 0;
@@ -23,11 +23,10 @@ public class MouseLook: MonoBehaviour
 	Quaternion yQuaternion;
 
 	private Quaternion originalRotation;
+	private bool lockCursor = true;
 
 	void Update () 
 	{
-		Screen.showCursor = false;
-		Screen.lockCursor = true;
 		if (axes == RotationAxes.MouseXAndY) 
 		{
 			rotationX += Input.GetAxis("Mouse X") * sensitivityX;
@@ -56,6 +55,14 @@ public class MouseLook: MonoBehaviour
 			
 			yQuaternion = Quaternion.AngleAxis (rotationY, Vector3.left);
 			transform.localRotation = originalRotation * yQuaternion;
+		}
+
+		if(Screen.lockCursor != lockCursor)
+		{
+			if (lockCursor && Input.GetMouseButton(0))
+				Screen.lockCursor = true;
+			else if (!lockCursor)
+				Screen.lockCursor = false;
 		}
 	}
 	

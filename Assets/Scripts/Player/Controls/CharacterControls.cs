@@ -32,16 +32,21 @@ public class CharacterControls : MonoBehaviour
 		
 		// Rotate the body to stay upright
 		Vector3 gravityForward = Vector3.Cross(Gravity, transform.right);
+
+		if(gravityForward == Vector3.zero)
+		{
+			gravityForward = Gravity;
+		}
 		Quaternion targetRotation = Quaternion.LookRotation(gravityForward, -Gravity);
 		rigidbody.rotation = Quaternion.Lerp(rigidbody.rotation, targetRotation, RotationRate);
-		
+
 		// Add velocity change for movement on the local horizontal plane
 		Vector3 forward = Vector3.Cross(transform.up, -LookTransform.right).normalized;
 		Vector3 right = Vector3.Cross(transform.up, LookTransform.forward).normalized;
 		Vector3 targetVelocity = (forward * Input.GetAxis("Vertical") + right * Input.GetAxis("Horizontal")) * Velocity;
 		Vector3 localVelocity = transform.InverseTransformDirection(rigidbody.velocity);
 		Vector3 velocityChange = transform.InverseTransformDirection(targetVelocity) - localVelocity;
-		
+
 		// The velocity change is clamped to the control velocity
 		// The vertical component is either removed or set to result in the absolute jump velocity
 		velocityChange = Vector3.ClampMagnitude(velocityChange, grounded ? GroundControl : AirControl);

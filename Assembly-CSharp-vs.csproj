@@ -46,29 +46,67 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DragRigidbodies.cs" />
+     <Compile Include="Assets\6by7\ProBuilder\API Examples\Instantiation\ProBuilderInstantiate.cs" />
+     <Compile Include="Assets\6by7\ProBuilder\API Examples\Runtime Editing\Materials\pb_Selection.cs" />
+     <Compile Include="Assets\6by7\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
+     <Compile Include="Assets\6by7\ProGrids\Classes\pg_Util.cs" />
+     <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_Group.cs" />
+     <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_Object.cs" />
+     <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_ObjectContainer.cs" />
+     <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_Point.cs" />
+     <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_PrefabObject.cs" />
+     <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_RaycastResult.cs" />
+     <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_Stroke.cs" />
+     <Compile Include="Assets\Scripts\General Scripts\Checkpoint.cs" />
+     <Compile Include="Assets\Scripts\General Scripts\DeathTrigger.cs" />
      <Compile Include="Assets\Scripts\General Scripts\Toolbox.cs" />
+     <Compile Include="Assets\Scripts\Level Scripts\ParentTrigger.cs" />
      <Compile Include="Assets\Scripts\Platforms\FallingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platforms\HorizontalPlatform.cs" />
      <Compile Include="Assets\Scripts\Platforms\MovingFloor.cs" />
+     <Compile Include="Assets\Scripts\Platforms\Node\Node.cs" />
      <Compile Include="Assets\Scripts\Platforms\Platform_BaseClass\Platform.cs" />
+     <Compile Include="Assets\Scripts\Platforms\Triggers\PlatformTrigger.cs" />
      <Compile Include="Assets\Scripts\Platforms\VerticalPlatform.cs" />
      <Compile Include="Assets\Scripts\Platforms\XRotationalPlatform.cs" />
      <Compile Include="Assets\Scripts\Platforms\YRotationalPlatform.cs" />
      <Compile Include="Assets\Scripts\Player\Controls\CharacterControls.cs" />
+     <Compile Include="Assets\Scripts\Player\Controls\ChromaControls.cs" />
      <Compile Include="Assets\Scripts\Player\Controls\DataManipulator.cs" />
      <Compile Include="Assets\Scripts\Player\Controls\MouseLook.cs" />
-     <Compile Include="Assets\Scripts\Player\Controls\PlayerInteraction.cs" />
      <Compile Include="Assets\Scripts\Player\Controls\RayCastHandler.cs" />
+     <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Traps\CorruptTrap.cs" />
      <Compile Include="Assets\Scripts\Traps\FirewallTrap.cs" />
      <Compile Include="Assets\Scripts\Traps\GravTrap.cs" />
      <Compile Include="Assets\Scripts\Traps\SpikeTrap.cs" />
      <Compile Include="Assets\Scripts\Traps\Traps_BaseClass\Trap.cs" />
+     <Compile Include="Assets\Scripts\Utility\AreaPortal.cs" />
      <Compile Include="Assets\Scripts\Utility\DataSphere.cs" />
      <Compile Include="Assets\Scripts\Utility\DataSphereSlot.cs" />
      <Compile Include="Assets\Scripts\Utility\Switch.cs" />
      <Compile Include="Assets\Scripts\Utility\Utility_BaseClass\Utility.cs" />
+     <None Include="Assets\ProCore\ProGrids\Shader\PerspectiveGrid.shader" />
+     <None Include="Assets\6by7\ProBuilder\changelog.txt" />
+     <None Include="Assets\6by7\ProBuilder\Shader\VertexBillboard.shader" />
+     <None Include="Assets\6by7\ProBuilder\Shader\DiffuseVertexColor.shader" />
+     <None Include="Assets\6by7\ProBuilder\Shader\DiffuseVertexColorTransparency.shader" />
+     <None Include="Assets\6by7\ProGrids\VersionInfo.txt" />
+     <None Include="Assets\6by7\ProBuilder\VersionInfo.txt" />
+     <None Include="Assets\6by7\ProBuilder\Shader\UnlitColor.shader" />
+     <None Include="Assets\6by7\ProBuilder\API Examples\Instantiation\README.txt" />
+     <None Include="Assets\6by7\ProBuilder\Shader\UnlitColor-Overlay.shader" />
+     <None Include="Assets\6by7\ProBuilder\Shader\DiffuseVertexColorEmission.shader" />
+     <None Include="Assets\6by7\ProBuilder\Credits.txt" />
+ <Reference Include="ProBuilderCore">
+ <HintPath>Assets\6by7\ProBuilder\Classes\ProBuilderCore.dll</HintPath>
+ </Reference>
+ <Reference Include="SixBySeven">
+ <HintPath>Assets\ProCore\Shared\Code\SixBySeven.dll</HintPath>
+ </Reference>
+ <Reference Include="ProCore">
+ <HintPath>Assets\ProCore\Shared\Code\ProCore.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
