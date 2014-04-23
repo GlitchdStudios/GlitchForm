@@ -6,8 +6,8 @@ public abstract class Platform : MonoBehaviour
 	protected Transform thisTransform;
 	protected bool hasNeutralGravity;  //Flag used to designate platforms that the play cannot use raycasts on
 	protected Node[] node;
-	protected Vector3 initPlatformPos;
 
+	public Vector3 initPlatformPos;
 	public Switch[] platformSwitch;
 
 	abstract public void SetDirection(Switch _switch); 

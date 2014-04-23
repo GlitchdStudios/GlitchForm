@@ -38,7 +38,6 @@ public class MovingFloor : MonoBehaviour
 	void OnTriggerStay(Collider col)
 	{
 		MovePlayer(col);
-		Debug.Log("HERE!");
 	}
 
 	public bool HasNeutralGravity { get { return hasNeutralGravity; } }

@@ -59,7 +59,6 @@ public class HorizontalPlatform : Platform
 
 			case "SwitchRight":
 				platformDirection = PlatformMovement.RIGHT;  
-			Debug.Log(platformDirection);
 			break;
 		}
 	}

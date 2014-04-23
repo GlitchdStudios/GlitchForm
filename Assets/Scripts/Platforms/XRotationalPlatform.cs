@@ -14,7 +14,7 @@ public class XRotationalPlatform : Platform
 	{
 		thisTransform = transform;
 		platformSwitch = GetComponentsInChildren<Switch>();
-		node = thisTransform.root.GetComponentsInChildren<Node>();
+		node = thisTransform.parent.parent.GetComponentsInChildren<Node>();
 		for(int i=0; i < node.Length; i++)
 		{
 			node[i].renderer.enabled = false;
@@ -47,12 +47,10 @@ public class XRotationalPlatform : Platform
 		{
 		case "SwitchRotLeft":
 			platformDirection = PlatformMovement.ROTATE_LEFT;
-			
 			break;
 			
 		case "SwitchRotRight":
 			platformDirection = PlatformMovement.ROTATE_RIGHT;  
-			Debug.Log(platformDirection);
 			break;
 		}
 	}

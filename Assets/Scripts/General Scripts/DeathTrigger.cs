@@ -3,12 +3,10 @@ using System.Collections;
 
 public class DeathTrigger : MonoBehaviour
 {
-	private Platform[] platforms;
 	private DataSphere[] dataSpheres;
 
 	void Start()
 	{
-		platforms =	FindObjectsOfType(typeof(Platform)) as Platform[];
 		dataSpheres = FindObjectsOfType(typeof(DataSphere)) as DataSphere[];
 	}
 
@@ -17,6 +15,14 @@ public class DeathTrigger : MonoBehaviour
 		if(col.tag == "Player")
 		{
 			Toolbox.playerTransform.position = Toolbox.playerScr.initPos;
+			Toolbox.chromaState = Toolbox.initChromaState;
+			Toolbox.chroma[(int)Toolbox.chromaState].SetActive(true);
+
+			if(!Toolbox.isControlable)
+			{
+				InitDataSpheresOnDeath();
+			}
+
 			InitPlatformsOnDeath();
 			Toolbox.playerTransform.rigidbody.Sleep();
 			Toolbox.characterControls.Gravity = Vector3.down * Toolbox.generalGravityForce;
@@ -35,11 +41,13 @@ public class DeathTrigger : MonoBehaviour
 		{
 			dataSphere.rigidbody.Sleep();
 			dataSphere.transform.position = dataSphere.initPos;
+			dataSphere.SetupDataSphere(dataSphere.initChroma);
+			Toolbox.isControlable = true;
 		}
 	}
 	private void InitPlatformsOnDeath()
 	{
-		foreach(Platform platform in platforms)
+		foreach(Platform platform in Toolbox.platforms)
 		{
 			platform.GetComponent<Platform>().InitPlatform();
 		}

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class RayCastHandler : MonoBehaviour
 {
-	private bool isControlable = true;
 	private RaycastHit rayHit;
 	private Rigidbody hitObject;
 	private Vector3 direction;
@@ -38,7 +37,7 @@ public class RayCastHandler : MonoBehaviour
 			Toolbox.characterControls.Gravity = Vector3.down * Toolbox.generalGravityForce;
 		}
 
-		if(isControlable)
+		if(Toolbox.isControlable)
 		{
 			if(Input.GetKeyDown(KeyCode.E) && Physics.Raycast(origin, direction, out rayHit, leftRayDistance, pickupMask))
 			{
@@ -51,20 +50,16 @@ public class RayCastHandler : MonoBehaviour
 			UpdateObject();
 			DropObject(origin, direction);
 		}
-
-		Debug.Log(isControlable);
 	}
 
 	public void HitSwitch()
 	{
 		if(rayHit.collider.tag == "Switch")
 		{
-			Debug.Log("IF 1");
 			switchScr = rayHit.collider.GetComponent<Switch>();
 
 			if(!switchScr.IsActive)
 			{
-				Debug.Log("IF 2");
 				switchScr.transform.parent.GetComponent<Platform>().SetDirection(switchScr);
 			}
 		}
@@ -75,7 +70,6 @@ public class RayCastHandler : MonoBehaviour
 		if(Input.GetMouseButtonDown(1) && Physics.Raycast(origin, direction, out rayHit, rightRayDistance, rightMask))
 		{
 			Toolbox.characterControls.Gravity = -rayHit.normal * Toolbox.generalGravityForce;
-			Debug.Log(Toolbox.characterControls.Gravity);
 		}
 	}
 
@@ -83,12 +77,21 @@ public class RayCastHandler : MonoBehaviour
 	{
 		if(rayHit.collider.tag == "DataSphere")
 		{
-			Debug.Log("hit DataSphere");
 			hitObject = rayHit.collider.rigidbody;
-			//Debug.Log(Vector3.Distance(hitObject.position, this.transform.position));
 			hitObject.position = Toolbox.followTrans.position;
 			hitObject.constraints = RigidbodyConstraints.FreezeRotation;
-			isControlable = false;
+
+			if(Toolbox.chromaState == ChromaState.BLUE)
+			{
+				hitObject.transform.parent = Toolbox.chroma[(int)ChromaState.BLUE].transform.parent;
+			}
+
+			if(Toolbox.chromaState == ChromaState.RED)
+			{
+				hitObject.transform.parent = Toolbox.chroma[(int)ChromaState.RED].transform.parent;
+			}
+
+			Toolbox.isControlable = false;
 		}
 	}
 
@@ -107,7 +110,7 @@ public class RayCastHandler : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.E) && Physics.Raycast(origin, direction, out rayHit, leftRayDistance, pickupMask))
 		{
-			isControlable = true;
+			Toolbox.isControlable = true;
 			hitObject.constraints = RigidbodyConstraints.None;
 		}
 	}

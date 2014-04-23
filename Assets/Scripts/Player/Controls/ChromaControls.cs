@@ -3,14 +3,10 @@ using System.Collections;
 
 public class ChromaControls : MonoBehaviour
 {
-	public enum ChromaState { BLUE = 0, RED }
-
-	private GameObject[] chroma;
-	public ChromaState chromaState;
-
 	void Start()
 	{
-		chroma = GameObject.FindGameObjectsWithTag("Chroma");
+		Toolbox.chroma = GameObject.FindGameObjectsWithTag("Chroma");
+		Toolbox.initChromaState = ChromaState.BLUE;
 	}
 
 	// Update is called once per frame
@@ -18,21 +14,26 @@ public class ChromaControls : MonoBehaviour
 	{
 		if(Input.GetKeyDown("1"))
 		{
-			chromaState = ChromaState.BLUE;
-			chroma[(int)ChromaState.BLUE].SetActive(true);
+			Toolbox.chromaState = ChromaState.BLUE;
+			Toolbox.chroma[(int)ChromaState.BLUE].SetActive(true);
+			this.transform.parent = null;
 		}
 
 		if(Input.GetKeyDown("2"))
 		{
-			chromaState = ChromaState.RED;
-			chroma[(int)ChromaState.RED].SetActive(true);
+			Toolbox.chromaState = ChromaState.RED;
+			Toolbox.chroma[(int)ChromaState.RED].SetActive(true);
+			this.transform.parent = null;
 		}
 
-		for(int i = 0; i < chroma.Length; i++)
+		for(int i = 0; i < Toolbox.chroma.Length; i++)
 		{
-			if((int)chromaState != i)
+			if((int)Toolbox.chromaState != i)
 			{
-				chroma[i].SetActive(false);
+				if(Toolbox.chroma[i].activeSelf)
+				{
+					Toolbox.chroma[i].SetActive(false);
+				}
 			}
 		}
 	}

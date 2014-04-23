@@ -59,6 +59,8 @@
      <Compile Include="Assets\ProCore\QuickBrush\QuickBrushClasses\qb_Stroke.cs" />
      <Compile Include="Assets\Scripts\General Scripts\Checkpoint.cs" />
      <Compile Include="Assets\Scripts\General Scripts\DeathTrigger.cs" />
+     <Compile Include="Assets\Scripts\General Scripts\GeneralControls.cs" />
+     <Compile Include="Assets\Scripts\General Scripts\ScrollingTexture.cs" />
      <Compile Include="Assets\Scripts\General Scripts\Toolbox.cs" />
      <Compile Include="Assets\Scripts\Level Scripts\ParentTrigger.cs" />
      <Compile Include="Assets\Scripts\Platforms\FallingPlatform.cs" />

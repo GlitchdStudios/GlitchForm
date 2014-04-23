@@ -7,6 +7,7 @@ public class DataSphereSlot : Utility
 	private Transform dataSphereTrans;
 
 	public GameObject areaPortal;
+	public ChromaState initChroma;
 
 	// Use this for initialization
 	void Start ()
@@ -35,6 +36,7 @@ public class DataSphereSlot : Utility
 	private void InitDataSpheres(DataSphere _dataSphereScr)
 	{	
 		dataSphereScr.initPos = this.collider.bounds.center;
+		dataSphereScr.SetupDataSphere(initChroma);
 	}
 
 	public override bool IsActive { get { return isActive;} }
