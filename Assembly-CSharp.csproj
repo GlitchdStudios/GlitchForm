@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\General Scripts\GeneralControls.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScrollingTexture.cs" />
      <Compile Include="Assets\Scripts\General Scripts\Toolbox.cs" />
+     <Compile Include="Assets\Scripts\Level Scripts\GeneralRotation.cs" />
      <Compile Include="Assets\Scripts\Level Scripts\ParentTrigger.cs" />
      <Compile Include="Assets\Scripts\Platforms\FallingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platforms\HorizontalPlatform.cs" />
